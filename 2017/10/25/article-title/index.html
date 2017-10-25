@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hello,World!," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -83,18 +83,17 @@
 
 
 
-<meta name="description" content="val s =”hello Markdown”    printf(s)">
-<meta name="keywords" content="Hello,World!">
+<meta name="description" content="val s =”hello Markdown”    printf(s)$\frac{1}{2}$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="article title">
 <meta property="og:url" content="http://yoursite.com/2017/10/25/article-title/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="val s =”hello Markdown”    printf(s)">
+<meta property="og:description" content="val s =”hello Markdown”    printf(s)$\frac{1}{2}$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-25T08:00:01.000Z">
+<meta property="og:updated_time" content="2017-10-25T08:37:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="article title">
-<meta name="twitter:description" content="val s =”hello Markdown”    printf(s)">
+<meta name="twitter:description" content="val s =”hello Markdown”    printf(s)$\frac{1}{2}$">
 
 
 
@@ -314,7 +313,7 @@
       
 
       
-        <p>val s =”hello Markdown”<br>    printf(s)</p>
+        <p>val s =”hello Markdown”<br>    printf(s)<br>$\frac{1}{2}$</p>
 
       
     </div>
@@ -329,12 +328,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Hello-World/" rel="tag"># Hello,World!</a>
-          
-        </div>
       
 
       
@@ -665,6 +658,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
