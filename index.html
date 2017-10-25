@@ -313,7 +313,17 @@
         
           
             <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
-<p>$\frac{1}{2}$</p>
+<p>convex：<br>$f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x})$   </p>
+<p>strongly-convex：<br>$f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{m}{2}||\mathbf{y}-\mathbf{x}||^2$    </p>
+<p>square-loss:  $y \in \mathbb{R}$   </p>
+<ul>
+<li>$l(y_i,h(\mathbf{x}_i,\theta)) = \frac{1}{2}(y_i-h(\mathbf{x}_i,\theta))^2$   </li>
+</ul>
+<p>logistic loss:   $y  \in $ $\\{-1,1\\}$      </p>
+<ul>
+<li>$l(y_i,h(\mathbf{x}_i,\theta)) = log(1+exp(-y_i h(\mathbf{x}_i,\theta)))$   </li>
+</ul>
+<p>one order of diff</p>
 
           
         
