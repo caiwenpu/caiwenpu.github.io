@@ -73,8 +73,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
 
@@ -90,7 +88,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) 凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) +">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T04:23:11.000Z">
+<meta property="og:updated_time" content="2017-10-28T04:33:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) 凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) +">
@@ -319,8 +317,13 @@
 <script type="math/tex; mode=display">f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x})</script></blockquote>
 <p>强凸函数(strongly-convex)：   </p>
 <blockquote>
-<script type="math/tex; mode=display">f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{m}{2}||\mathbf{y}-\mathbf{x}||^2</script><p>L-Lipschitz</p>
-<script type="math/tex; mode=display">f(\mathbf{y}) \leq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{L}{2}||\mathbf{y}-\mathbf{x}||^2</script><script type="math/tex; mode=display">\Leftrightarrow |\nabla f(x) -\nabla f(x) < L||x-y|| |</script><p>平方损失(square-loss):  $y \in \mathbb{R}$<br>$l(y_i,h(\mathbf{x}_i,\theta)) = \frac{1}{2}(y_i-h(\mathbf{x}_i,\theta))^2$<br>其中在线性回归中 ，$h(\mathbf{x}_i,\theta) = \theta^T \Phi (\mathbf{x}_i$)     </p>
+<script type="math/tex; mode=display">f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{m}{2}||\mathbf{y}-\mathbf{x}||^2</script></blockquote>
+<p>L-Lipschitz   </p>
+<blockquote>
+<script type="math/tex; mode=display">f(\mathbf{y}) \leq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{L}{2}||\mathbf{y}-\mathbf{x}||^2</script><script type="math/tex; mode=display">\Leftrightarrow |\nabla f(x) -\nabla f(x) < L||x-y|| |</script></blockquote>
+<p>平方损失(square-loss):  $y \in \mathbb{R}$   </p>
+<blockquote>
+<script type="math/tex; mode=display">l(y_i,h(\mathbf{x}_i,\theta)) = \frac{1}{2}(y_i-h(\mathbf{x}_i,\theta))^2</script><p>其中在线性回归中 ，$h(\mathbf{x}_i,\theta) = \theta^T \Phi (\mathbf{x}_i$)     </p>
 </blockquote>
 <p>对数损失(logistic loss):   $y  \in \{-1,1\}$      </p>
 <blockquote>
