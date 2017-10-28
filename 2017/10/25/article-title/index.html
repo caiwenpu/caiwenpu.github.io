@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) 凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) +">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-28T04:16:02.000Z">
+<meta property="og:updated_time" content="2017-10-28T04:21:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) 凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) +">
@@ -334,11 +334,11 @@
 <script type="math/tex; mode=display">\frac{\partial \nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta))}{ \partial \theta } = \Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T</script></blockquote>
 <p>— 求二阶Hessian矩阵的特征值:   </p>
 <blockquote>
-<script type="math/tex; mode=display">\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z}  $$ (1)
-$$ (\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z}   $$ (2) 
-因此得到：
-$$ \mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0 $$ (3) 
-(3)代入(2)得到：
+<script type="math/tex; mode=display">\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z}  $$ (1)   
+$$ (\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z}   $$ (2)   
+因此得到：   
+$$ \mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0 $$ (3)   
+(3)代入(2)得到：   
 $$\lambda = \Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq 0</script></blockquote>
 <p><span style="color:blue">s所以平方损失(square-loss)是凸函数，若$\Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq c ,c&gt;0.$那么平方损失(square-loss)是强凸函数</span></p>
 
