@@ -333,12 +333,9 @@
 <script type="math/tex; mode=display">\frac{\partial \nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta))}{ \partial \theta } = \Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T</script></blockquote>
 <p>— 求二阶Hessian矩阵的特征值:   </p>
 <blockquote>
-<script type="math/tex; mode=display">\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z}  $$ (1)   
-$$ (\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z}   $$ (2)   
-因此得到：   
-$$ \mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0 $$ (3)   
-(3)代入(2)得到：   
-$$\lambda = \Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq 0</script></blockquote>
+<script type="math/tex; mode=display">\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z}</script><script type="math/tex; mode=display">(\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z}</script><p>因此得到：   </p>
+<script type="math/tex; mode=display">\mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0</script><p>代入上式得到：   </p>
+<script type="math/tex; mode=display">\lambda = \Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq 0</script></blockquote>
 <p><span style="color:blue">s所以平方损失(square-loss)是凸函数，若$\Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq c ,c&gt;0.$那么平方损失(square-loss)是强凸函数</span></p>
 
           
