@@ -359,6 +359,10 @@
 <h1 id="PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;"><a href="#PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;" class="headerlink" title="PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)"></a>PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)</h1><p>&#x7528;&#x4E8E;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF1A;</p>
 <blockquote>
 <script type="math/tex; mode=display">\text{求出} d'\text{个特征向量,表示成矩阵} W,W \text{的每一行对应一个特征向量;}</script><script type="math/tex; mode=display">\text{原始数据}X \text{的每一列对应一个数据点}</script><script type="math/tex; mode=display">WX \text{低维空间的数据表示}</script><script type="math/tex; mode=display">W^TWX \text{原始空间的重构数据表示}</script><script type="math/tex; mode=display">\text{因此PCA把原始数据矩阵X分解成两个小矩阵} W^T,WX.</script></blockquote>
+<h1 id="Convlution-GEMM"><a href="#Convlution-GEMM" class="headerlink" title="Convlution(GEMM)"></a>Convlution(GEMM)</h1><blockquote>
+<script type="math/tex; mode=display">W_{n,c,m,k} \text{表示卷积核的第n个filter,第c个channel，(m,k)的2D-filter的相对位置,令}W_{i,:,:,:} \text{为列向量}</script><script type="math/tex; mode=display">W_{reshape} = \begin{bmatrix}
+   W_{1,:,:,:} , W_{2,:,:,:} ...... W_{n,:,:,:}
+\end{bmatrix}</script><script type="math/tex; mode=display">\text{卷积操作可以表示成矩阵乘法：}Y = im2col(X)  W_{reshape},\text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
 
           
         

@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex&amp;#x51F8;&amp;#x51FD;&amp;#x6570;(convex)&amp;#xFF1A;    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) &amp;#x5F3A;&amp;#x51F8;&amp;#x51FD;&amp;#x">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-29T14:16:55.000Z">
+<meta property="og:updated_time" content="2017-10-30T03:35:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex&amp;#x51F8;&amp;#x51FD;&amp;#x6570;(convex)&amp;#xFF1A;    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) &amp;#x5F3A;&amp;#x51F8;&amp;#x51FD;&amp;#x">
@@ -360,6 +360,10 @@
 <h1 id="PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;"><a href="#PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;" class="headerlink" title="PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)"></a>PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)</h1><p>&#x7528;&#x4E8E;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF1A;</p>
 <blockquote>
 <script type="math/tex; mode=display">\text{求出} d'\text{个特征向量,表示成矩阵} W,W \text{的每一行对应一个特征向量;}</script><script type="math/tex; mode=display">\text{原始数据}X \text{的每一列对应一个数据点}</script><script type="math/tex; mode=display">WX \text{低维空间的数据表示}</script><script type="math/tex; mode=display">W^TWX \text{原始空间的重构数据表示}</script><script type="math/tex; mode=display">\text{因此PCA把原始数据矩阵X分解成两个小矩阵} W^T,WX.</script></blockquote>
+<h1 id="Convlution-GEMM"><a href="#Convlution-GEMM" class="headerlink" title="Convlution(GEMM)"></a>Convlution(GEMM)</h1><blockquote>
+<script type="math/tex; mode=display">W_{n,c,m,k} \text{表示卷积核的第n个filter,第c个channel，(m,k)的2D-filter的相对位置,令}W_{i,:,:,:} \text{为列向量}</script><script type="math/tex; mode=display">W_{reshape} = \begin{bmatrix}
+   W_{1,:,:,:} , W_{2,:,:,:} ...... W_{n,:,:,:}
+\end{bmatrix}</script><script type="math/tex; mode=display">\text{卷积操作可以表示成矩阵乘法：}Y = im2col(X)  W_{reshape},\text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
 
       
     </div>
@@ -515,7 +519,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convlution-GEMM"><span class="nav-number">4.</span> <span class="nav-text">Convlution(GEMM)</span></a></li></ol></div>
             
 
           </div>
