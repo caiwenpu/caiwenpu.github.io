@@ -345,113 +345,18 @@
 
       
         
-          
-            <h1 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h1><p>1,200,000 &#x8BAD;&#x7EC3;&#x96C6; 50,000&#x4E2A;&#x9A8C;&#x8BC1;&#x96C6; 150,000&#x4E2A;&#x6D4B;&#x8BD5;&#x96C6; 1000&#x4E2A;&#x7C7B;&#x522B;<br>&#x5728;Alexnet&#x4E0A; 5.2ms &#x4E00;&#x4E2A;input,&#x5305;&#x62EC;forward&#x548C;backward  </p>
+          <h1 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h1><p>1,200,000 训练集 50,000个验证集 150,000个测试集 1000个类别<br>在Alexnet上 5.2ms 一个input,包括forward和backward  </p>
 <blockquote>
-<script type="math/tex; mode=display">1,200,000 * 5.2 ms = 6240s = 1.733 h</script><p>&#x8BAD;&#x7EC3;&#x4E00;&#x8F6E;&#x5927;&#x6982;&#x9700;&#x8981;1.733h<br>&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x5728;pretrained&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x8C03;&#x6574;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#xFF0C;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8FDB;&#x884C;retrain<br>Alexnet &#x8BAD;&#x7EC3;90&#x8F6E; :  </p>
-<script type="math/tex; mode=display">1.733*90/24 = 6.5 \text{天}</script><p>&#x76F4;&#x63A5;&#x4ECE;&#x5934;&#x5F00;&#x59CB;pretrain&#x4E0D;&#x73B0;&#x5B9E;  </p>
+<script type="math/tex; mode=display">1,200,000 * 5.2 ms = 6240s = 1.733 h</script><p>训练一轮大概需要1.733h<br>所以一般在pretrained的网络，调整网络结构，使用新的数据集，进行retrain<br>Alexnet 训练90轮 :  </p>
+<script type="math/tex; mode=display">1.733*90/24 = 6.5 \text{天}</script><p>直接从头开始pretrain不现实  </p>
 </blockquote>
-<h1 id="CNN&#x5728;ImageNet&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x6BD4;&#x8F83;"><a href="#CNN&#x5728;ImageNet&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x6BD4;&#x8F83;" class="headerlink" title="CNN&#x5728;ImageNet&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x6BD4;&#x8F83;"></a>CNN&#x5728;ImageNet&#x6D4B;&#x8BD5;&#x96C6;&#x4E0A;&#x7684;&#x6BD4;&#x8F83;</h1><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>&#x6A21;&#x578B;&#x540D;</th>
-<th>AlexNet</th>
-<th>VGG</th>
-<th>GoogLeNet</th>
-<th>ResNet</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x521D;&#x5165;&#x6C5F;&#x6E56;</td>
-<td>2012</td>
-<td>2014</td>
-<td>2014</td>
-<td>2015</td>
-</tr>
-<tr>
-<td>&#x5C42;&#x6570;</td>
-<td>8</td>
-<td>19</td>
-<td>22</td>
-<td>152</td>
-</tr>
-<tr>
-<td>Top-5&#x9519;&#x8BEF;</td>
-<td>16.4%</td>
-<td>7.3%</td>
-<td>6.7%</td>
-<td>3.57%</td>
-</tr>
-<tr>
-<td>Data Augmentation</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-</tr>
-<tr>
-<td>Inception(NIN)</td>
-<td>&#x2013;</td>
-<td>&#x2013;</td>
-<td>+</td>
-<td>&#x2013;</td>
-</tr>
-<tr>
-<td>&#x5377;&#x79EF;&#x5C42;&#x6570;</td>
-<td>5</td>
-<td>16</td>
-<td>21</td>
-<td>151</td>
-</tr>
-<tr>
-<td>&#x5377;&#x79EF;&#x6838;&#x5927;&#x5C0F;</td>
-<td>11,5,3</td>
-<td>3</td>
-<td>7,1,3,5</td>
-<td>7,1,3,5</td>
-</tr>
-<tr>
-<td>&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x6570;</td>
-<td>3</td>
-<td>3</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x5927;&#x5C0F;</td>
-<td>4096,4096,1000</td>
-<td>4096,4096,1000</td>
-<td>1000</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>Dropout</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-<td>+</td>
-</tr>
-<tr>
-<td>Local Response Normalization</td>
-<td>+</td>
-<td>&#x2013;</td>
-<td>+</td>
-<td>&#x2013;</td>
-</tr>
-<tr>
-<td>Batch Normalization</td>
-<td>&#x2013;</td>
-<td>&#x2013;</td>
-<td>&#x2013;</td>
-<td>+</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/Dataset/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -579,15 +484,16 @@
 
       
         
-          
-            <h1 id="&#x731C;&#x5E3D;&#x5B50;"><a href="#&#x731C;&#x5E3D;&#x5B50;" class="headerlink" title="&#x731C;&#x5E3D;&#x5B50;"></a>&#x731C;&#x5E3D;&#x5B50;</h1><ul>
-<li><p>3&#x4E2A;&#x4EBA;&#xFF0C;2&#x4E2D;&#x989C;&#x8272;&#x7684;&#x5E3D;&#x5B50;&#xFF0C;&#x7ED9;&#x6BCF;&#x4E2A;&#x4EBA;&#x968F;&#x673A;&#x5206;&#x914D;&#x4E00;&#x79CD;&#x989C;&#x8272;&#x7684;&#x5E3D;&#x5B50;&#x3002;&#x7136;&#x540E;&#x628A;&#x8FD9;3&#x4E2A;&#x4EBA;&#x653E;&#x5230;&#x4E00;&#x8D77;&#xFF0C;&#x6BCF;&#x4E2A;&#x4EBA;&#x53EA;&#x80FD;&#x770B;&#x5230;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x5E3D;&#x5B50;&#xFF0C;&#x4E0D;&#x80FD;&#x770B;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x5E3D;&#x5B50;&#x3002;&#x5206;&#x5F00;&#x8FD9;3&#x4E2A;&#x4EBA;&#xFF0C;&#x6BCF;&#x4E2A;&#x4EBA;&#x731C;&#x6D4B;&#x81EA;&#x5DF1;&#x5E3D;&#x5B50;&#x7684;&#x989C;&#x8272;&#xFF0C;&#x6BCF;&#x4E2A;&#x4EBA;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x731C;&#x6216;&#x8005;&#x4E0D;&#x731C;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x4EBA;&#x731C;&#x5BF9;&#x4E14;&#x6CA1;&#x6709;&#x4EBA;&#x731C;&#x9519;&#xFF0C;&#x5C31;&#x7B97;&#x6210;&#x529F;&#x3002;&#x8FD9;3&#x4E2A;&#x4EBA;&#x4E8B;&#x5148;&#x5546;&#x8BA8;&#x4E00;&#x79CD;&#x7B56;&#x7565;&#xFF0C;&#x4F7F;&#x5F97;&#x8FD9;3&#x4E2A;&#x4EBA;&#x6210;&#x529F;&#x7684;&#x6982;&#x7387;&#x6700;&#x5927;&#x3002;&#x7B56;&#x7565;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
-</li>
-<li><p>3&#x4E2A;&#x4EBA;&#x6362;&#x6210;7&#x4E2A;&#x4EBA;&#xFF0C;&#x4F9D;&#x7136;&#x662F;&#x4E24;&#x79CD;&#x989C;&#x8272;&#x7684;&#x5E3D;&#x5B50;&#xFF0C;&#x7B56;&#x7565;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
-</li>
+          <h1 id="猜帽子"><a href="#猜帽子" class="headerlink" title="猜帽子"></a>猜帽子</h1><ul>
+<li>3个人，2中颜色的帽子，给每个人随机分配一种颜色的帽子。然后把这3个人放到一起，每个人只能看到其他人的帽子，不能看到自己的帽子。分开这3个人，每个人猜测自己帽子的颜色，每个人可以选择猜或者不猜，只要有一个人猜对且没有人猜错，就算成功。这3个人事先商讨一种策略，使得这3个人成功的概率最大。策略是什么？</li>
 </ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/Logic/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -715,35 +621,20 @@
 
       
         
-          
-            <h1 id="python-&#x5E38;&#x7528;&#x4EE3;&#x7801;"><a href="#python-&#x5E38;&#x7528;&#x4EE3;&#x7801;" class="headerlink" title="python &#x5E38;&#x7528;&#x4EE3;&#x7801;"></a>python &#x5E38;&#x7528;&#x4EE3;&#x7801;</h1><h2 id="UFT-8"><a href="#UFT-8" class="headerlink" title="UFT-8"></a>UFT-8</h2><p>&#x5728;&#x6587;&#x4EF6;&#x6700;&#x5F00;&#x5934;&#x52A0;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#x4EE3;&#x7801;<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div></pre></td></tr></table></figure></p>
-<h2 id="CUDA&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;"><a href="#CUDA&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;" class="headerlink" title="CUDA&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;"></a>CUDA&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.environ[<span class="string">&apos;CUDA_VISIBLE_DEVICES&apos;</span>] = <span class="string">&apos;0&apos;</span></div></pre></td></tr></table></figure>
-<h2 id="&#x67E5;&#x770B;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;"><a href="#&#x67E5;&#x770B;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;" class="headerlink" title="&#x67E5;&#x770B;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;"></a>&#x67E5;&#x770B;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type(<span class="string">&apos;abc&apos;</span>) == str <span class="comment"># True</span></div><div class="line">type(<span class="number">123</span>) == int <span class="comment"># True</span></div><div class="line">dir(<span class="string">&apos;str&apos;</span>) <span class="comment">#&#x83B7;&#x5F97;&#x4E00;&#x4E2A;str&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;</span></div></pre></td></tr></table></figure>
-<h2 id="&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;"><a href="#&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;" class="headerlink" title="&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;"></a>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line">start = time.clock()</div><div class="line">elapsed = (time.clock() - start)</div></pre></td></tr></table></figure>
-<h2 id="&#x6570;&#x7EC4;&#x64CD;&#x4F5C;"><a href="#&#x6570;&#x7EC4;&#x64CD;&#x4F5C;" class="headerlink" title="&#x6570;&#x7EC4;&#x64CD;&#x4F5C;"></a>&#x6570;&#x7EC4;&#x64CD;&#x4F5C;</h2><h3 id="&#x6D45;&#x62F7;&#x8D1D;"><a href="#&#x6D45;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6D45;&#x62F7;&#x8D1D;"></a>&#x6D45;&#x62F7;&#x8D1D;</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A.copy() <span class="comment">#B&#x6307;&#x5411;&#x4E00;&#x5757;&#x65B0;&#x7684;&#x533A;&#x57DF;</span></div><div class="line">C = A <span class="comment">#C&#x6307;&#x5411;A&#x7684;&#x7A7A;&#x95F4;</span></div></pre></td></tr></table></figure>
-<h3 id="&#x6DF1;&#x62F7;&#x8D1D;"><a href="#&#x6DF1;&#x62F7;&#x8D1D;" class="headerlink" title="&#x6DF1;&#x62F7;&#x8D1D;"></a>&#x6DF1;&#x62F7;&#x8D1D;</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> copy</div><div class="line">A = {<span class="string">&apos;a&apos;</span>:<span class="number">3</span>,<span class="string">&apos;b&apos;</span>:<span class="number">4</span>}</div><div class="line">B = {<span class="string">&apos;aa&apos;</span>:A,<span class="string">&apos;bb&apos;</span>:<span class="number">5</span>}</div><div class="line">C = copy.deepcopy(B) <span class="comment">#&#x9012;&#x5F52;&#x62F7;&#x8D1D;</span></div><div class="line">C[<span class="string">&apos;aa&apos;</span>][<span class="string">&apos;a&apos;</span>] = <span class="number">10</span> <span class="comment"># A[&apos;a&apos;] &#x4F9D;&#x7136; = 3</span></div></pre></td></tr></table></figure>
-<h3 id="&#x53D6;&#x503C;"><a href="#&#x53D6;&#x503C;" class="headerlink" title="&#x53D6;&#x503C;"></a>&#x53D6;&#x503C;</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A[:<span class="number">-1</span>] <span class="comment">#&#x53D6;&#x9664;&#x53BB;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</span></div><div class="line">C = A[::<span class="number">2</span>] <span class="comment"># step = 2&#x53D6;A&#x4E2D;&#x7684;&#x5143;&#x7D20;</span></div></pre></td></tr></table></figure>
-<h2 id="pycuda"><a href="#pycuda" class="headerlink" title="pycuda"></a>pycuda</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pycuda.driver <span class="keyword">as</span> cuda</div><div class="line"><span class="keyword">import</span> pycuda.autoinit</div><div class="line"><span class="keyword">from</span> pycuda.compiler <span class="keyword">import</span> SourceModule</div><div class="line"><span class="keyword">import</span> numpy</div><div class="line">a = numpy.random.randn(<span class="number">4</span>,<span class="number">4</span>)</div><div class="line">a = a.astype(numpy.float32)</div><div class="line">mod = SourceModule(<span class="string">&quot;&quot;&quot;</span></div><div class="line"><span class="string">  __global__ void doublify(float *a)</span></div><div class="line"><span class="string">  {</span></div><div class="line"><span class="string">    int idx = threadIdx.x + threadIdx.y*4;</span></div><div class="line"><span class="string">    a[idx] *= 2;</span></div><div class="line"><span class="string">  }</span></div><div class="line"><span class="string">  &quot;&quot;&quot;</span>)</div><div class="line">func = mod.get_function(<span class="string">&quot;doublify&quot;</span>)</div><div class="line">func(cuda.InOut(a), block=(<span class="number">4</span>,<span class="number">4</span>,<span class="number">1</span>))</div></pre></td></tr></table></figure>
-<h2 id="seaborn"><a href="#seaborn" class="headerlink" title="seaborn"></a>seaborn</h2><p><a href="https://seaborn.pydata.org/api.html" target="_blank" rel="external">seaborn API</a></p>
-<h3 id="&#x8054;&#x5408;&#x5206;&#x5E03;"><a href="#&#x8054;&#x5408;&#x5206;&#x5E03;" class="headerlink" title="&#x8054;&#x5408;&#x5206;&#x5E03;"></a>&#x8054;&#x5408;&#x5206;&#x5E03;</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">seaborn.jointplot(x, y, data=<span class="keyword">None</span>, kind=<span class="string">&apos;scatter&apos;</span>, stat_func=&lt;function pearsonr&gt;, color=<span class="keyword">None</span>, size=<span class="number">6</span>, ratio=<span class="number">5</span>, space=<span class="number">0.2</span>, dropna=<span class="keyword">True</span>, xlim=<span class="keyword">None</span>, ylim=<span class="keyword">None</span>, joint_kws=<span class="keyword">None</span>, marginal_kws=<span class="keyword">None</span>, annot_kws=<span class="keyword">None</span>, **kwargs)</div></pre></td></tr></table></figure>
-<p>Parameters:</p>
-<ul>
-<li><code>edge_color = &apos;w&apos; #&#x4F7F;&#x5F97;&#x6563;&#x70B9;&#x56FE;&#x6BCF;&#x4E2A;&#x70B9;&#x53D8;&#x5C0F;</code>  </li>
-<li><code>marginal_kws = dict(bins=1000) #&#x4F7F;&#x5F97;&#x76F4;&#x65B9;&#x56FE;&#x7C92;&#x5EA6;&#x66F4;&#x5C0F;</code>  </li>
-</ul>
-<h3 id="&#x76F4;&#x65B9;&#x56FE;"><a href="#&#x76F4;&#x65B9;&#x56FE;" class="headerlink" title="&#x76F4;&#x65B9;&#x56FE;"></a>&#x76F4;&#x65B9;&#x56FE;</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">seaborn.distplot(x,kde=Falsen,norm_hist = <span class="keyword">True</span>)</div><div class="line">plt.yscale(<span class="string">&quot;log&quot;</span>,nonposy=<span class="string">&apos;clip&apos;</span>) <span class="comment">#&#x6CE8;&#x610F;&#x4E00;&#x5B9A;&#x8981;&#x52A0;&#x540E;&#x9762;&#x4E00;&#x9879;&#x53C2;&#x6570;&#xFF0C;&#x9632;&#x6B62;log0&#x65E0;&#x5B9A;&#x4E49; &#x5BF9;&#x5E94;plt.xscale(&apos;log&apos;,nonposx=&apos;clip&apos;)</span></div><div class="line">plt.yscale(min,max)</div><div class="line">plt.xscale(min,max)</div><div class="line">plt.savefig(filepath)</div></pre></td></tr></table></figure>
-<h2 id="&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#xFF0C;&#x5199;&#x51FA;"><a href="#&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#xFF0C;&#x5199;&#x51FA;" class="headerlink" title="&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#xFF0C;&#x5199;&#x51FA;"></a>&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#xFF0C;&#x5199;&#x51FA;</h2><h3 id="numpy&#x6570;&#x7EC4;"><a href="#numpy&#x6570;&#x7EC4;" class="headerlink" title="numpy&#x6570;&#x7EC4;"></a>numpy&#x6570;&#x7EC4;</h3><p>API: <code>numpy.savetxt(filename|handle,numpy.array)</code>;<code>numpy.loadtxt(filename)</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">f = open(<span class="string">&apos;asd.txt&apos;</span>, <span class="string">&apos;ab&apos;</span>)</div><div class="line"><span class="keyword">for</span> iind <span class="keyword">in</span> range(<span class="number">4</span>):</div><div class="line">    a = np.random.rand(<span class="number">2</span>, <span class="number">2</span>)</div><div class="line">    np.savetxt(f, a)</div><div class="line">f.close()</div><div class="line">print(np.loadtxt(<span class="string">&quot;asd.txt&quot;</span>))</div></pre></td></tr></table></figure></p>
-<h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">json.dump(dict, open(file, <span class="string">&apos;w&apos;</span>))</div><div class="line">json.load(open(file))</div></pre></td></tr></table></figure>
-<h1 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h1><h2 id="tf-Graph"><a href="#tf-Graph" class="headerlink" title="tf.Graph()"></a>tf.Graph()</h2><p>Tensorflow&#x4F1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;graph&#xFF0C;tf.Constant()&#xFF0C;tf.Variable()&#x7B49;&#x64CD;&#x4F5C;&#x4F1A;&#x5411;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;graph&#x6DFB;&#x52A0; tf.Operation&#x3002;  </p>
-<h2 id="tf-Session"><a href="#tf-Session" class="headerlink" title="tf.Session()"></a>tf.Session()</h2><p>&#x4E00;&#x4E2A; <code>Tensor</code> t, &#x8C03;&#x7528; <code>t.eval()</code> &#x7B49;&#x4EF7;&#x4E8E;&#x8C03;&#x7528; <code>tf.get_default_session().run(t)</code><br>InteractiveSession &#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684;session &#xFF0C; &#x65B9;&#x6CD5; <code>Tensor.eval()</code> and  &#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x4F1A;&#x8BDD;&#x8FD0;&#x884C;&#x3002;(Operation &#x6CA1;&#x6709;eval()&#x65B9;&#x6CD5;)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sess = tf.InteractiveSession()</div><div class="line">print(tf.get_default_session() == sess) <span class="comment">#True</span></div></pre></td></tr></table></figure></p>
-<p>&#x5982;&#x679C;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x6CA1;&#x6709;&#x6307;&#x5B9A;graph,&#x90A3;&#x4E48;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;graph&#x521D;&#x59CB;&#x5316;  </p>
-<h2 id="tf-Tensor-tf-Operation"><a href="#tf-Tensor-tf-Operation" class="headerlink" title="tf.Tensor tf.Operation"></a>tf.Tensor tf.Operation</h2><p>Note that <code>tf.Tensor</code>(&#x8FB9;) objects are implicitly named after the <code>tf.Operation</code>(&#x70B9;) that produces the tensor as output. A tensor name has the form <code>&lt;OP_NAME&gt;:&lt;i&gt;</code> where:</p>
-<ul>
-<li><code>&lt;OP_NAME&gt;</code> OP&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x591A;&#x4E2A;OP&#x91CD;&#x540D;&#xFF0C;&#x90A3;&#x4E48;&#x5728;OP_NAME&#x52A0;&#x4E0A;&#x540E;&#x7F00; _1 ,_2.</li>
-<li><code>&lt;i&gt;</code> &#x6807;&#x5FD7;&#x8FD9;&#x4E2A;op&#x4EA7;&#x751F;&#x7684;&#x7B2C;&#x51E0;&#x4E2A;Tensor  </li>
-</ul>
-<h2 id="tf-Variable-&#x7C7B;&#x578B;"><a href="#tf-Variable-&#x7C7B;&#x578B;" class="headerlink" title="tf.Variable &#x7C7B;&#x578B;"></a>tf.Variable &#x7C7B;&#x578B;</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">dtype = <span class="string">&apos;float32&apos;</span>  <span class="string">&apos;float64&apos;</span>  <span class="string">&apos;int32&apos;</span>  <span class="string">&apos;int64&apos;</span> <span class="string">&apos;int&apos;</span></div><div class="line">```  </div><div class="line"></div><div class="line"><span class="comment">## &#x83B7;&#x53D6;&#x6A21;&#x578B;&#x4E2D;&#x7684;&#x53D8;&#x91CF;/&#x53C2;&#x6570;</span></div><div class="line">```python</div><div class="line">    <span class="keyword">for</span> w <span class="keyword">in</span>  tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):</div><div class="line">        <span class="keyword">if</span> w.name.endswith(<span class="string">&apos;w_fc1:0&apos;</span>):</div><div class="line">            <span class="keyword">print</span> w.eval()</div></pre></td></tr></table></figure>
-          
+          <h1 id="python-常用代码"><a href="#python-常用代码" class="headerlink" title="python 常用代码"></a>python 常用代码</h1><h2 id="UFT-8"><a href="#UFT-8" class="headerlink" title="UFT-8"></a>UFT-8</h2><p>在文件最开头加下面一行代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div></pre></td></tr></table></figure></p>
+<h2 id="CUDA环境变量设置"><a href="#CUDA环境变量设置" class="headerlink" title="CUDA环境变量设置"></a>CUDA环境变量设置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.environ[<span class="string">'CUDA_VISIBLE_DEVICES'</span>] = <span class="string">'0'</span></div></pre></td></tr></table></figure>
+<h2 id="查看变量的类型，所有属性和方法"><a href="#查看变量的类型，所有属性和方法" class="headerlink" title="查看变量的类型，所有属性和方法"></a>查看变量的类型，所有属性和方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type(<span class="string">'abc'</span>) == str <span class="comment"># True</span></div><div class="line">type(<span class="number">123</span>) == int <span class="comment"># True</span></div><div class="line">dir(<span class="string">'str'</span>) <span class="comment">#获得一个str对象的所有方法</span></div></pre></td></tr></table></figure>
+<h2 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line">start = time.clock()</div><div class="line">elapsed = (time.clock() - start)</div></pre></td></tr></table></figure>
+<h2 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h2><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A.copy() <span class="comment">#B指向一块新的区域</span></div><div class="line">C = A <span class="comment">#C指向A的空间</span></div></pre></td></tr></table></figure>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> copy</div><div class="line">A = &#123;<span class="string">'a'</span>:<span class="number">3</span>,<span class="string">'b'</span>:<span class="number">4</span>&#125;</div><div class="line">B = &#123;<span class="string">'aa'</span>:A,<span class="string">'bb'</span>:<span class="number">5</span>&#125;</div><div class="line">C = copy.deepcopy(B) <span class="comment">#递归拷贝</span></div><div class="line">C[<span class="string">'aa'</span>][<span class="string">'a'</span>] = <span class="number">10</span> <span class="comment"># A['a'] 依然 = 3</span></div></pre></td></tr></table></figure>
+<h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A[:<span class="number">-1</span>] <span class="comment">#取除去最后一个元素</span></div><div class="line">C = A[::<span class="number">2</span>] <span class="comment"># step = 2取A中的元素</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/30/py-code/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -871,27 +762,19 @@
 
       
         
-          
-            <h1 id="Quantized-Neural-Network"><a href="#Quantized-Neural-Network" class="headerlink" title="Quantized Neural Network"></a>Quantized Neural Network</h1><h2 id="low-precision-Quantization"><a href="#low-precision-Quantization" class="headerlink" title="low-precision Quantization"></a>low-precision Quantization</h2><h3 id="quantized-weights-only"><a href="#quantized-weights-only" class="headerlink" title="quantized weights only"></a>quantized weights only</h3><p>&#x6BCF;&#x4E2A;<code>float</code>&#x6743;&#x91CD;&#x8FD1;&#x4F3C;&#x8868;&#x793A;&#x6210;&#x51E0;&#x4E2A;bits  </p>
+          <h1 id="Quantized-Neural-Network"><a href="#Quantized-Neural-Network" class="headerlink" title="Quantized Neural Network"></a>Quantized Neural Network</h1><h2 id="low-precision-Quantization"><a href="#low-precision-Quantization" class="headerlink" title="low-precision Quantization"></a>low-precision Quantization</h2><h3 id="quantized-weights-only"><a href="#quantized-weights-only" class="headerlink" title="quantized weights only"></a>quantized weights only</h3><p>每个<code>float</code>权重近似表示成几个bits  </p>
 <ul>
-<li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">&#x201C;BinaryConnect: Training Deep Neural Networks with binary weights during propagations.&#x201D;</a> [NIPS 2015]</span>    </li>
+<li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">“BinaryConnect: Training Deep Neural Networks with binary weights during propagations.”</a> [NIPS 2015]</span>    </li>
 <li><span style="color:red"> Chenzhuo Zhu, Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">Trained Ternary Quantization</a>[ICLR 2017]</span> </li>
-<li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">&#x201C;Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.&#x201D;</a>[ICLR 2017]</span> </li>
+<li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">“Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.”</a>[ICLR 2017]</span> </li>
 </ul>
-<h3 id="quantized-weights-and-activations"><a href="#quantized-weights-and-activations" class="headerlink" title="quantized weights and activations"></a>quantized weights and activations</h3><ul>
-<li><span style="color:red">Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, Yoshua Bengio:<br><a href="http://papers.nips.cc/paper/6573-binarized-neural-networks" target="_blank" rel="external">&#x201C;Binarized Neural Networks.&#x201D;</a> [NIPS 2016]</span>  </li>
-<li><span style="color:red">Mohammad Rastegari, Vicente Ordonez, Joseph Redmon, Ali Farhadi:<br><a href="https://arxiv.org/abs/1603.05279" target="_blank" rel="external">&#x201C;XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks.&#x201D;</a> [ECCV 2016]</span>  </li>
-<li><span style="color:red"> Zhaowei Cai, Xiaodong He, Jian Sun, Nuno Vasconcelos:<br><a href="https://arxiv.org/abs/1702.00953" target="_blank" rel="external">&#x201C;Deep Learning with Low Precision by Half-wave Gaussian Quantization.&#x201D;</a>[CVPR 2017]</span>  </li>
-<li><span style="color:red">Shuchang Zhou, Zekun Ni, Xinyu Zhou, He Wen, Yuxin Wu, Yuheng Zou:<br><a href="https://arxiv.org/abs/1606.06160" target="_blank" rel="external">&#x201C;DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients&#x201D;</a>[arXiv&#x2019; 2016]</span> </li>
-</ul>
-<h2 id="group-base-Quantization"><a href="#group-base-Quantization" class="headerlink" title="group-base Quantization"></a>group-base Quantization</h2><p>&#x76F8;&#x4F3C;&#x7684;&#x6743;&#x91CD;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x6743;&#x91CD;&#x503C;</p>
-<h1 id="Pruning-Neural-Network"><a href="#Pruning-Neural-Network" class="headerlink" title="Pruning Neural Network"></a>Pruning Neural Network</h1><ul>
-<li><span style="color:red">Song Han, Jeff Pool, John Tran, William J. Dally:<br><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="external">Learning both Weights and Connections for Efficient Neural Networks.</a>[NIPS 2015]</span>  </li>
-<li><span style="color:red">Wei Wen, Chunpeng Wu, Yandan Wang, Yiran Chen, Hai Li:<br><a href="http://papers.nips.cc/paper/6504-learning-structured-sparsity-in-deep-neural-networks" target="_blank" rel="external">Learning Structured Sparsity in Deep Neural Networks.</a> [NIPS 2016] </span>   </li>
-<li><span style="color:red">Jian-Hao Luo, Jianxin Wu, Weiyao Lin:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression.</a>[ICCV 2017]</span>  </li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/30/QNN/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1019,60 +902,23 @@
 
       
         
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
-<h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><p>&#x51F8;&#x51FD;&#x6570;(convex)&#xFF1A;  </p>
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
+<h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><p>凸函数(convex)：  </p>
 <blockquote>
 <script type="math/tex; mode=display">f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x})</script></blockquote>
-<p>&#x5F3A;&#x51F8;&#x51FD;&#x6570;(strongly-convex)&#xFF1A;   </p>
+<p>强凸函数(strongly-convex)：   </p>
 <blockquote>
 <script type="math/tex; mode=display">f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{m}{2}||\mathbf{y}-\mathbf{x}||^2</script></blockquote>
 <p>L-Lipschitz   </p>
 <blockquote>
 <script type="math/tex; mode=display">f(\mathbf{y}) \leq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{L}{2}||\mathbf{y}-\mathbf{x}||^2</script><script type="math/tex; mode=display">\Leftrightarrow |\nabla f(x) -\nabla f(x) < L||x-y|| |</script></blockquote>
-<p>&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss):  $y \in \mathbb{R}$   </p>
-<blockquote>
-<script type="math/tex; mode=display">l(y_i,h(\mathbf{x}_i,\theta)) = \frac{1}{2}(y_i-h(\mathbf{x}_i,\theta))^2</script><p>&#x5176;&#x4E2D;&#x5728;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x4E2D; &#xFF0C;$h(\mathbf{x}_i,\theta) = \theta^T \Phi (\mathbf{x}_i$)     </p>
-</blockquote>
-<p>&#x5BF9;&#x6570;&#x635F;&#x5931;(logistic loss):   $y  \in {-1,1}$      </p>
-<blockquote>
-<p>$l(y_i,h(\mathbf{x}_i,\theta)) = log(1+exp(-y_i h(\mathbf{x}_i,\theta)))$   </p>
-</blockquote>
-<p>&#x4E00;&#x9636;&#x5BFC;&#x6570;(one order of diff of square-loss)       </p>
-<blockquote>
-<script type="math/tex; mode=display">\nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta)) = \frac{\partial l(y_i,h(\mathbf{x}_i,\theta))}{\partial \theta} = (y_i-h(\mathbf{x}_i,\theta)) \Phi (\mathbf{x}_i)</script></blockquote>
-<p>&#x4E8C;&#x9636;&#x5BFC;&#x6570;(two order of diff of square-loss)</p>
-<blockquote>
-<script type="math/tex; mode=display">\frac{\partial \nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta))}{ \partial \theta } = \Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T</script></blockquote>
-<p>&#x2014; &#x6C42;&#x4E8C;&#x9636;Hessian&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;:   </p>
-<blockquote>
-<script type="math/tex; mode=display">\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z}</script><script type="math/tex; mode=display">(\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z}</script><p>&#x56E0;&#x6B64;&#x5F97;&#x5230;&#xFF1A;   </p>
-<script type="math/tex; mode=display">\mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0</script><p>&#x4EE3;&#x5165;&#x4E0A;&#x5F0F;&#x5F97;&#x5230;&#xFF1A;   </p>
-<script type="math/tex; mode=display">\lambda = \Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq 0</script></blockquote>
-<p><span style="color:blue">s&#x6240;&#x4EE5;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x51F8;&#x51FD;&#x6570;&#xFF0C;&#x82E5;$\Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq c ,c&gt;0.$&#x90A3;&#x4E48;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x5F3A;&#x51F8;&#x51FD;&#x6570;</span></p>
-<hr>
-<h1 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h1><p>&#x5BF9;&#x4E8E;&#x4F18;&#x5316;&#x76EE;&#x6807;&#xFF1A;</p>
-<blockquote>
-<script type="math/tex; mode=display">\min \limits_x f(x) + \lambda||x||_1</script><p>&#x4F7F;&#x7528;&#x8FD1;&#x7AEF;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(PGD)&#x6C42;&#x89E3;&#xFF0C;&#x6709;&#x95ED;&#x5F0F;&#x89E3;&#xFF1A;</p>
-<script type="math/tex; mode=display">x_{k+1}^i = \begin{cases}
-   z^i-\lambda/L &\text{if } z^i>\lambda/L  \\
-   0 &\text{if } -\lambda/L < z^i < \lambda/L \\
-   z^i+\lambda/L &\text{if } z^i < -\lambda/L
-\end{cases}</script><script type="math/tex; mode=display">\text{其中} \quad \mathbf{z} = \mathbf{x}_k - \frac{1}{L} \nabla f(\mathbf{x}_k)</script><script type="math/tex; mode=display">\nabla f \text{满足L-lipschitz条件}, L \text{为L-lipschitz常数}</script><p>&#x6240;&#x4EE5;L1-norm&#x4F1A;&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x89E3;&#xFF0C;&#x4E14;$\lambda$&#x8D8A;&#x5927;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x8D8A;&#x7A00;&#x758F;&#x3002;</p>
-</blockquote>
-<p>group-lasso  </p>
-<blockquote>
-<script type="math/tex; mode=display">\min \limits_x f(x) + \sum_{j=1}^J\lambda||x_j||_{K_j}</script><script type="math/tex; mode=display">x_j \text{是x的一个子集} ||x_j||_{K_j }= x_j^TK_jx_j,K_j \text{是半正定矩阵}</script><p>&#x4F7F;&#x7528;PGD&#x6C42;&#x89E3;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5168;&#x96F6;&#x89E3;&#xFF1B;&#x6CE8;&#x610F;$K_j = I$&#x65F6;&#xFF0C;&#x5BF9;&#x5E94;l2-norm&#x4E0D;&#x5E26;&#x5E73;&#x65B9;&#x3002;</p>
-</blockquote>
-<h1 id="PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;"><a href="#PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;" class="headerlink" title="PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)"></a>PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)</h1><p>&#x7528;&#x4E8E;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF1A;</p>
-<blockquote>
-<script type="math/tex; mode=display">\text{求出} d'\text{个特征向量,表示成矩阵} W,W \text{的每一行对应一个特征向量;}</script><script type="math/tex; mode=display">\text{原始数据}X \text{的每一列对应一个数据点}</script><script type="math/tex; mode=display">WX \text{低维空间的数据表示}</script><script type="math/tex; mode=display">W^TWX \text{原始空间的重构数据表示}</script><script type="math/tex; mode=display">\text{因此PCA把原始数据矩阵X分解成两个小矩阵} W^T,WX.</script></blockquote>
-<h1 id="Convlution-GEMM"><a href="#Convlution-GEMM" class="headerlink" title="Convlution(GEMM)"></a>Convlution(GEMM)</h1><blockquote>
-<script type="math/tex; mode=display">W_{n,c,m,k} \text{表示卷积核的第n个filter,第c个channel，(m,k)的2D-filter的相对位置,令}W_{i,:,:,:} \text{为列向量}</script><script type="math/tex; mode=display">W_{reshape} = \begin{bmatrix}
-   W_{1,:,:,:} , W_{2,:,:,:} ...... W_{n,:,:,:}
-\end{bmatrix}</script><script type="math/tex; mode=display">\text{卷积操作可以表示成矩阵乘法：}Y = im2col(X)  W_{reshape},\text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/25/article-title/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1200,25 +1046,15 @@
 
       
         
-          
-            <h1 id="Hexo-&#x6307;&#x4EE4;"><a href="#Hexo-&#x6307;&#x4EE4;" class="headerlink" title="Hexo &#x6307;&#x4EE4;"></a>Hexo &#x6307;&#x4EE4;</h1><h3 id="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;post"><a href="#&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;post" class="headerlink" title="&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;post"></a>&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></div></pre></td></tr></table></figure>
+          <h1 id="Hexo-指令"><a href="#Hexo-指令" class="headerlink" title="Hexo 指令"></a>Hexo 指令</h1><h3 id="新建一个post"><a href="#新建一个post" class="headerlink" title="新建一个post"></a>新建一个post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="&#x672C;&#x5730;&#x6D4B;&#x8BD5;"><a href="#&#x672C;&#x5730;&#x6D4B;&#x8BD5;" class="headerlink" title="&#x672C;&#x5730;&#x6D4B;&#x8BD5;"></a>&#x672C;&#x5730;&#x6D4B;&#x8BD5;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="&#x751F;&#x6210;&#x9759;&#x6001;html&#x6587;&#x4EF6;"><a href="#&#x751F;&#x6210;&#x9759;&#x6001;html&#x6587;&#x4EF6;" class="headerlink" title="&#x751F;&#x6210;&#x9759;&#x6001;html&#x6587;&#x4EF6;"></a>&#x751F;&#x6210;&#x9759;&#x6001;html&#x6587;&#x4EF6;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="&#x5E03;&#x7F6E;&#x5230;github&#x4E0A;"><a href="#&#x5E03;&#x7F6E;&#x5230;github&#x4E0A;" class="headerlink" title="&#x5E03;&#x7F6E;&#x5230;github&#x4E0A;"></a>&#x5E03;&#x7F6E;&#x5230;github&#x4E0A;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h1 id="&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h1><h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">setenv</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *name, <span class="keyword">const</span> <span class="keyword">char</span> *value, <span class="keyword">int</span> overwrite)</span></span>;<span class="comment">//overwrite &#x8BBE;&#x7F6E;&#x4E3A; 1</span></div></pre></td></tr></table></figure>
-<h1 id="linux-&#x547D;&#x4EE4;"><a href="#linux-&#x547D;&#x4EE4;" class="headerlink" title="linux &#x547D;&#x4EE4;"></a>linux &#x547D;&#x4EE4;</h1><h3 id="&#x663E;&#x793A;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x5927;&#x5C0F;"><a href="#&#x663E;&#x793A;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x5927;&#x5C0F;" class="headerlink" title="&#x663E;&#x793A;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x5927;&#x5C0F;"></a>&#x663E;&#x793A;&#x6307;&#x5B9A;&#x76EE;&#x5F55;&#x5927;&#x5C0F;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">du -h dir/</div></pre></td></tr></table></figure>
-<h3 id="&#x67E5;&#x770B;apt-get-&#x5DF2;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;"><a href="#&#x67E5;&#x770B;apt-get-&#x5DF2;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;" class="headerlink" title="&#x67E5;&#x770B;apt-get &#x5DF2;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;"></a>&#x67E5;&#x770B;apt-get &#x5DF2;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dpkg -l vi*</div></pre></td></tr></table></figure>
-<h3 id="&#x7F16;&#x8BD1;CUDA"><a href="#&#x7F16;&#x8BD1;CUDA" class="headerlink" title="&#x7F16;&#x8BD1;CUDA"></a>&#x7F16;&#x8BD1;CUDA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvcc test.c -lcublas -lcusparse -o <span class="built_in">test</span></div></pre></td></tr></table></figure>
-<h3 id="&#x67E5;&#x627E;&#x6587;&#x4EF6;"><a href="#&#x67E5;&#x627E;&#x6587;&#x4EF6;" class="headerlink" title="&#x67E5;&#x627E;&#x6587;&#x4EF6;"></a>&#x67E5;&#x627E;&#x6587;&#x4EF6;</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name <span class="string">&quot;lenet_iter*&quot;</span> <span class="comment">#&#x9012;&#x5F52;&#x67E5;&#x627E;&#x5F53;&#x524D;&#x76EE;&#x5F55;</span></div></pre></td></tr></table></figure>
-<h1 id="MAC-&#x547D;&#x4EE4;"><a href="#MAC-&#x547D;&#x4EE4;" class="headerlink" title="MAC &#x547D;&#x4EE4;"></a>MAC &#x547D;&#x4EE4;</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">command</span> + space &#x6253;&#x5F00;Spotlight&#x641C;&#x7D22;</div><div class="line"><span class="built_in">command</span> + Enter &#x6253;&#x5F00;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x5939;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al <span class="comment">#&#x67E5;&#x770B;&#x8F6F;&#x94FE;&#x63A5;&#x6307;&#x5411;&#x7684;&#x5B9E;&#x9645;&#x6587;&#x4EF6;</span></div></pre></td></tr></table></figure>
-<p>HomeBrew&#x5B89;&#x88C5;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5305;&#x5728; /usr/local/Cellar/ &#x76EE;&#x5F55;&#x4E0B;<br>python2.7&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#xFF1A;&#xFF08;MAC&#x81EA;&#x5E26;&#xFF09;/System/Library/Frameworks/Python.framework/Versions/2.7<br>python3.5&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#xFF1A;&#xFF08;&#x7528;&#x6237;&#x5B89;&#x88C5;&#xFF09;/Library/Frameworks/Python.framework/Versions/3.5  </p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/25/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
