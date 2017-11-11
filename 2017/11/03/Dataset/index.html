@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="起点" type="application/atom+xml" />
 
@@ -88,7 +90,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="ImageNet1,200,000 训练集 50,000个验证集 150,000个测试集 1000个类别在Alexnet上 5.2ms 一个input,包括forward和backward    1,200,000 * 5.2 ms = 6240s = 1.733 h训练一轮大概需要1.733h所以一般在pretrained的网络，调整网络结构，使用新的数据集，进行retrainAlexnet">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-07T03:29:26.000Z">
+<meta property="og:updated_time" content="2017-11-11T05:48:05.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dataset">
 <meta name="twitter:description" content="ImageNet1,200,000 训练集 50,000个验证集 150,000个测试集 1000个类别在Alexnet上 5.2ms 一个input,包括forward和backward    1,200,000 * 5.2 ms = 6240s = 1.733 h训练一轮大概需要1.733h所以一般在pretrained的网络，调整网络结构，使用新的数据集，进行retrainAlexnet">
@@ -455,11 +457,109 @@
 <td>&#x2013;</td>
 <td>+</td>
 </tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
 <tr>
-<td>&#x53C2;&#x6570;&#x6570;&#x76EE;</td>
-<td>60M</td>
-<td>130M</td>
-<td></td>
+<th>model</th>
+<th>&#x53C2;&#x6570;&#x6570;&#x76EE;</th>
+<th>Top1 err %</th>
+<th>Top5 err %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alextnet</td>
+<td>61.1M</td>
+<td>43.45</td>
+<td>20.91</td>
+</tr>
+<tr>
+<td>VGG16</td>
+<td>138.36M</td>
+<td>28.41</td>
+<td>9.62</td>
+</tr>
+<tr>
+<td>VGG19</td>
+<td>143.67M</td>
+<td>27.62</td>
+<td>9.12</td>
+</tr>
+<tr>
+<td>inception_v3</td>
+<td>27.16M</td>
+<td>22.55</td>
+<td>6.44</td>
+</tr>
+<tr>
+<td>resnet18</td>
+<td>11.69M</td>
+<td>30.24</td>
+<td>10.92</td>
+</tr>
+<tr>
+<td>resnet34</td>
+<td>21.80M</td>
+<td>26.7</td>
+<td>8.58</td>
+</tr>
+<tr>
+<td>resnet50</td>
+<td>25.56M</td>
+<td>23.85</td>
+<td>7.13</td>
+</tr>
+<tr>
+<td>resnet101</td>
+<td>44.55M</td>
+<td>22.63</td>
+<td>6.44</td>
+</tr>
+<tr>
+<td>resnet152</td>
+<td>60.19M</td>
+<td>21.69</td>
+<td>5.94</td>
+</tr>
+<tr>
+<td>squeezenet1_0</td>
+<td>1.25M</td>
+<td>41.90</td>
+<td>19.58</td>
+</tr>
+<tr>
+<td>squeezenet1_1</td>
+<td>1.24M</td>
+<td>41.81</td>
+<td>19.38</td>
+</tr>
+<tr>
+<td>Densenet121</td>
+<td>7.98M</td>
+<td>25.35</td>
+<td>7.83</td>
+</tr>
+<tr>
+<td>Densenet169</td>
+<td>14.15M</td>
+<td>24.00</td>
+<td>7.00</td>
+</tr>
+<tr>
+<td>Densenet201</td>
+<td>20.1M</td>
+<td>22.80</td>
+<td>6.43</td>
+</tr>
+<tr>
+<td>Densenet161</td>
+<td>28.68M</td>
+<td>22.35</td>
+<td>6.2</td>
 </tr>
 </tbody>
 </table>
