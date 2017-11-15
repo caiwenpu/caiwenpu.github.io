@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-08T11:05:35.072Z">
+<meta property="og:updated_time" content="2017-11-12T16:23:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -369,12 +369,34 @@
 <h2 id="group-base-Quantization"><a href="#group-base-Quantization" class="headerlink" title="group-base Quantization"></a>group-base Quantization</h2><p>&#x76F8;&#x4F3C;&#x7684;&#x6743;&#x91CD;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x6743;&#x91CD;&#x503C;</p>
 <h1 id="Pruning-Neural-Network"><a href="#Pruning-Neural-Network" class="headerlink" title="Pruning Neural Network"></a>Pruning Neural Network</h1><ul>
 <li><span style="color:red">Song Han, Jeff Pool, John Tran, William J. Dally:<br><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="external">Learning both Weights and Connections for Efficient Neural Networks.</a>[NIPS 2015]</span>  </li>
-<li><span style="color:red">Wei Wen, Chunpeng Wu, Yandan Wang, Yiran Chen, Hai Li:<br><a href="http://papers.nips.cc/paper/6504-learning-structured-sparsity-in-deep-neural-networks" target="_blank" rel="external">Learning Structured Sparsity in Deep Neural Networks.</a> [NIPS 2016] </span>   </li>
+<li><span style="color:red">Wei Wen, Chunpeng Wu, Yandan Wang, Yiran Chen, Hai Li:<br><a href="http://papers.nips.cc/paper/6504-learning-structured-sparsity-in-deep-neural-networks" target="_blank" rel="external">Learning Structured Sparsity in Deep Neural Networks.</a> [NIPS 2016] </span>   <ul>
+<li>&#x5728;Alexnet&#x4E0A;5.1&#x500D;&#x7684;CPU&#x52A0;&#x901F;&#xFF0C;3.1&#x500D;&#x7684;GPU&#x52A0;&#x901F;</li>
+</ul>
+</li>
 <li><span style="color:red">Yiwen Guo, Anbang Yao, Yurong Chen:<br><a href="http://papers.nips.cc/paper/6165-dynamic-network-surgery-for-efficient-dnns" target="_blank" rel="external">Dynamic Network Surgery for Efficient DNNs.</a> [NIPS 2016]
 </span></li>
-<li><span style="color:red">Jian-Hao Luo, Jianxin Wu, Weiyao Lin:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression.</a>[ICCV 2017]</span>  </li>
+<li><span style="color:red">Jian-Hao Luo, Jianxin Wu, Weiyao Lin:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression.</a>[ICCV 2017]</span>  <ul>
+<li>&#x5728;VGG&#x548C;Resnet-50&#x4E0A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6570;&#x636E;&#x96C6;ImageNet&#xFF0C;&#x5E73;&#x53F0;caffe</li>
+<li>&#x53EF;&#x4EE5;&#x5728;Resnet-50&#x4E0A;&#x526A;&#x6389;50%&#x7684;&#x53C2;&#x6570;&#x548C;FLOPS,1%&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+<li>layer by layer &#x526A;&#x6389;&#x67D0;&#x4E9B;channel</li>
 </ul>
-<p>&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x76F8;&#x4F3C;&#x7684;channel &#x7136;&#x540E;&#x5220;&#x6389;&#x5197;&#x4F59;&#x7684;</p>
+</li>
+</ul>
+<p>&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x76F8;&#x4F3C;&#x7684;channel &#x7136;&#x540E;&#x5220;&#x6389;&#x5197;&#x4F59;&#x7684;<br>activation based &#x526A;&#x679D;  &#x53BB;&#x6389;&#x4E00;&#x4E9B;activation&#x5C0F;&#x7684;feature map</p>
+<h1 id="Matrix-Decomposition"><a href="#Matrix-Decomposition" class="headerlink" title="Matrix Decomposition"></a>Matrix Decomposition</h1><ul>
+<li><span style="color:red"> Emily L. Denton, Wojciech Zaremba, Joan Bruna, Yann LeCun, Rob Fergus:<br><a href="https://arxiv.org/abs/1404.0736" target="_blank" rel="external">Exploiting Linear Structure Within Convolutional Networks for Efficient Evaluation.</a>[NIPS 2014]</span>    <ul>
+<li>2.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet&#x4E0A; 2-3&#x500D;&#x5377;&#x79EF;&#x5C42;&#x53C2;&#x6570;&#x51CF;&#x5C11; &#xFF0C;&#x5C0F;&#x4E8E;1%&#x7684;&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+</ul>
+</li>
+<li><span style="color:red"> Vadim Lebedev, Yaroslav Ganin, Maksim Rakhuba, Ivan V. Oseledets, Victor S. Lempitsky:<br><a href="https://arxiv.org/abs/1412.6553" target="_blank" rel="external">Speeding-up Convolutional Neural Networks Using Fine-tuned CP-Decomposition.</a>[ICLR 2015] </span>  <ul>
+<li>4.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet&#x4E0A;</li>
+</ul>
+</li>
+<li><span style="color:red">Jose M. Alvarez,Mathieu Salzmann:[Compression-aware Training of Deep Networks][NIPS 2017]</span><ul>
+<li>Resnet50 27% &#x53C2;&#x6570;&#x538B;&#x7F29;</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -502,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -548,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quantized-Neural-Network"><span class="nav-number">1.</span> <span class="nav-text">Quantized Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low-precision-Quantization"><span class="nav-number">1.1.</span> <span class="nav-text">low-precision Quantization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-only"><span class="nav-number">1.1.1.</span> <span class="nav-text">quantized weights only</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-and-activations"><span class="nav-number">1.1.2.</span> <span class="nav-text">quantized weights and activations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group-base-Quantization"><span class="nav-number">1.2.</span> <span class="nav-text">group-base Quantization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pruning-Neural-Network"><span class="nav-number">2.</span> <span class="nav-text">Pruning Neural Network</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quantized-Neural-Network"><span class="nav-number">1.</span> <span class="nav-text">Quantized Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low-precision-Quantization"><span class="nav-number">1.1.</span> <span class="nav-text">low-precision Quantization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-only"><span class="nav-number">1.1.1.</span> <span class="nav-text">quantized weights only</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-and-activations"><span class="nav-number">1.1.2.</span> <span class="nav-text">quantized weights and activations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group-base-Quantization"><span class="nav-number">1.2.</span> <span class="nav-text">group-base Quantization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pruning-Neural-Network"><span class="nav-number">2.</span> <span class="nav-text">Pruning Neural Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Decomposition"><span class="nav-number">3.</span> <span class="nav-text">Matrix Decomposition</span></a></li></ol></div>
             
 
           </div>
@@ -601,7 +623,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共1.7k字</span>
+  <span class="post-count">博客共2.3k字</span>
 </div>
 
         
