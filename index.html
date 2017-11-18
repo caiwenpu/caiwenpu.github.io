@@ -525,8 +525,9 @@
 <blockquote>
 <p><script type="math/tex">W = USV^T = \displaystyle\sum_{i=1}^{min\{m,k\}}s_i \mathbf{u}_i \mathbf{v}_i^T,U \in \mathbb{R}^{m \times m},S \in \mathbb{R}^{m \times k},V \in \mathbb{R}^{k \times k}</script>,<br>$S$&#x662F;&#x5BF9;&#x89D2;&#x77E9;&#x9635;&#xFF0C;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x662F;&#x5947;&#x5F02;&#x503C;&#xFF0C;$U,V$&#x90FD;&#x662F;&#x6B63;&#x4EA4;&#x77E9;&#x9635;&#xFF0C;$W$&#x53EF;&#x4EE5;&#x88AB;&#x8FD1;&#x4F3C;&#x4E3A;$\tilde{W} = \tilde{U} \tilde{S} \tilde{V}^T,\tilde{U} \in \mathbb{R}^{m \times t},\tilde{S} \in \mathbb{R}^{t \times t},\tilde{V} \in \mathbb{R}^{t \times k}$&#x3002; <br></p>
 </blockquote>
-<p>&#x90A3;&#x4E48;&#x8FD1;&#x4F3C;&#x8BEF;&#x5DEE;$|| I \tilde{W} - IW||<em>F \leq s</em>{t+1} ||I||_F$&#xFF0C;&#x56E0;&#x4E3A;</p>
+<p>&#x90A3;&#x4E48;&#x8FD1;&#x4F3C;&#x8BEF;&#x5DEE;</p>
 <blockquote>
+<script type="math/tex; mode=display">|| I \tilde{W} - IW||_F \leq s_{t+1} ||I||_F</script><p>&#x56E0;&#x4E3A;</p>
 <p><script type="math/tex">||I(\tilde{W} - W)||_F \leq ||I||_F||\tilde{W}-W||_F=||I||_F||\displaystyle\sum_{i=t+1}^{min\{m,k\}} s_i \mathbf{u}_i \mathbf{v}_i^T||_F \leq||I||_F\displaystyle\sum_{i=t+1}^{min\{m,k\}} s_i</script> &#x3002;<br></p>
 </blockquote>
 <p>$I \tilde{W}$&#x7684;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#x4E3A; $O(nmt + nt^2 + ntk)$ &#xFF0C;&#x5BF9;&#x4E8E;&#x8DB3;&#x591F;&#x5C0F;&#x7684; $t$&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x6BD4; $O(nmk)$&#x5C0F;&#x5F88;&#x591A;&#x3002;</p>
