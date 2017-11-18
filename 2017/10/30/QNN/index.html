@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-12T16:23:06.000Z">
+<meta property="og:updated_time" content="2017-11-17T13:08:04.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -367,14 +367,31 @@
 <li><span style="color:red">Shuchang Zhou, Zekun Ni, Xinyu Zhou, He Wen, Yuxin Wu, Yuheng Zou:<br><a href="https://arxiv.org/abs/1606.06160" target="_blank" rel="external">&#x201C;DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients&#x201D;</a>[arXiv&#x2019; 2016]</span> </li>
 </ul>
 <h2 id="group-base-Quantization"><a href="#group-base-Quantization" class="headerlink" title="group-base Quantization"></a>group-base Quantization</h2><p>&#x76F8;&#x4F3C;&#x7684;&#x6743;&#x91CD;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x6743;&#x91CD;&#x503C;</p>
+<ul>
+<li><p><span style="color:red"> Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1510.00149" target="_blank" rel="external">Deep Compression: Compressing Deep Neural Network with Pruning, Trained Quantization and Huffman Coding</a>[ICLR 2016 Best paper]</span></p>
+</li>
+<li><p><span style="color:red"> Karen Ullrich, Edward Meeds, Max Welling:<br><a href="https://arxiv.org/abs/1702.04008" target="_blank" rel="external">Soft Weight-Sharing for Neural Network Compression.</a>[ICLR 2017]</span></p>
+</li>
+</ul>
 <h1 id="Pruning-Neural-Network"><a href="#Pruning-Neural-Network" class="headerlink" title="Pruning Neural Network"></a>Pruning Neural Network</h1><ul>
-<li><span style="color:red">Song Han, Jeff Pool, John Tran, William J. Dally:<br><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="external">Learning both Weights and Connections for Efficient Neural Networks.</a>[NIPS 2015]</span>  </li>
-<li><span style="color:red">Wei Wen, Chunpeng Wu, Yandan Wang, Yiran Chen, Hai Li:<br><a href="http://papers.nips.cc/paper/6504-learning-structured-sparsity-in-deep-neural-networks" target="_blank" rel="external">Learning Structured Sparsity in Deep Neural Networks.</a> [NIPS 2016] </span>   <ul>
+<li><p><span style="color:red">Song Han, Jeff Pool, John Tran, William J. Dally:<br><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="external">Learning both Weights and Connections for Efficient Neural Networks.</a>[NIPS 2015]</span>  </p>
+<ul>
+<li>&#x5728;Alexnet&#x4E0A;&#x526A;&#x6389;89%&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5728;VGG&#x4E0A;&#x526A;&#x6389;92.5%&#x7684;&#x53C2;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x5168;&#x8FDE;&#x63A5;&#x5C42;</li>
+<li>&#x5728;Lenet-5&#x4E0A;&#x4FDD;&#x7559;8%&#x7684;&#x53C2;&#x6570;</li>
+</ul>
+</li>
+<li><p><span style="color:red">Wei Wen, Chunpeng Wu, Yandan Wang, Yiran Chen, Hai Li:<br><a href="http://papers.nips.cc/paper/6504-learning-structured-sparsity-in-deep-neural-networks" target="_blank" rel="external">Learning Structured Sparsity in Deep Neural Networks.</a> [NIPS 2016] </span>   </p>
+<ul>
 <li>&#x5728;Alexnet&#x4E0A;5.1&#x500D;&#x7684;CPU&#x52A0;&#x901F;&#xFF0C;3.1&#x500D;&#x7684;GPU&#x52A0;&#x901F;</li>
 </ul>
 </li>
 <li><span style="color:red">Yiwen Guo, Anbang Yao, Yurong Chen:<br><a href="http://papers.nips.cc/paper/6165-dynamic-network-surgery-for-efficient-dnns" target="_blank" rel="external">Dynamic Network Surgery for Efficient DNNs.</a> [NIPS 2016]
-</span></li>
+</span><ul>
+<li>&#x5728;Alexnet&#x4E0A;17.7&#x500D;&#x7684;&#x538B;&#x7F29;&#x7387;</li>
+<li>&#x5728;Lenet-5&#x4E0A;&#x53EA;&#x4FDD;&#x7559;0.9%&#x7684;&#x53C2;&#x6570;</li>
+</ul>
+</li>
+<li><span style="color:red"> Pavlo Molchanov, Stephen Tyree, Tero Karras, Timo Aila, Jan Kautz<br>NVIDIA:<a href="https://arxiv.org/abs/1611.06440v2" target="_blank" rel="external">PRUNING CONVOLUTIONAL NEURAL NETWORKS FOR RESOURCE EFFICIENT INFERENCE</a>[ICLR 2017]</span></li>
 <li><span style="color:red">Jian-Hao Luo, Jianxin Wu, Weiyao Lin:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression.</a>[ICCV 2017]</span>  <ul>
 <li>&#x5728;VGG&#x548C;Resnet-50&#x4E0A;&#x5B9E;&#x9A8C;&#xFF0C;&#x6570;&#x636E;&#x96C6;ImageNet&#xFF0C;&#x5E73;&#x53F0;caffe</li>
 <li>&#x53EF;&#x4EE5;&#x5728;Resnet-50&#x4E0A;&#x526A;&#x6389;50%&#x7684;&#x53C2;&#x6570;&#x548C;FLOPS,1%&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
@@ -524,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -623,7 +640,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共2.3k字</span>
+  <span class="post-count">博客共2.6k字</span>
 </div>
 
         
