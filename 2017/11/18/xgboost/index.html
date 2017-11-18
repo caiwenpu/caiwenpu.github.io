@@ -83,17 +83,17 @@
 
 
 
-<meta name="description" content="MAC 上安装xgboost 安装gcc 1$ brew install gcc  下载xgboost 123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
+<meta name="description" content="MAC 上安装xgboost 安装gcc   1$ brew install gcc  下载xgboost   123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xgboost">
 <meta property="og:url" content="http://yoursite.com/2017/11/18/xgboost/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="MAC 上安装xgboost 安装gcc 1$ brew install gcc  下载xgboost 123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
+<meta property="og:description" content="MAC 上安装xgboost 安装gcc   1$ brew install gcc  下载xgboost   123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-18T04:24:36.000Z">
+<meta property="og:updated_time" content="2017-11-18T04:27:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xgboost">
-<meta name="twitter:description" content="MAC 上安装xgboost 安装gcc 1$ brew install gcc  下载xgboost 123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
+<meta name="twitter:description" content="MAC 上安装xgboost 安装gcc   1$ brew install gcc  下载xgboost   123cd &amp;lt;Directory&amp;gt;git clone --recursive https://github.com/dmlc/xgboost#一定要加 --recursive 参数 ,因为这个有引用别的git仓库">
 
 
 
@@ -357,26 +357,25 @@
       
         <h1 id="MAC-&#x4E0A;&#x5B89;&#x88C5;xgboost"><a href="#MAC-&#x4E0A;&#x5B89;&#x88C5;xgboost" class="headerlink" title="MAC &#x4E0A;&#x5B89;&#x88C5;xgboost"></a>MAC &#x4E0A;&#x5B89;&#x88C5;xgboost</h1><ul>
 <li><p>&#x5B89;&#x88C5;gcc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install gcc</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install gcc</div></pre></td></tr></table></figure>
 </li>
 <li><p>&#x4E0B;&#x8F7D;xgboost</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;Directory&gt;</div><div class="line">git <span class="built_in">clone</span> --recursive https://github.com/dmlc/xgboost</div><div class="line"><span class="comment">#&#x4E00;&#x5B9A;&#x8981;&#x52A0; --recursive &#x53C2;&#x6570; ,&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x6709;&#x5F15;&#x7528;&#x522B;&#x7684;git&#x4ED3;&#x5E93;</span></div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;Directory&gt;</div><div class="line">git <span class="built_in">clone</span> --recursive https://github.com/dmlc/xgboost</div><div class="line"><span class="comment">#&#x4E00;&#x5B9A;&#x8981;&#x52A0; --recursive &#x53C2;&#x6570; ,&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x6709;&#x5F15;&#x7528;&#x522B;&#x7684;git&#x4ED3;&#x5E93;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <a id="more"></a>
 <ul>
-<li>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> xgboost</div><div class="line">vim make/config.mk</div></pre></td></tr></table></figure>
+<li><p>&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> xgboost</div><div class="line">vim make/config.mk</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># &#x53D6;&#x6D88;&#x4EE5;&#x4E0B;&#x4E24;&#x6761;&#x6CE8;&#x91CA;&#xFF0C;&#x5176;&#x4ED6;&#x65E0;&#x9700;&#x4FEE;&#x6539;</span></div><div class="line"><span class="built_in">export</span> CC = gcc</div><div class="line"><span class="built_in">export</span> CXX = g++</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x67E5;&#x770B;&#x5B89;&#x88C5;&#x7684;gcc&#x7248;&#x672C;</span></div><div class="line">brew list gcc</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x4FEE;&#x6539;make/config.mk&#x91CC;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x7248;&#x672C;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x662F;gcc-7</span></div><div class="line"><span class="comment">#&#x6CE8;&#x610F;&#x4E0D;&#x80FD;&#x5728;~/.bash_profile&#x91CC;&#x76F4;&#x63A5;alias gcc=gcc-7 &#x8FD9;&#x53EA;&#x5728;shell&#x7EC8;&#x7AEF;&#x6709;&#x6548;&#xFF0C;&#x800C;&#x5728;makefile&#x4E4B;&#x7C7B;&#x7684;&#x6587;&#x4EF6;&#x91CC;&#x65E0;&#x6548;</span></div><div class="line"><span class="built_in">export</span> CC = gcc-7</div><div class="line"><span class="built_in">export</span> CXX = g++-7</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># &#x53D6;&#x6D88;&#x4EE5;&#x4E0B;&#x4E24;&#x6761;&#x6CE8;&#x91CA;&#xFF0C;&#x5176;&#x4ED6;&#x65E0;&#x9700;&#x4FEE;&#x6539;</span></div><div class="line"><span class="built_in">export</span> CC = gcc</div><div class="line"><span class="built_in">export</span> CXX = g++</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x67E5;&#x770B;&#x5B89;&#x88C5;&#x7684;gcc&#x7248;&#x672C;</span></div><div class="line">brew list gcc</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x4FEE;&#x6539;make/config.mk&#x91CC;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x7248;&#x672C;&#xFF0C;&#x6211;&#x8FD9;&#x91CC;&#x662F;gcc-7</span></div><div class="line"><span class="comment">#&#x6CE8;&#x610F;&#x4E0D;&#x80FD;&#x5728;~/.bash_profile&#x91CC;&#x76F4;&#x63A5;alias gcc=gcc-7 &#x8FD9;&#x53EA;&#x5728;shell&#x7EC8;&#x7AEF;&#x6709;&#x6548;&#xFF0C;&#x800C;&#x5728;makefile&#x4E4B;&#x7C7B;&#x7684;&#x6587;&#x4EF6;&#x91CC;&#x65E0;&#x6548;</span></div><div class="line"><span class="built_in">export</span> CC = gcc-7</div><div class="line"><span class="built_in">export</span> CXX = g++-7</div></pre></td></tr></table></figure>
-<ul>
 <li><p>&#x7F16;&#x8BD1;xgboost</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ..</div><div class="line">cp make/config.mk .</div><div class="line">make -j4</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ..</div><div class="line">cp make/config.mk .</div><div class="line">make -j4</div></pre></td></tr></table></figure>
 </li>
 <li><p>&#x5B89;&#x88C5;&#x5230;python&#x865A;&#x62DF;&#x73AF;&#x5883;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> &lt;virtual_root&gt;/bin/activate <span class="comment">#&#x8FDB;&#x5165;&#x865A;&#x62DF;&#x73AF;&#x5883;</span></div><div class="line"><span class="built_in">cd</span> python-package</div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> &lt;virtual_root&gt;/bin/activate <span class="comment">#&#x8FDB;&#x5165;&#x865A;&#x62DF;&#x73AF;&#x5883;</span></div><div class="line"><span class="built_in">cd</span> python-package</div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>&#x53C2;&#x8003;&#x535A;&#x5BA2;&#xFF1A;<br><a href="https://isaacchanghau.github.io/2017/06/20/Install-XGBoost-on-Mac-OS-X/" target="_blank" rel="external">https://isaacchanghau.github.io/2017/06/20/Install-XGBoost-on-Mac-OS-X/</a></p>

@@ -358,10 +358,10 @@
         
           <h1 id="MAC-上安装xgboost"><a href="#MAC-上安装xgboost" class="headerlink" title="MAC 上安装xgboost"></a>MAC 上安装xgboost</h1><ul>
 <li><p>安装gcc</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install gcc</div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install gcc</div></pre></td></tr></table></figure>
 </li>
 <li><p>下载xgboost</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;Directory&gt;</div><div class="line">git <span class="built_in">clone</span> --recursive https://github.com/dmlc/xgboost</div><div class="line"><span class="comment">#一定要加 --recursive 参数 ,因为这个有引用别的git仓库</span></div></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;Directory&gt;</div><div class="line">git <span class="built_in">clone</span> --recursive https://github.com/dmlc/xgboost</div><div class="line"><span class="comment">#一定要加 --recursive 参数 ,因为这个有引用别的git仓库</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
           <!--noindex-->
@@ -509,25 +509,17 @@
 
       
         
-          
-            <h1 id="&#x77E9;&#x9635;&#x5206;&#x89E3;-SVD"><a href="#&#x77E9;&#x9635;&#x5206;&#x89E3;-SVD" class="headerlink" title="&#x77E9;&#x9635;&#x5206;&#x89E3; (SVD)"></a>&#x77E9;&#x9635;&#x5206;&#x89E3; (SVD)</h1><p>&#x5BF9;&#x4E8E;&#x77E9;&#x9635; $W \in \mathbb{R} ^{m\times k}$ &#x548C;&#x77E9;&#x9635; $I \in \mathbb{R} ^{n\times m}$&#xFF0C;&#x5BF9;$W$&#x8FDB;&#x884C;SVD&#x5206;&#x89E3;&#xFF0C;</p>
+          <h1 id="矩阵分解-SVD"><a href="#矩阵分解-SVD" class="headerlink" title="矩阵分解 (SVD)"></a>矩阵分解 (SVD)</h1><p>对于矩阵 $W \in \mathbb{R} ^{m\times k}$ 和矩阵 $I \in \mathbb{R} ^{n\times m}$，对$W$进行SVD分解，</p>
 <blockquote>
-<p><script type="math/tex">W = USV^T = \displaystyle\sum_{i=1}^{min\{m,k\}}s_i \mathbf{u}_i \mathbf{v}_i^T,U \in \mathbb{R}^{m \times m},S \in \mathbb{R}^{m \times k},V \in \mathbb{R}^{k \times k}</script>,<br>$S$&#x662F;&#x5BF9;&#x89D2;&#x77E9;&#x9635;&#xFF0C;&#x5BF9;&#x89D2;&#x7EBF;&#x4E0A;&#x662F;&#x5947;&#x5F02;&#x503C;&#xFF0C;$U,V$&#x90FD;&#x662F;&#x6B63;&#x4EA4;&#x77E9;&#x9635;&#xFF0C;$W$&#x53EF;&#x4EE5;&#x88AB;&#x8FD1;&#x4F3C;&#x4E3A;$\tilde{W} = \tilde{U} \tilde{S} \tilde{V}^T,\tilde{U} \in \mathbb{R}^{m \times t},\tilde{S} \in \mathbb{R}^{t \times t},\tilde{V} \in \mathbb{R}^{t \times k}$&#x3002; <br></p>
+<p><script type="math/tex">W = USV^T = \displaystyle\sum_{i=1}^{min\{m,k\}}s_i \mathbf{u}_i \mathbf{v}_i^T,U \in \mathbb{R}^{m \times m},S \in \mathbb{R}^{m \times k},V \in \mathbb{R}^{k \times k}</script>,<br>$S$是对角矩阵，对角线上是奇异值，$U,V$都是正交矩阵，$W$可以被近似为$\tilde{W} = \tilde{U} \tilde{S} \tilde{V}^T,\tilde{U} \in \mathbb{R}^{m \times t},\tilde{S} \in \mathbb{R}^{t \times t},\tilde{V} \in \mathbb{R}^{t \times k}$。 <br></p>
 </blockquote>
-<p>&#x90A3;&#x4E48;&#x8FD1;&#x4F3C;&#x8BEF;&#x5DEE;</p>
-<blockquote>
-<script type="math/tex; mode=display">|| I \tilde{W} - IW||_F \leq s_{t+1} ||I||_F</script><p>&#x56E0;&#x4E3A;</p>
-<p><script type="math/tex">||I(\tilde{W} - W)||_F \leq ||I||_F||\tilde{W}-W||_F=||I||_F||\displaystyle\sum_{i=t+1}^{min\{m,k\}} s_i \mathbf{u}_i \mathbf{v}_i^T||_F \leq||I||_F\displaystyle\sum_{i=t+1}^{min\{m,k\}} s_i</script> &#x3002;<br></p>
-</blockquote>
-<p>$I \tilde{W}$&#x7684;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#x4E3A; $O(nmt + nt^2 + ntk)$ &#xFF0C;&#x5BF9;&#x4E8E;&#x8DB3;&#x591F;&#x5C0F;&#x7684; $t$&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x6BD4; $O(nmk)$&#x5C0F;&#x5F88;&#x591A;&#x3002;</p>
-<h1 id="&#x5F20;&#x91CF;&#x5206;&#x89E3;-Tensor-rank-decomposition"><a href="#&#x5F20;&#x91CF;&#x5206;&#x89E3;-Tensor-rank-decomposition" class="headerlink" title="&#x5F20;&#x91CF;&#x5206;&#x89E3; (Tensor rank decomposition)"></a>&#x5F20;&#x91CF;&#x5206;&#x89E3; (Tensor rank decomposition)</h1><h2 id="CP-decomposition"><a href="#CP-decomposition" class="headerlink" title="CP decomposition"></a>CP decomposition</h2><p>&#x5BF9;&#x4E8E;d&#x9636;&#x5F20;&#x91CF;$\mathcal{A}$,$F \space is \space \mathbb{R} \space or \space \mathbb{C}$</p>
-<blockquote>
-<script type="math/tex; mode=display">\mathcal{A} = \sum_{i=1}^{r} \lambda_i \mathbf{a}_i^1 \otimes \mathbf{a}_i^2 \otimes \cdots \otimes \mathbf{a}_i^d,</script><p>$\lambda_i \in F \quad and \quad \mathbf{a}_i^k \in F^{n_k}$.  </p>
-</blockquote>
-<h2 id="HOSVD"><a href="#HOSVD" class="headerlink" title="HOSVD"></a>HOSVD</h2><blockquote>
-<script type="math/tex; mode=display">a_{i_1,i_2,...,i_N} = \sum_{j_1} \sum_{j_2}\cdots \sum_{j_N} s_{j_1,j_2,...,j_N} u^{(1)}_{i_1,j_1} u^{(2)}_{i_2,j_2} ... u^{(N)}_{i_N,j_N}</script></blockquote>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/12/Matrix/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
