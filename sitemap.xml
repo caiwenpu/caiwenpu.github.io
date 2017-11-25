@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
+    
+    <lastmod>2017-11-25T13:38:18.474Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
+    
+    <lastmod>2017-11-25T03:28:55.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
+    
+    <lastmod>2017-11-23T04:14:36.422Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
+    
+    <lastmod>2017-11-22T11:54:53.919Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
+    
+    <lastmod>2017-11-21T10:26:04.493Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/11/18/xgboost/</loc>
     
     <lastmod>2017-11-18T04:27:50.000Z</lastmod>
@@ -12,27 +47,6 @@
     <loc>http://yoursite.com/2017/11/12/Matrix/</loc>
     
     <lastmod>2017-11-18T04:27:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
-    
-    <lastmod>2017-11-17T15:12:04.450Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
-    
-    <lastmod>2017-11-17T13:08:04.720Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
-    
-    <lastmod>2017-11-15T04:14:20.000Z</lastmod>
     
   </url>
   
@@ -54,13 +68,6 @@
     <loc>http://yoursite.com/2017/11/03/Logic/</loc>
     
     <lastmod>2017-11-06T11:33:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
-    
-    <lastmod>2017-11-06T11:32:02.000Z</lastmod>
     
   </url>
   

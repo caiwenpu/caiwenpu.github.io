@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-06T11:32:02.000Z">
+<meta property="og:updated_time" content="2017-11-21T10:26:04.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：    f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：     f(\mathbf{y}) \geq f(\mathbf">
@@ -401,10 +401,18 @@
 <h1 id="PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;"><a href="#PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;" class="headerlink" title="PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)"></a>PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)</h1><p>&#x7528;&#x4E8E;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF1A;</p>
 <blockquote>
 <script type="math/tex; mode=display">\text{求出} d'\text{个特征向量,表示成矩阵} W,W \text{的每一行对应一个特征向量;}</script><script type="math/tex; mode=display">\text{原始数据}X \text{的每一列对应一个数据点}</script><script type="math/tex; mode=display">WX \text{低维空间的数据表示}</script><script type="math/tex; mode=display">W^TWX \text{原始空间的重构数据表示}</script><script type="math/tex; mode=display">\text{因此PCA把原始数据矩阵X分解成两个小矩阵} W^T,WX.</script></blockquote>
-<h1 id="Convlution-GEMM"><a href="#Convlution-GEMM" class="headerlink" title="Convlution(GEMM)"></a>Convlution(GEMM)</h1><blockquote>
-<script type="math/tex; mode=display">W_{n,c,m,k} \text{表示卷积核的第n个filter,第c个channel，(m,k)的2D-filter的相对位置,令}W_{i,:,:,:} \text{为列向量}</script><script type="math/tex; mode=display">W_{reshape} = \begin{bmatrix}
-   W_{1,:,:,:} , W_{2,:,:,:} ...... W_{n,:,:,:}
-\end{bmatrix}</script><script type="math/tex; mode=display">\text{卷积操作可以表示成矩阵乘法：}Y = im2col(X)  W_{reshape},\text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
+<h1 id="Convolution-im2col"><a href="#Convolution-im2col" class="headerlink" title="Convolution(im2col)"></a>Convolution(im2col)</h1><h2 id="forward"><a href="#forward" class="headerlink" title="forward"></a>forward</h2><blockquote>
+<script type="math/tex; mode=display">W_{n,c,m,k} \text{表示卷积核的第n个filter,  第c个channel，(m,k)的2D-filter的相对位置,令}</script><script type="math/tex; mode=display">W_{i,:,:,:} \text{为列向量},W \in \mathbb{R}^{N \times C \times M \times K}</script><script type="math/tex; mode=display">W_{reshape} = \begin{bmatrix}
+   W_{1,:,:,:} ; W_{2,:,:,:}; ......; W_{n,:,:,:}
+\end{bmatrix} ,W_{reshape} \in \mathbb{R}^{N \times (CMK)}</script><script type="math/tex; mode=display">\text{卷积操作可以表示成矩阵乘法：}Y = W_{reshape} * im2col(X), \text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
+<h2 id="backward"><a href="#backward" class="headerlink" title="backward"></a>backward</h2><blockquote>
+<script type="math/tex; mode=display">\begin{aligned} 
+\text{令}\nabla Y\text{为上层神经元的梯度矩阵},\nabla Y \in \mathbb{R}^{N \times HW}, \\
+\nabla W  = \nabla Y * im2col(X)^T,
+\nabla W \in \mathbb{R}^{N \times CMK} \\
+\nabla X_{reshape} = W_{reshape}^{T} * \nabla Y,\nabla X_{reshape} \in \mathbb{R}^{CMK \times HW},\\
+\nabla X = col2im(\nabla X_{reshape})
+\end{aligned}</script></blockquote>
 
       
     </div>
@@ -532,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convlution-GEMM"><span class="nav-number">4.</span> <span class="nav-text">Convlution(GEMM)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">4.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">4.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">4.2.</span> <span class="nav-text">backward</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -631,7 +639,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共2.6k字</span>
+  <span class="post-count">博客共3.1k字</span>
 </div>
 
         

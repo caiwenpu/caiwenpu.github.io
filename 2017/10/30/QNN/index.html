@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-17T13:08:04.720Z">
+<meta property="og:updated_time" content="2017-11-25T03:28:55.519Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -362,12 +362,38 @@
 <a id="more"></a>
 <h3 id="quantized-weights-and-activations"><a href="#quantized-weights-and-activations" class="headerlink" title="quantized weights and activations"></a>quantized weights and activations</h3><ul>
 <li><span style="color:red">Itay Hubara, Matthieu Courbariaux, Daniel Soudry, Ran El-Yaniv, Yoshua Bengio:<br><a href="http://papers.nips.cc/paper/6573-binarized-neural-networks" target="_blank" rel="external">&#x201C;Binarized Neural Networks.&#x201D;</a> [NIPS 2016]</span>  </li>
-<li><span style="color:red">Mohammad Rastegari, Vicente Ordonez, Joseph Redmon, Ali Farhadi:<br><a href="https://arxiv.org/abs/1603.05279" target="_blank" rel="external">&#x201C;XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks.&#x201D;</a> [ECCV 2016]</span>  </li>
-<li><span style="color:red"> Zhaowei Cai, Xiaodong He, Jian Sun, Nuno Vasconcelos:<br><a href="https://arxiv.org/abs/1702.00953" target="_blank" rel="external">&#x201C;Deep Learning with Low Precision by Half-wave Gaussian Quantization.&#x201D;</a>[CVPR 2017]</span>  </li>
-<li><span style="color:red">Shuchang Zhou, Zekun Ni, Xinyu Zhou, He Wen, Yuxin Wu, Yuheng Zou:<br><a href="https://arxiv.org/abs/1606.06160" target="_blank" rel="external">&#x201C;DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients&#x201D;</a>[arXiv&#x2019; 2016]</span> </li>
+<li><span style="color:red">Mohammad Rastegari, Vicente Ordonez, Joseph Redmon, Ali Farhadi:<br><a href="https://arxiv.org/abs/1603.05279" target="_blank" rel="external">&#x201C;XNOR-Net: ImageNet Classification Using Binary Convolutional Neural Networks.&#x201D;</a> [ECCV 2016]</span>  <ul>
+<li>&#x5BF9;&#x4E8E;activation,&#x6BCF;&#x4E2A;spitial position&#x90FD;&#x8981;&#x4E00;&#x4E2A;scale&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x4E3A;$C \times H<em>{in} \times W</em>{in}$&#x7684;feature map&#x9700;&#x8981;$H<em>{out} \times W</em>{out}$&#x4E2A;scale&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x6743;&#x91CD;,&#x4E00;&#x4E2A;3D&#x7684;&#x5377;&#x79EF;&#x6838;&#x9700;&#x8981;&#x4E00;&#x4E2A;scale&#x3002;</li>
+<li>AlexNet 44.2% Top1 , 69.2% Top5</li>
 </ul>
-<h2 id="group-base-Quantization"><a href="#group-base-Quantization" class="headerlink" title="group-base Quantization"></a>group-base Quantization</h2><p>&#x76F8;&#x4F3C;&#x7684;&#x6743;&#x91CD;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x6743;&#x91CD;&#x503C;</p>
+</li>
+<li><span style="color:red"> Zhaowei Cai, Xiaodong He, Jian Sun, Nuno Vasconcelos:<br><a href="https://arxiv.org/abs/1702.00953" target="_blank" rel="external">&#x201C;Deep Learning with Low Precision by Half-wave Gaussian Quantization.&#x201D;</a>[CVPR 2017]</span>  </li>
+<li><span style="color:red">Shuchang Zhou, Zekun Ni, Xinyu Zhou, He Wen, Yuxin Wu, Yuheng Zou:<br><a href="https://arxiv.org/abs/1606.06160" target="_blank" rel="external">&#x201C;DoReFa-Net: Training Low Bitwidth Convolutional Neural Networks with Low Bitwidth Gradients&#x201D;</a>[arXiv&#x2019; 2016]</span> <ul>
+<li>SVHN&#x548C;Alexnet&#x4E0A;&#x5B9E;&#x9A8C;&#xFF0C;1bit&#x6743;&#x91CD;&#xFF0C;4bits&#x8F93;&#x5165;&#xFF0C;3%top1&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+</ul>
+</li>
+<li><span style="color:red">Zefan Li, Bingbing Ni, Wenjun Zhang, Xiaokang Yang, Wen Gao:<br><a href="https://arxiv.org/abs/1708.08687" target="_blank" rel="external">Performance Guaranteed Network Acceleration via High-Order Residual Quantization.</a>[ICCV 2017]</span><ul>
+<li>&#x53EA;&#x5728;Mnist&#x548C;Cifar10&#x4E0A;&#x505A;&#x4E86;&#x5B9E;&#x9A8C;</li>
+<li>&#x4E00;&#x6B21;&#x5377;&#x79EF;(&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x6838;)&#x7684;&#x6D6E;&#x70B9;&#x5F00;&#x9500;&#x53D8;&#x4E3A;$\frac{K}{c_{in}k^2}$&#xFF0C;K&#x662F;&#x91CF;&#x5316;&#x9636;&#x6570;(&#x4E00;&#x822C;&#x53D6;{1,2,3,4})</li>
+<li>Cifar10&#x7684;&#x7CBE;&#x5EA6;&#x964D;&#x4F4E;&#x4E86;3%,&#x5728;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x6784;&#x9020;&#x7684;CNN</li>
+</ul>
+</li>
+<li><span style="color:red">Zhaowei Cai, Xiaodong He, Jian Sun, Nuno Vasconcelos:<br><a href="https://arxiv.org/abs/1702.00953" target="_blank" rel="external">Deep Learning with Low Precision by Half-Wave Gaussian Quantization.</a> [CVPR 2017] </span><ul>
+<li>1bit&#x6743;&#x91CD;&#xFF0C;nbits&#x8F93;&#x5165;</li>
+<li>Alexnet,VGG,Resnet,GoogLenet</li>
+<li>1bit&#x6743;&#x91CD;,2bits&#x8F93;&#x5165;,Resnet18,10% top1&#x635F;&#x5931;,7%&#x7684;top5&#x635F;&#x5931;;</li>
+</ul>
+</li>
+<li><span style="color:red">Wei Pan,Xiaofan Lin,Cong Zhao<br><a href="http://proceedings.mlr.press/v37/chenc15.html" target="_blank" rel="external">Towards Accurate Binary Convolutional Neural Network</a>[NIPS 2017]</span><ul>
+<li>resnet18 &#x4E0A;&#xFF0C;5bits&#x6743;&#x91CD;&#xFF0C;5bits&#x8F93;&#x5165;,4.3% top1 &#x7CBE;&#x5EA6;&#x635F;&#x5931;,3.3% top5&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+<li>&#x8F93;&#x5165;&#x7684;scale&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x56FA;&#x5B9A;&#xFF0C;&#x4E0D;&#x7528;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x518D;&#x53BB;&#x6C42;</li>
+</ul>
+</li>
+</ul>
+<h2 id="group-base-Quantization"><a href="#group-base-Quantization" class="headerlink" title="group-base Quantization"></a>group-base Quantization</h2><p>&#x4E00;&#x7EC4;&#x6743;&#x91CD;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x6743;&#x91CD;&#x503C;</p>
 <ul>
+<li><soan style="color:red"> Wenlin Chen, James T. Wilson, Stephen Tyree, Kilian Q. Weinberger, Yixin Chen:<br><a href="http://proceedings.mlr.press/v37/chenc15.html" target="_blank" rel="external">Compressing Neural Networks with the Hashing Trick.</a> [ICML 2015] &lt;/span&gt;</soan></li>
 <li><p><span style="color:red"> Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1510.00149" target="_blank" rel="external">Deep Compression: Compressing Deep Neural Network with Pruning, Trained Quantization and Huffman Coding</a>[ICLR 2016 Best paper]</span></p>
 </li>
 <li><p><span style="color:red"> Karen Ullrich, Edward Meeds, Max Welling:<br><a href="https://arxiv.org/abs/1702.04008" target="_blank" rel="external">Soft Weight-Sharing for Neural Network Compression.</a>[ICLR 2017]</span></p>
@@ -407,6 +433,7 @@
 </li>
 <li><span style="color:red"> Vadim Lebedev, Yaroslav Ganin, Maksim Rakhuba, Ivan V. Oseledets, Victor S. Lempitsky:<br><a href="https://arxiv.org/abs/1412.6553" target="_blank" rel="external">Speeding-up Convolutional Neural Networks Using Fine-tuned CP-Decomposition.</a>[ICLR 2015] </span>  <ul>
 <li>4.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet&#x4E0A;</li>
+<li>$1 \times 1$ conv $\rightarrow$ &#x4E00;&#x4E2A;feature map&#x7684;&#x5782;&#x76F4;conv $\rightarrow$ &#x4E00;&#x4E2A;feature map&#x7684;&#x6C34;&#x5E73;conv-&gt; $1\times 1$ conv</li>
 </ul>
 </li>
 <li><span style="color:red">Jose M. Alvarez,Mathieu Salzmann:[Compression-aware Training of Deep Networks][NIPS 2017]</span><ul>
@@ -541,7 +568,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -640,7 +667,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共2.6k字</span>
+  <span class="post-count">博客共3.1k字</span>
 </div>
 
         
@@ -928,6 +955,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
