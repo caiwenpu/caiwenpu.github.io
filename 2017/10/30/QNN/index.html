@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T03:28:55.519Z">
+<meta property="og:updated_time" content="2017-11-26T14:37:05.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -426,22 +426,29 @@
 </li>
 </ul>
 <p>&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x76F8;&#x4F3C;&#x7684;channel &#x7136;&#x540E;&#x5220;&#x6389;&#x5197;&#x4F59;&#x7684;<br>activation based &#x526A;&#x679D;  &#x53BB;&#x6389;&#x4E00;&#x4E9B;activation&#x5C0F;&#x7684;feature map</p>
-<h1 id="Matrix-Decomposition"><a href="#Matrix-Decomposition" class="headerlink" title="Matrix Decomposition"></a>Matrix Decomposition</h1><ul>
+<h1 id="Matrix-Decomposition"><a href="#Matrix-Decomposition" class="headerlink" title="Matrix Decomposition"></a>Matrix Decomposition</h1><h2 id="&#x5377;&#x79EF;&#x5C42;"><a href="#&#x5377;&#x79EF;&#x5C42;" class="headerlink" title="&#x5377;&#x79EF;&#x5C42;"></a>&#x5377;&#x79EF;&#x5C42;</h2><ul>
 <li><span style="color:red"> Emily L. Denton, Wojciech Zaremba, Joan Bruna, Yann LeCun, Rob Fergus:<br><a href="https://arxiv.org/abs/1404.0736" target="_blank" rel="external">Exploiting Linear Structure Within Convolutional Networks for Efficient Evaluation.</a>[NIPS 2014]</span>    <ul>
 <li>2.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet&#x4E0A; 2-3&#x500D;&#x5377;&#x79EF;&#x5C42;&#x53C2;&#x6570;&#x51CF;&#x5C11; &#xFF0C;&#x5C0F;&#x4E8E;1%&#x7684;&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
 </ul>
 </li>
 <li><span style="color:red"> Vadim Lebedev, Yaroslav Ganin, Maksim Rakhuba, Ivan V. Oseledets, Victor S. Lempitsky:<br><a href="https://arxiv.org/abs/1412.6553" target="_blank" rel="external">Speeding-up Convolutional Neural Networks Using Fine-tuned CP-Decomposition.</a>[ICLR 2015] </span>  <ul>
-<li>4.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet&#x4E0A;</li>
+<li>4.5&#x500D;&#x52A0;&#x901F; &#x5728;Alexnet conv2&#x4E0A;</li>
 <li>$1 \times 1$ conv $\rightarrow$ &#x4E00;&#x4E2A;feature map&#x7684;&#x5782;&#x76F4;conv $\rightarrow$ &#x4E00;&#x4E2A;feature map&#x7684;&#x6C34;&#x5E73;conv-&gt; $1\times 1$ conv</li>
+</ul>
+</li>
+<li><span style="color:red">Cheng Tai, Tong Xiao, Yi Zhang, Xiaogang Wang, Weinan E:<a href="https://arxiv.org/abs/1511.06067" target="_blank" rel="external">CONVOLUTIONAL NEURAL NETWORKS WITH LOW- RANK REGULARIZATION</a>[ICLR 2016] </span><ul>
+<li>&#x6269;&#x5C55;Jaderberg et al.(2014)</li>
+<li>&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x5C42;&#x5206;&#x89E3;&#x6210;&#x4E24;&#x4E2A;1D&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x4E0D;&#x9002;&#x7528;&#x77E9;&#x9635;&#x5206;&#x89E3;&#x7684;&#x6700;&#x4F18;&#x89E3;&#x8C03;&#x6574;&#xFF0C;&#x4ECE;&#x5934;&#x8BAD;&#x7EC3;Alexnet&#x5F97;&#x5230;&#x66F4;&#x597D;&#x7684;&#x6548;&#x679C;(&#x9700;&#x8981;BN)</li>
+<li>VGG16 2.75&#x500D;&#x7684;&#x538B;&#x7F29;&#x7387;</li>
 </ul>
 </li>
 <li><span style="color:red">Jose M. Alvarez,Mathieu Salzmann:[Compression-aware Training of Deep Networks][NIPS 2017]</span><ul>
 <li>Resnet50 27% &#x53C2;&#x6570;&#x538B;&#x7F29;</li>
+<li>&#x5728;Decomposed&#x7F51;&#x7EDC;&#x4E0A;&#x4ECE;&#x5934;&#x5F00;&#x59CB;&#x8BAD;&#x7EC3;&#xFF0C;Decompose:&#x628A;&#x4E00;&#x4E2A;2D&#x5377;&#x79EF;&#x5C42;&#x5206;&#x6210;&#x4E24;&#x4E2A;1D&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x4E2D;&#x95F4;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</li>
 </ul>
 </li>
 </ul>
-
+<h2 id="&#x5168;&#x8FDE;&#x63A5;&#x5C42;"><a href="#&#x5168;&#x8FDE;&#x63A5;&#x5C42;" class="headerlink" title="&#x5168;&#x8FDE;&#x63A5;&#x5C42;"></a>&#x5168;&#x8FDE;&#x63A5;&#x5C42;</h2>
       
     </div>
     
@@ -614,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quantized-Neural-Network"><span class="nav-number">1.</span> <span class="nav-text">Quantized Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low-precision-Quantization"><span class="nav-number">1.1.</span> <span class="nav-text">low-precision Quantization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-only"><span class="nav-number">1.1.1.</span> <span class="nav-text">quantized weights only</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-and-activations"><span class="nav-number">1.1.2.</span> <span class="nav-text">quantized weights and activations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group-base-Quantization"><span class="nav-number">1.2.</span> <span class="nav-text">group-base Quantization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pruning-Neural-Network"><span class="nav-number">2.</span> <span class="nav-text">Pruning Neural Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Decomposition"><span class="nav-number">3.</span> <span class="nav-text">Matrix Decomposition</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Quantized-Neural-Network"><span class="nav-number">1.</span> <span class="nav-text">Quantized Neural Network</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#low-precision-Quantization"><span class="nav-number">1.1.</span> <span class="nav-text">low-precision Quantization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-only"><span class="nav-number">1.1.1.</span> <span class="nav-text">quantized weights only</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#quantized-weights-and-activations"><span class="nav-number">1.1.2.</span> <span class="nav-text">quantized weights and activations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#group-base-Quantization"><span class="nav-number">1.2.</span> <span class="nav-text">group-base Quantization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pruning-Neural-Network"><span class="nav-number">2.</span> <span class="nav-text">Pruning Neural Network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Decomposition"><span class="nav-number">3.</span> <span class="nav-text">Matrix Decomposition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积层"><span class="nav-number">3.1.</span> <span class="nav-text">卷积层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全连接层"><span class="nav-number">3.2.</span> <span class="nav-text">全连接层</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -667,7 +674,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共3.1k字</span>
+  <span class="post-count">博客共3.7k字</span>
 </div>
 
         

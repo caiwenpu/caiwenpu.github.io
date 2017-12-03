@@ -356,13 +356,16 @@
 
       
         
-          
-            <h1 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h1><h2 id="prototxt&#x8DEF;&#x5F84;"><a href="#prototxt&#x8DEF;&#x5F84;" class="headerlink" title=".prototxt&#x8DEF;&#x5F84;"></a>.prototxt&#x8DEF;&#x5F84;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;caffe_root&gt;</div><div class="line"><span class="comment">#&#x5728;.prototxt&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x4E0D;&#x80FD;&#x7528;~/caffe</span></div></pre></td></tr></table></figure>
-<h2 id="can&#x2019;t-find-hdf5-h-when-build-caffe"><a href="#can&#x2019;t-find-hdf5-h-when-build-caffe" class="headerlink" title="can&#x2019;t find hdf5.h when build caffe"></a>can&#x2019;t find hdf5.h when build caffe</h2><p>&#x5EFA;&#x7ACB;hdf5&#x7684;&#x8F6F;&#x94FE;&#x63A5;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/lib/x86_64-linux-gnu</div><div class="line">sudo ln -s libhdf5_serial.so.8.0.2 libhdf5.so</div><div class="line">sudo ln -s libhdf5_serial_hl.so.8.0.2 libhdf5_hl.so</div></pre></td></tr></table></figure></p>
-<p>&#x4FEE;&#x6539;Makefile.config<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INCLUDE_DIRS := <span class="variable">$(PYTHON_INCLUDE)</span> /usr/local/<span class="keyword">include</span> /usr/<span class="keyword">include</span>/hdf5/serial/</div><div class="line">LIBRARY_DIRS := <span class="variable">$(PYTHON_LIB)</span> /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/</div></pre></td></tr></table></figure></p>
-<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="copy-to-host"><a href="#copy-to-host" class="headerlink" title="copy to host"></a>copy to host</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target</div></pre></td></tr></table></figure>
-<h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#.py&#x6587;&#x4EF6;&#x5728;&#x6700;&#x5F00;&#x5934;&#x52A0;&#x5165;</span></div><div class="line"><span class="keyword">import</span> matplotlib</div><div class="line">matplotlib.use(<span class="string">&apos;Agg&apos;</span>)</div></pre></td></tr></table></figure>
-          
+          <h1 id="Caffe"><a href="#Caffe" class="headerlink" title="Caffe"></a>Caffe</h1><h2 id="prototxt路径"><a href="#prototxt路径" class="headerlink" title=".prototxt路径"></a>.prototxt路径</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;caffe_root&gt;</div><div class="line"><span class="comment">#在.prototxt使用绝对路径，不能用~/caffe</span></div></pre></td></tr></table></figure>
+<h2 id="python接口"><a href="#python接口" class="headerlink" title="python接口"></a>python接口</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> caffe <span class="comment">#根据 $PYTHONPATH 指定的caffe路径import</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;caffe_root&gt;</div><div class="line">make pycaffe <span class="comment">#编译caffe的python接口</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/21/caffe/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -803,11 +806,15 @@
 
       
         
-          
-            <h1 id="&#x5377;&#x79EF;&#x6A21;&#x677F;&#x53EF;&#x89C6;&#x5316;"><a href="#&#x5377;&#x79EF;&#x6A21;&#x677F;&#x53EF;&#x89C6;&#x5316;" class="headerlink" title="&#x5377;&#x79EF;&#x6A21;&#x677F;&#x53EF;&#x89C6;&#x5316;"></a>&#x5377;&#x79EF;&#x6A21;&#x677F;&#x53EF;&#x89C6;&#x5316;</h1><p>Resnet18 &#x7B2C;&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x5C42;&#x7684;64&#x4E2A;&#x5377;&#x79EF;&#x6A21;&#x677F;<br>&#x6BCF;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x7684;&#x5927;&#x5C0F;&#x4E3A;(7,7,3)</p>
+          <h1 id="卷积模板可视化"><a href="#卷积模板可视化" class="headerlink" title="卷积模板可视化"></a>卷积模板可视化</h1><p>Resnet18 第一个卷积层的64个卷积模板<br>每一个模板的大小为(7,7,3)</p>
 <p><img src="/2017/11/11/Conv-filter/resnet18_conv1_filter.jpg" alt="logo"></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/11/Conv-filter/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1879,7 +1886,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共3.1k字</span>
+  <span class="post-count">博客共3.7k字</span>
 </div>
 
         
