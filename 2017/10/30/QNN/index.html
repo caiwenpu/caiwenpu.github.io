@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T14:37:05.257Z">
+<meta property="og:updated_time" content="2017-12-17T13:54:10.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -358,6 +358,17 @@
 <li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">&#x201C;BinaryConnect: Training Deep Neural Networks with binary weights during propagations.&#x201D;</a> [NIPS 2015]</span>    </li>
 <li><span style="color:red"> Chenzhuo Zhu, Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">Trained Ternary Quantization</a>[ICLR 2017]</span> </li>
 <li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">&#x201C;Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.&#x201D;</a>[ICLR 2017]</span> </li>
+<li><span style="color:red"> Yiwen Guo, Anbang Yao, Hao Zhao, Yurong Chen:<a href="https://arxiv.org/pdf/1706.02021.pdf" target="_blank" rel="external">Network Sketching: Exploiting Binary Structure in Deep CNNs</a>[CVPR 2017]</span> <ul>
+<li>&#x5269;&#x4F59;&#x91CF;&#x5316;&#x6743;&#x91CD;</li>
+<li>&#x5229;&#x7528;Bit&#x5E73;&#x9762;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x503C;&#x6765;&#x51CF;&#x5C11;&#x5197;&#x4F59;&#x8BA1;&#x7B97;</li>
+<li>3bit &#x6743;&#x91CD; Resnet18 1% top1&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+</ul>
+</li>
+<li><span style="color:red">Felix Juefei-Xu, Vishnu Naresh Boddeti, Marios Savvides:<br><a href="https://arxiv.org/abs/1608.06049" target="_blank" rel="external">Local Binary Convolutional Neural Networks.</a> [CVPR 2017] </span><ul>
+<li>&#x4E00;&#x4E2A;&#x4E09;&#x503C;&#x5377;&#x79EF;&#x5C42;(&#x56FA;&#x5B9A;&#x53C2;&#x6570;) + &#x4E00;&#x4E2A;1*1&#x5377;&#x79EF;&#x5C42;(&#x79D1;&#x5B66;&#x7CFB;&#x53C2;&#x6570;)&#x66FF;&#x4EE3;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x5377;&#x79EF;&#x5C42;</li>
+<li>&#x66F4;&#x5C11;&#x7684;&#x53EF;&#x8BAD;&#x7EC3;&#x53C2;&#x6570;&#xFF0C;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;</li>
+</ul>
+</li>
 </ul>
 <a id="more"></a>
 <h3 id="quantized-weights-and-activations"><a href="#quantized-weights-and-activations" class="headerlink" title="quantized weights and activations"></a>quantized weights and activations</h3><ul>
@@ -383,6 +394,12 @@
 <li>1bit&#x6743;&#x91CD;&#xFF0C;nbits&#x8F93;&#x5165;</li>
 <li>Alexnet,VGG,Resnet,GoogLenet</li>
 <li>1bit&#x6743;&#x91CD;,2bits&#x8F93;&#x5165;,Resnet18,10% top1&#x635F;&#x5931;,7%&#x7684;top5&#x635F;&#x5931;;</li>
+</ul>
+</li>
+<li><span style="color:red">Wei Tang, Gang Hua, Liang Wang:<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI17/paper/download/14619/14454" target="_blank" rel="external">How to Train a Compact Binary Neural Network with High Accuracy?</a>[AAAI 2017]</span><ul>
+<li>&#x6574;&#x4E2A;&#x6FC0;&#x6D3B;&#x4E00;&#x4E2A;scale&#xFF0C;&#x5269;&#x4F59;&#x91CF;&#x5316;&#x6FC0;&#x6D3B;&#xFF0C;&#x6709;scale&#x3002;1bit &#x6743;&#x91CD;&#xFF0C;&#x65E0;scale&#x3002;</li>
+<li>&#x4F7F;&#x7528;PRelu&#x4F5C;&#x4E3A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF0C;&#x91CF;&#x5316; -&gt; &#x5377;&#x79EF; -&gt; PReLU -&gt; BN</li>
+<li>&#x635F;&#x5931;&#x51FD;&#x6570;&#x52A0;&#x5165;&#x6B63;&#x5219;&#x9879; $\sum_i (1-w_i^2)$ </li>
 </ul>
 </li>
 <li><span style="color:red">Wei Pan,Xiaofan Lin,Cong Zhao<br><a href="http://proceedings.mlr.press/v37/chenc15.html" target="_blank" rel="external">Towards Accurate Binary Convolutional Neural Network</a>[NIPS 2017]</span><ul>
@@ -575,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +691,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共3.7k字</span>
+  <span class="post-count">博客共4.5k字</span>
 </div>
 
         

@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/11/11/Conv-filter/</loc>
+    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
     
-    <lastmod>2017-12-03T14:08:19.608Z</lastmod>
+    <lastmod>2017-12-17T13:54:10.734Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
+    
+    <lastmod>2017-12-17T09:48:51.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/06/loss-func/</loc>
+    
+    <lastmod>2017-12-16T11:42:15.284Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
+    
+    <lastmod>2017-12-15T13:19:17.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/14/optim/</loc>
+    
+    <lastmod>2017-12-14T02:40:01.472Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/11/21/caffe/</loc>
     
-    <lastmod>2017-12-03T14:08:00.000Z</lastmod>
+    <lastmod>2017-12-11T14:10:20.866Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/11/Conv-filter/</loc>
+    
+    <lastmod>2017-12-03T14:08:19.608Z</lastmod>
     
   </url>
   
@@ -23,30 +58,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
-    
-    <lastmod>2017-12-03T07:02:56.026Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
-    
-    <lastmod>2017-11-26T14:37:05.257Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
     
     <lastmod>2017-11-26T05:35:42.437Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
-    
-    <lastmod>2017-11-22T11:54:53.919Z</lastmod>
     
   </url>
   
