@@ -500,7 +500,7 @@
       
         
           
-            <h1 id="SVM-LOSS"><a href="#SVM-LOSS" class="headerlink" title="SVM LOSS"></a>SVM LOSS</h1><h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
+            <h1 id="SVM-LOSS"><a href="#SVM-LOSS" class="headerlink" title="SVM_LOSS"></a>SVM_LOSS</h1><blockquote>
 <script type="math/tex; mode=display">\min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i</script><script type="math/tex; mode=display">\begin{aligned} 1+1 =&2 \\
                         =&1+1
 \end{aligned}</script><p>$\xi$&#x7684;&#x9009;&#x53D6;&#xFF1A;Hinge Loss,exp loss&#x2026;</p>
@@ -515,12 +515,14 @@
 &l(y) = \sum_{t \neq y} max(0,1+f(x)[t] - f(x)[y])^2,\\
 &f(x) \text{为多分类器输出的每一类的概率分布},y \text{为真实的类别} 
 \end{aligned}</script></blockquote>
-<p>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;SVM_LOSS&#x5BF9;&#x5176;logit&#x505A;loss&#xFF0C;&#x6CA1;&#x6709;softmax&#x8FD9;&#x4E00;&#x5C42;<br>&#x4E0B;&#x56FE;&#x662F;SVM_LOSS&#x548C;softmax cross entropy loss&#x7684;&#x5BF9;&#x6BD4;&#xFF1A;</p>
+<p><span style="color:blue"><br>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;SVM_LOSS&#x5BF9;&#x5176;logit&#x505A;loss&#xFF0C;&#x6CA1;&#x6709;softmax&#x8FD9;&#x4E00;&#x5C42;<br>&#x4E0B;&#x56FE;&#x662F;SVM_LOSS&#x548C;softmax cross entropy loss&#x7684;&#x5BF9;&#x6BD4;&#xFF1A;
+</span></p>
 <p><img src="/2017/12/06/loss-func/svmvssoftmax.png" alt="logo"></p>
 <h1 id="Softmax-&#x53CD;&#x5411;&#x6C42;&#x5BFC;"><a href="#Softmax-&#x53CD;&#x5411;&#x6C42;&#x5BFC;" class="headerlink" title="Softmax &#x53CD;&#x5411;&#x6C42;&#x5BFC;"></a>Softmax &#x53CD;&#x5411;&#x6C42;&#x5BFC;</h1><p>&#x4EE4; $z_i$ &#x4E3A;&#x7B2C;i&#x4E2A;logit&#xFF0C;$a_i$&#x4E3A;&#x7B2C;i&#x4E2A;softmax&#x3002;</p>
-<h2 id="gt-a-j-frac-e-z-j-sum-k-e-z-k"><a href="#gt-a-j-frac-e-z-j-sum-k-e-z-k" class="headerlink" title="&gt;a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}"></a>&gt;<script type="math/tex">a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}</script></h2><p>&#x82E5;j = i</p>
 <blockquote>
-<script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =a_j(1-a_j)</script><p>&#x82E5;j !=i</p>
+<script type="math/tex; mode=display">a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}</script><hr>
+<p>&#x82E5;$j = i$</p>
+<script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =a_j(1-a_j)</script><p>&#x82E5;$j \neq i$</p>
 <script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =-a_j a_i</script><hr>
 <p>&#x91C7;&#x7528;&#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;</p>
 <script type="math/tex; mode=display">C =-\sum_k y_k log a_k</script><script type="math/tex; mode=display">\frac{\partial C}{\partial z_j} = a_j - y_j</script></blockquote>

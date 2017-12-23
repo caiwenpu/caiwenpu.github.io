@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
+    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
     
-    <lastmod>2017-12-17T13:54:10.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
-    
-    <lastmod>2017-12-17T09:48:51.229Z</lastmod>
+    <lastmod>2017-12-23T13:21:46.922Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/12/06/loss-func/</loc>
     
-    <lastmod>2017-12-16T11:42:15.284Z</lastmod>
+    <lastmod>2017-12-23T13:11:24.214Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
     
-    <lastmod>2017-12-15T13:19:17.274Z</lastmod>
+    <lastmod>2017-12-23T11:18:56.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
+    
+    <lastmod>2017-12-17T13:54:10.734Z</lastmod>
     
   </url>
   

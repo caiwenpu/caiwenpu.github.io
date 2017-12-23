@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="起点" type="application/atom+xml" />
 
@@ -81,18 +83,18 @@
 
 
 
-<meta name="description" content="SVM LOSSSVM \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hing">
+<meta name="description" content="SVM_LOSS \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hinge L">
 <meta property="og:type" content="article">
 <meta property="og:title" content="loss_func">
 <meta property="og:url" content="http://yoursite.com/2017/12/06/loss-func/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="SVM LOSSSVM \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hing">
+<meta property="og:description" content="SVM_LOSS \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hinge L">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/12/06/loss-func/svmvssoftmax.png">
-<meta property="og:updated_time" content="2017-12-16T11:42:15.284Z">
+<meta property="og:updated_time" content="2017-12-23T13:11:24.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="loss_func">
-<meta name="twitter:description" content="SVM LOSSSVM \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hing">
+<meta name="twitter:description" content="SVM_LOSS \min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i\begin{aligned} 1+1 =&amp;2 \\                         =&amp;1+1 \end{aligned}$\xi$&amp;#x7684;&amp;#x9009;&amp;#x53D6;&amp;#xFF1A;Hinge L">
 <meta name="twitter:image" content="http://yoursite.com/2017/12/06/loss-func/svmvssoftmax.png">
 
 
@@ -355,7 +357,7 @@
       
 
       
-        <h1 id="SVM-LOSS"><a href="#SVM-LOSS" class="headerlink" title="SVM LOSS"></a>SVM LOSS</h1><h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><blockquote>
+        <h1 id="SVM-LOSS"><a href="#SVM-LOSS" class="headerlink" title="SVM_LOSS"></a>SVM_LOSS</h1><blockquote>
 <script type="math/tex; mode=display">\min \limits_{\mathbf{w}} \frac{1}{2} ||\mathbf{w}||^2 + C \sum_{i=1}^M \xi_i</script><script type="math/tex; mode=display">\begin{aligned} 1+1 =&2 \\
                         =&1+1
 \end{aligned}</script><p>$\xi$&#x7684;&#x9009;&#x53D6;&#xFF1A;Hinge Loss,exp loss&#x2026;</p>
@@ -370,12 +372,14 @@
 &l(y) = \sum_{t \neq y} max(0,1+f(x)[t] - f(x)[y])^2,\\
 &f(x) \text{为多分类器输出的每一类的概率分布},y \text{为真实的类别} 
 \end{aligned}</script></blockquote>
-<p>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;SVM_LOSS&#x5BF9;&#x5176;logit&#x505A;loss&#xFF0C;&#x6CA1;&#x6709;softmax&#x8FD9;&#x4E00;&#x5C42;<br>&#x4E0B;&#x56FE;&#x662F;SVM_LOSS&#x548C;softmax cross entropy loss&#x7684;&#x5BF9;&#x6BD4;&#xFF1A;</p>
+<p><span style="color:blue"><br>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;SVM_LOSS&#x5BF9;&#x5176;logit&#x505A;loss&#xFF0C;&#x6CA1;&#x6709;softmax&#x8FD9;&#x4E00;&#x5C42;<br>&#x4E0B;&#x56FE;&#x662F;SVM_LOSS&#x548C;softmax cross entropy loss&#x7684;&#x5BF9;&#x6BD4;&#xFF1A;
+</span></p>
 <p><img src="/2017/12/06/loss-func/svmvssoftmax.png" alt="logo"></p>
 <h1 id="Softmax-&#x53CD;&#x5411;&#x6C42;&#x5BFC;"><a href="#Softmax-&#x53CD;&#x5411;&#x6C42;&#x5BFC;" class="headerlink" title="Softmax &#x53CD;&#x5411;&#x6C42;&#x5BFC;"></a>Softmax &#x53CD;&#x5411;&#x6C42;&#x5BFC;</h1><p>&#x4EE4; $z_i$ &#x4E3A;&#x7B2C;i&#x4E2A;logit&#xFF0C;$a_i$&#x4E3A;&#x7B2C;i&#x4E2A;softmax&#x3002;</p>
-<h2 id="gt-a-j-frac-e-z-j-sum-k-e-z-k"><a href="#gt-a-j-frac-e-z-j-sum-k-e-z-k" class="headerlink" title="&gt;a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}"></a>&gt;<script type="math/tex">a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}</script></h2><p>&#x82E5;j = i</p>
 <blockquote>
-<script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =a_j(1-a_j)</script><p>&#x82E5;j !=i</p>
+<script type="math/tex; mode=display">a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}</script><hr>
+<p>&#x82E5;$j = i$</p>
+<script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =a_j(1-a_j)</script><p>&#x82E5;$j \neq i$</p>
 <script type="math/tex; mode=display">\frac{\partial a_j }{\partial z_i} = \frac{\partial}{\partial z_i}(\frac{e^{z_j}}{\sum_k e^{z_k}}) =-a_j a_i</script><hr>
 <p>&#x91C7;&#x7528;&#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;</p>
 <script type="math/tex; mode=display">C =-\sum_k y_k log a_k</script><script type="math/tex; mode=display">\frac{\partial C}{\partial z_j} = a_j - y_j</script></blockquote>
@@ -558,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM-LOSS"><span class="nav-number">1.</span> <span class="nav-text">SVM LOSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM"><span class="nav-number">2.</span> <span class="nav-text">SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hinge-Loss"><span class="nav-number">2.1.</span> <span class="nav-text">Hinge Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类"><span class="nav-number">2.1.1.</span> <span class="nav-text">二分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">2.1.2.</span> <span class="nav-text">多分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Square-Hinge-Loss-L2-SVM"><span class="nav-number">2.2.</span> <span class="nav-text">Square Hinge Loss (L2-SVM)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Softmax-反向求导"><span class="nav-number">3.</span> <span class="nav-text">Softmax 反向求导</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#gt-a-j-frac-e-z-j-sum-k-e-z-k"><span class="nav-number">3.1.</span> <span class="nav-text">>a_j =\frac{e^{z_j}}{\sum_k e^{z_k}}</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料："><span class="nav-number">4.</span> <span class="nav-text">参考资料：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HMM"><span class="nav-number">5.</span> <span class="nav-text">HMM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM-LOSS"><span class="nav-number">1.</span> <span class="nav-text">SVM_LOSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hinge-Loss"><span class="nav-number">1.1.</span> <span class="nav-text">Hinge Loss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二分类"><span class="nav-number">1.1.1.</span> <span class="nav-text">二分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">多分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Square-Hinge-Loss-L2-SVM"><span class="nav-number">1.2.</span> <span class="nav-text">Square Hinge Loss (L2-SVM)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Softmax-反向求导"><span class="nav-number">2.</span> <span class="nav-text">Softmax 反向求导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料："><span class="nav-number">3.</span> <span class="nav-text">参考资料：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HMM"><span class="nav-number">4.</span> <span class="nav-text">HMM</span></a></li></ol></div>
             
 
           </div>
