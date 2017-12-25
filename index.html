@@ -527,10 +527,11 @@
 <p>&#x91C7;&#x7528;&#x4EA4;&#x53C9;&#x71B5;&#x635F;&#x5931;</p>
 <script type="math/tex; mode=display">C =-\sum_k y_k log a_k</script><script type="math/tex; mode=display">\frac{\partial C}{\partial z_j} = a_j - y_j</script></blockquote>
 <h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</h1><p><a href="http://cs231n.github.io/linear-classify/#intro" target="_blank" rel="external">http://cs231n.github.io/linear-classify/#intro</a></p>
-<h1 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h1><p>&#x5047;&#x8BBE;n&#x4E2A;&#x9690;&#x72B6;&#x6001;&#xFF0C;m&#x4E2A;&#x89C2;&#x6D4B;&#x503C;<br>&#x521D;&#x59CB;&#x6982;&#x7387;&#x5206;&#x5E03;$\pi \in \mathbb{R}^{1 \times n}$<br>&#x6982;&#x7387;&#x8F6C;&#x79FB;&#x77E9;&#x9635;$A \in \mathbb{R}^{n \times n}$<br>&#x89C2;&#x6D4B;&#x6982;&#x7387;&#x77E9;&#x9635;$B \in \mathbb{R} ^{n \times m}$<br>evalutae :&#x7ED9;&#x5B9A;&#x53C2;&#x6570;$(\pi,A,B)$,&#x9884;&#x6D4B;&#x67D0;&#x4E2A;&#x89C2;&#x6D4B;&#x5E8F;&#x5217;&#x53D1;&#x751F;&#x7684;&#x6982;&#x7387;&#x3002;<br>&#x5DF2;&#x77E5;: $\text{&#x53C2;&#x6570;} \lambda = (\pi,A,B)$ ,$\text{&#x89C2;&#x6D4B;&#x72B6;&#x6001;&#x5E8F;&#x5217;} o<em>{1:T}$<br>&#x6C42;&#x89E3;: $P(o</em>{1:T}|\lambda)$<br>&#x5B9A;&#x4E49;: $\alpha<em>t(i) = P(o</em>{1:t},q_t = S_i|\lambda)$  </p>
+<h1 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h1><p>&#x5047;&#x8BBE;n&#x4E2A;&#x9690;&#x72B6;&#x6001;&#xFF0C;m&#x4E2A;&#x89C2;&#x6D4B;&#x503C;<br>&#x521D;&#x59CB;&#x6982;&#x7387;&#x5206;&#x5E03;$\pi \in \mathbb{R}^{1 \times n}$<br>&#x6982;&#x7387;&#x8F6C;&#x79FB;&#x77E9;&#x9635;$A \in \mathbb{R}^{n \times n}$<br>&#x89C2;&#x6D4B;&#x6982;&#x7387;&#x77E9;&#x9635;$B \in \mathbb{R} ^{n \times m}$<br>evalutae :&#x7ED9;&#x5B9A;&#x53C2;&#x6570;$(\pi,A,B)$,&#x9884;&#x6D4B;&#x67D0;&#x4E2A;&#x89C2;&#x6D4B;&#x5E8F;&#x5217;&#x53D1;&#x751F;&#x7684;&#x6982;&#x7387;&#x3002;<br>&#x5DF2;&#x77E5;: &#x53C2;&#x6570; $\lambda = (\pi,A,B)$&#xFF0C;&#x89C2;&#x6D4B;&#x72B6;&#x6001;&#x5E8F;&#x5217; $o<em>{1:T}$<br>&#x6C42;&#x89E3;: $P(o</em>{1:T}|\lambda)$<br>&#x5B9A;&#x4E49;: $\alpha<em>t(i) = P(o</em>{1:t},q_t = S_i|\lambda)$  </p>
 <blockquote>
-<p>$\alpha<em>1(i) = \pi(i) B(i,o_1)$<br>$\alpha_t(i) = [\sum</em>{j=1}^N \alpha<em>{t-1}(j)A(j,i)]B(i,o_t)$<br>$P(o</em>{1:T}|\lambda) = \sum<em>{i=1}^N \alpha</em>{T}(i)$  </p>
-</blockquote>
+<script type="math/tex; mode=display">\alpha_1(i) = \pi(i) B(i,o_1) \\
+\alpha_t(i) = [\sum_{j=1}^N \alpha_{t-1}(j)A(j,i)]B(i,o_t)   \\
+P(o_{1:T}|\lambda) = \sum_{i=1}^N \alpha_{T}(i)</script></blockquote>
 <p>decode: &#x7ED9;&#x5B9A;&#x53C2;&#x6570;$(\pi,A,B)$,&#x7ED9;&#x5B9A;&#x67D0;&#x4E2A;&#x89C2;&#x6D4B;&#x5E8F;&#x5217;&#xFF0C;&#x9884;&#x6D4B;&#x6BCF;&#x4E2A;&#x89C2;&#x6D4B;&#x503C;&#x5BF9;&#x5E94;&#x7684;&#x9690;&#x72B6;&#x6001;&#x3002;  </p>
 
           

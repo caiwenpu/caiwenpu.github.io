@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：      f(\mathbf{y}) \geq f(\math">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-23T13:21:46.922Z">
+<meta property="og:updated_time" content="2017-12-24T13:12:43.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：      f(\mathbf{y}) \geq f(\math">
@@ -460,6 +460,14 @@ h_1, h_2, ... , h_M, a_1, a_2, ... , a_N</script><p>&#x5168;&#x5C40;&#x6837;&#x6
          &= \frac 1 {M + N} \left[ M\sigma_H^2 + M(\overline{X} - \overline{H})^2 + N\sigma_A^2 + N(\overline{X} - \overline{A})^2 \right] \nonumber \\\\
          &= \frac { M\left[\sigma_H^2 + \left(\overline{X} - \overline{H}\right)^2\right] + N\left[\sigma_A^2 + \left(\overline{X} - \overline{A}\right)^2\right] } {M + N} \nonumber
 \end{aligned}</script></blockquote>
+<h1 id="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"><a href="#&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;" class="headerlink" title="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"></a>&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;</h1><blockquote>
+<script type="math/tex; mode=display">\begin{aligned}
+X,Y是两个相互独立的随机变量 \\
+E[XY] =E[X]E[Y] \\
+Var[X+Y] = Var[X] + Var[Y] \\
+Var(XY) &= E[X^2Y^2] - E[XY]^2
+          &= Var[X]Var[Y] + E[X]^2Var[]
+\end{aligned}</script></blockquote>
 <h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><ul>
 <li><a href="http://www.cnblogs.com/yoyaprogrammer/p/delta_variance.html" target="_blank" rel="external">http://www.cnblogs.com/yoyaprogrammer/p/delta_variance.html</a></li>
 </ul>
@@ -636,7 +644,7 @@ h_1, h_2, ... , h_M, a_1, a_2, ... , a_N</script><p>&#x5168;&#x5C40;&#x6837;&#x6
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">4.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">4.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">4.2.</span> <span class="nav-text">backward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克罗内内积-Kronecker-product"><span class="nav-number">5.</span> <span class="nav-text">克罗内内积(Kronecker product)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">5.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量求解均值和方差"><span class="nav-number">6.</span> <span class="nav-text">增量求解均值和方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">4.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">4.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">4.2.</span> <span class="nav-text">backward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克罗内内积-Kronecker-product"><span class="nav-number">5.</span> <span class="nav-text">克罗内内积(Kronecker product)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">5.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量求解均值和方差"><span class="nav-number">6.</span> <span class="nav-text">增量求解均值和方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立随机变量"><span class="nav-number">7.</span> <span class="nav-text">独立随机变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
