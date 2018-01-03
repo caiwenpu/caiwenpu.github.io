@@ -2,30 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/12/06/loss-func/</loc>
+    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
     
-    <lastmod>2017-12-25T07:39:15.503Z</lastmod>
+    <lastmod>2018-01-03T14:22:23.898Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/10/25/article-title/</loc>
     
-    <lastmod>2017-12-24T13:12:43.036Z</lastmod>
+    <lastmod>2018-01-03T09:51:45.681Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
+    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
     
-    <lastmod>2017-12-23T11:18:56.215Z</lastmod>
+    <lastmod>2018-01-01T09:56:43.297Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/10/30/QNN/</loc>
     
-    <lastmod>2017-12-17T13:54:10.734Z</lastmod>
+    <lastmod>2017-12-31T13:47:12.609Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
+    
+    <lastmod>2017-12-31T02:32:36.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/29/Quantize/</loc>
+    
+    <lastmod>2017-12-30T02:52:24.960Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/06/loss-func/</loc>
+    
+    <lastmod>2017-12-25T07:46:54.757Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>http://yoursite.com/2017/12/14/optim/</loc>
     
     <lastmod>2017-12-14T02:40:01.472Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
-    
-    <lastmod>2017-12-11T14:10:20.866Z</lastmod>
     
   </url>
   
@@ -54,13 +68,6 @@
     <loc>http://yoursite.com/2017/11/03/Dataset/</loc>
     
     <lastmod>2017-12-03T10:14:02.767Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
-    
-    <lastmod>2017-11-26T05:35:42.437Z</lastmod>
     
   </url>
   

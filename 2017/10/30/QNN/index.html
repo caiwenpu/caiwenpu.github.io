@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-17T13:54:10.734Z">
+<meta property="og:updated_time" content="2017-12-31T13:47:12.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Compressed Neural Network">
 <meta name="twitter:description" content="Quantized Neural Networklow-precision Quantizationquantized weights only每个float权重近似表示成几个bits    Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:“BinaryConnect: Training Deep Neural Networks with">
@@ -355,13 +355,24 @@
       
         <h1 id="Quantized-Neural-Network"><a href="#Quantized-Neural-Network" class="headerlink" title="Quantized Neural Network"></a>Quantized Neural Network</h1><h2 id="low-precision-Quantization"><a href="#low-precision-Quantization" class="headerlink" title="low-precision Quantization"></a>low-precision Quantization</h2><h3 id="quantized-weights-only"><a href="#quantized-weights-only" class="headerlink" title="quantized weights only"></a>quantized weights only</h3><p>&#x6BCF;&#x4E2A;<code>float</code>&#x6743;&#x91CD;&#x8FD1;&#x4F3C;&#x8868;&#x793A;&#x6210;&#x51E0;&#x4E2A;bits  </p>
 <ul>
-<li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">&#x201C;BinaryConnect: Training Deep Neural Networks with binary weights during propagations.&#x201D;</a> [NIPS 2015]</span>    </li>
+<li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">&#x201C;BinaryConnect: Training Deep Neural Networks with binary weights during propagations.&#x201D;</a> [NIPS 2015]</span>   </li>
+<li><span style="color:red"> Jiaxiang Wu, Cong Leng, Yuhang Wang, Qinghao Hu, Jian Cheng:<a href="https://arxiv.org/abs/1512.06473v3" target="_blank" rel="external">Quantized Convolutional Neural Networks for Mobile Devices</a>[CVPR 2016]</span>  <ul>
+<li>&#x91CF;&#x5316;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x6743;&#x91CD;&#xFF0C;&#x8C03;&#x6574;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x7684;&#x5168;&#x7CBE;&#x5EA6;&#x6743;&#x91CD;&#xFF1B;&#x518D;&#x91CF;&#x5316;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x7684;&#x6743;&#x91CD;</li>
+<li>&#x63D0;&#x4F9B;&#x4E86;&#x5B9E;&#x9645;&#x52A0;&#x901F;&#x7684;&#x6548;&#x679C;&#x5BF9;&#x6BD4;&#xFF0C;3-4&#x500D;&#x5DE6;&#x53F3;&#x7684;&#x52A0;&#x901F;</li>
+<li>&#x63D0;&#x4F9B;&#x4E86;&#x79FB;&#x52A8;&#x7AEF;&#x7684;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x5BF9;&#x6BD4;&#xFF0C;&#x5305;&#x62EC;&#x5185;&#x5B58;&#x5F00;&#x9500;&#xFF0C;&#x50A8;&#x5B58;&#x65F6;&#x95F4;&#xFF0C;&#x50A8;&#x5B58;&#x5F00;&#x9500;</li>
+</ul>
+</li>
 <li><span style="color:red"> Chenzhuo Zhu, Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">Trained Ternary Quantization</a>[ICLR 2017]</span> </li>
-<li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">&#x201C;Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.&#x201D;</a>[ICLR 2017]</span> </li>
+<li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">&#x201C;Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.&#x201D;</a>[ICLR 2017]</span> <ul>
+<li>&#x7B80;&#x79F0;INQ</li>
+<li>&#x5927;&#x7684;&#x6743;&#x91CD;&#x91CF;&#x5316;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#xFF0C;&#x5C0F;&#x7684;&#x6743;&#x91CD;&#x4FDD;&#x6301;&#x5168;&#x7CBE;&#x5EA6;</li>
+<li>53$\times$&#x538B;&#x7F29;&#x7387;&#xFF0C;&#x7ED3;&#x5408;DNS</li>
+</ul>
+</li>
 <li><span style="color:red"> Yiwen Guo, Anbang Yao, Hao Zhao, Yurong Chen:<a href="https://arxiv.org/pdf/1706.02021.pdf" target="_blank" rel="external">Network Sketching: Exploiting Binary Structure in Deep CNNs</a>[CVPR 2017]</span> <ul>
 <li>&#x5269;&#x4F59;&#x91CF;&#x5316;&#x6743;&#x91CD;</li>
 <li>&#x5229;&#x7528;Bit&#x5E73;&#x9762;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x503C;&#x6765;&#x51CF;&#x5C11;&#x5197;&#x4F59;&#x8BA1;&#x7B97;</li>
-<li>3bit &#x6743;&#x91CD; Resnet18 1% top1&#x7CBE;&#x5EA6;&#x635F;&#x5931;</li>
+<li>3bit &#x6743;&#x91CD; Resnet18 1% top1&#x7CBE;&#x5EA6;&#x635F;&#x5931; fine-tuning</li>
 </ul>
 </li>
 <li><span style="color:red">Felix Juefei-Xu, Vishnu Naresh Boddeti, Marios Savvides:<br><a href="https://arxiv.org/abs/1608.06049" target="_blank" rel="external">Local Binary Convolutional Neural Networks.</a> [CVPR 2017] </span><ul>
@@ -417,6 +428,10 @@
 </li>
 </ul>
 <h1 id="Pruning-Neural-Network"><a href="#Pruning-Neural-Network" class="headerlink" title="Pruning Neural Network"></a>Pruning Neural Network</h1><ul>
+<li><span style="color:red">Dong Yu,Frank Seide,Gang Li, Li Deng:<a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=6288897" target="_blank" rel="external">EXPLOITING SPARSENESS IN DEEP NEURAL NETWORKS FOR LARGE VOCABULARY<br>SPEECH RECOGNITION</a>[ICASSP 2012]</span><ul>
+<li>&#x6700;&#x65E9;&#x7684;&#x526A;&#x679D;&#xFF1F;&#x7528;&#x4E8E;&#x8BED;&#x97F3;&#x8BC6;&#x522B; </li>
+</ul>
+</li>
 <li><p><span style="color:red">Song Han, Jeff Pool, John Tran, William J. Dally:<br><a href="https://arxiv.org/abs/1506.02626" target="_blank" rel="external">Learning both Weights and Connections for Efficient Neural Networks.</a>[NIPS 2015]</span>  </p>
 <ul>
 <li>&#x5728;Alexnet&#x4E0A;&#x526A;&#x6389;89%&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5728;VGG&#x4E0A;&#x526A;&#x6389;92.5%&#x7684;&#x53C2;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x5168;&#x8FDE;&#x63A5;&#x5C42;</li>
@@ -432,6 +447,7 @@
 </span><ul>
 <li>&#x5728;Alexnet&#x4E0A;17.7&#x500D;&#x7684;&#x538B;&#x7F29;&#x7387;</li>
 <li>&#x5728;Lenet-5&#x4E0A;&#x53EA;&#x4FDD;&#x7559;0.9%&#x7684;&#x53C2;&#x6570;</li>
+<li>&#x6BD4;[NIPS 2015]&#x7684;&#x8BAD;&#x7EC3;&#x901F;&#x5EA6;&#x5FEB;7&#x500D;</li>
 </ul>
 </li>
 <li><span style="color:red"> Pavlo Molchanov, Stephen Tyree, Tero Karras, Timo Aila, Jan Kautz<br>NVIDIA:<a href="https://arxiv.org/abs/1611.06440v2" target="_blank" rel="external">PRUNING CONVOLUTIONAL NEURAL NETWORKS FOR RESOURCE EFFICIENT INFERENCE</a>[ICLR 2017]</span></li>
@@ -592,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -658,7 +674,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -691,7 +707,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共4.5k字</span>
+  <span class="post-count">博客共5.6k字</span>
 </div>
 
         

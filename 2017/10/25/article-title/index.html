@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：      f(\mathbf{y}) \geq f(\math">
+<meta name="description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convexdefinition凸函数(convex)：     f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) 强凸函数(strongly-convex)：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-凸优化">
 <meta property="og:url" content="http://yoursite.com/2017/10/25/article-title/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：      f(\mathbf{y}) \geq f(\math">
+<meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convexdefinition凸函数(convex)：     f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) 强凸函数(strongly-convex)：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-24T13:12:43.036Z">
+<meta property="og:updated_time" content="2018-01-03T09:51:45.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
-<meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convex凸函数(convex)：     f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) 强凸函数(strongly-convex)：      f(\mathbf{y}) \geq f(\math">
+<meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convexdefinition凸函数(convex)：     f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) 强凸函数(strongly-convex)：">
 
 
 
@@ -354,55 +354,91 @@
 
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
-<h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><p>&#x51F8;&#x51FD;&#x6570;(convex)&#xFF1A;  </p>
+<h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>&#x51F8;&#x51FD;&#x6570;(convex)&#xFF1A;  </p>
 <blockquote>
 <script type="math/tex; mode=display">
-f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x})</script></blockquote>
+f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x})</script></blockquote>
 <p>&#x5F3A;&#x51F8;&#x51FD;&#x6570;(strongly-convex)&#xFF1A;   </p>
 <blockquote>
 <script type="math/tex; mode=display">
-f(\mathbf{y}) \geq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{m}{2}||\mathbf{y}-\mathbf{x}||^2</script></blockquote>
-<p>L-Lipschitz   </p>
+f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{m}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script></blockquote>
+<p>L-Lipschitz Continuity</p>
 <blockquote>
 <script type="math/tex; mode=display">
-f(\mathbf{y}) \leq f(\mathbf{x}) + \nabla f(\mathbf{x}) ^ {T} (\mathbf{y}-\mathbf{x}) + \frac{L}{2}||\mathbf{y}-\mathbf{x}||^2</script><script type="math/tex; mode=display">
+|f(\boldsymbol{x}) - f(\boldsymbol{y})| \leq L||\boldsymbol{x} - \boldsymbol{y}||</script></blockquote>
+<p>L-smooth   </p>
+<blockquote>
+<script type="math/tex; mode=display">
+f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{L}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script><script type="math/tex; mode=display">
 \Leftrightarrow |\nabla f(x) -\nabla f(x) < L||x-y||</script></blockquote>
 <a id="more"></a>
-<p>&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss): $y \in \mathbb{R} $</p>
+<h2 id="closed-function"><a href="#closed-function" class="headerlink" title="closed function"></a>closed function</h2><p>Closed Set<br>a set $C$ is $\textbf{closed}$ if it contains its boundary:</p>
+<blockquote>
+<script type="math/tex; mode=display">x^k \in C,x^k \rightarrow \bar{x} \quad \rightarrow \quad
+\bar{x} \in C</script></blockquote>
+<p>Epigraph</p>
+<blockquote>
+<script type="math/tex; mode=display">\text{epi}f = \{(\boldsymbol{x},\mu):\boldsymbol{x} \in \mathbb{R}^n,\mu \in \mathbb{R},\mu \geq f(\boldsymbol{x})\} \subseteq \mathbb{R}^{n+1}</script></blockquote>
+<p>Closed function<br>a function is closed if its epigraph is a closed set<br>$\textbf{Example}&#xFF1A;$</p>
+<blockquote>
+<script type="math/tex; mode=display">f(x) = xlogx , dom f=\mathbf{R}_{+}</script><h2 id="convex-conjugate"><a href="#convex-conjugate" class="headerlink" title="convex conjugate"></a>convex conjugate</h2><p>&#x51FD;&#x6570;$f:\mathbb{R}^d \rightarrow \mathbb{R}$&#x7684;&#x51F8;&#x5171;&#x8F6D;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<script type="math/tex; mode=display">f^{*}(\boldsymbol{v}) = \max \limits_{\boldsymbol{u}} \boldsymbol{v}^T\boldsymbol{u} - f(\boldsymbol{u})</script><p>$f^*$ &#x662F;&#x95ED;&#x7684;&#x4E14;&#x662F;&#x51F8;&#x7684;(&#x5C3D;&#x7BA1;$f$&#x53EF;&#x80FD;&#x4E0D;&#x6EE1;&#x8DB3;)</p>
+</blockquote>
+<ul>
+<li>Double conjugate: $(f^<em>)^</em> = f$ if $f$ is closed and convex</li>
+</ul>
+<h2 id="convex-loss"><a href="#convex-loss" class="headerlink" title="convex loss"></a>convex loss</h2><p>&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss): $y \in \mathbb{R} $</p>
 <blockquote>
 <script type="math/tex; mode=display">
-l(y_i,h(\mathbf{x}_i,\theta)) = \frac{1}{2}(y_i-h(\mathbf{x}_i,\theta))^2</script><script type="math/tex; mode=display">
-其中在线性回归中 ，h(\mathbf{x}_i,\theta) = \theta^T \Phi (\mathbf{x}_i)</script></blockquote>
+l(y_i,h(\boldsymbol{x}_i,\theta)) = \frac{1}{2}(y_i-h(\boldsymbol{x}_i,\theta))^2</script><script type="math/tex; mode=display">
+其中在线性回归中 ，h(\boldsymbol{x}_i,\theta) = \theta^T \Phi (\boldsymbol{x}_i)</script></blockquote>
 <p>&#x5BF9;&#x6570;&#x635F;&#x5931;(logistic loss):   $y  \in {-1,1}$      </p>
 <blockquote>
 <script type="math/tex; mode=display">
-l(y_i,h(\mathbf{x}i,\theta)) = log(1+exp(-y_i h(\mathbf{x}i,\theta)))</script></blockquote>
+l(y_i,h(\boldsymbol{x}i,\theta)) = log(1+exp(-y_i h(\boldsymbol{x}i,\theta)))</script></blockquote>
 <p>&#x4E00;&#x9636;&#x5BFC;&#x6570;(one order of diff of square-loss)       </p>
 <blockquote>
 <script type="math/tex; mode=display">
-\nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta)) = \frac{\partial l(y_i,h(\mathbf{x}_i,\theta))}{\partial \theta} = (y_i-h(\mathbf{x}_i,\theta)) \Phi (\mathbf{x}_i)</script></blockquote>
+\nabla_{\boldsymbol{x}_i} l(y_i,h(\boldsymbol{x}_i,\theta)) = \frac{\partial l(y_i,h(\boldsymbol{x}_i,\theta))}{\partial \theta} = (y_i-h(\boldsymbol{x}_i,\theta)) \Phi (\boldsymbol{x}_i)</script></blockquote>
 <p>&#x4E8C;&#x9636;&#x5BFC;&#x6570;(two order of diff of square-loss)</p>
 <blockquote>
 <script type="math/tex; mode=display">
-\frac{\partial \nabla_{\mathbf{x}_i} l(y_i,h(\mathbf{x}_i,\theta))}{ \partial \theta } = \Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T</script><p>&#x2014; &#x6C42;&#x4E8C;&#x9636;Hessian&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;:   </p>
+\frac{\partial \nabla_{\boldsymbol{x}_i} l(y_i,h(\boldsymbol{x}_i,\theta))}{ \partial \theta } = \Phi (\boldsymbol{x}_i) \Phi (\boldsymbol{x}_i)^T</script><p>&#x2014; &#x6C42;&#x4E8C;&#x9636;Hessian&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;:   </p>
 <script type="math/tex; mode=display">
-\Phi (\mathbf{x}_i) \Phi (\mathbf{x}_i)^T \mathbf{z} = \lambda \mathbf{z} \\
-(\Phi (\mathbf{x}_i) ^T \mathbf{z})\Phi (\mathbf{x}_i) = \lambda \mathbf{z} \\
+\Phi (\boldsymbol{x}_i) \Phi (\boldsymbol{x}_i)^T \boldsymbol{z} = \lambda \boldsymbol{z} \\
+(\Phi (\boldsymbol{x}_i) ^T \boldsymbol{z})\Phi (\boldsymbol{x}_i) = \lambda \boldsymbol{z} \\
 因此得到：   
-\mathbf{z} = k \Phi (\mathbf{x}_i) \quad k \neq 0 \\ 
+\boldsymbol{z} = k \Phi (\boldsymbol{x}_i) \quad k \neq 0 \\ 
 代入上式得到：   
-\lambda = \Phi (\mathbf{x}i) ^T \Phi (\mathbf{x}i) \geq 0</script></blockquote>
-<p><span style="color:blue">&#x6240;&#x4EE5;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x51F8;&#x51FD;&#x6570;&#xFF0C;&#x82E5;$\Phi (\mathbf{x}_i) ^T \Phi (\mathbf{x}_i) \geq c ,c&gt;0.$&#x90A3;&#x4E48;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x5F3A;&#x51F8;&#x51FD;&#x6570;</span></p>
+\lambda = \Phi (\boldsymbol{x}i) ^T \Phi (\boldsymbol{x}i) \geq 0</script></blockquote>
+<p><span style="color:blue">&#x6240;&#x4EE5;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x51F8;&#x51FD;&#x6570;&#xFF0C;&#x82E5;$\Phi (\boldsymbol{x}_i) ^T \Phi (\boldsymbol{x}_i) \geq c ,c&gt;0.$&#x90A3;&#x4E48;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x5F3A;&#x51F8;&#x51FD;&#x6570;</span></p>
+<hr>
+<h1 id="Projected-Gradient-Descent"><a href="#Projected-Gradient-Descent" class="headerlink" title="Projected Gradient Descent"></a>Projected Gradient Descent</h1><blockquote>
+<script type="math/tex; mode=display">\min_{x \in \boldsymbol{X}}f(x)</script></blockquote>
+<p>&#x5176;&#x4E2D;$f$&#x662F;&#x51F8;&#x51FD;&#x6570;&#x4E14;$\boldsymbol{X}$&#x662F;&#x51F8;&#x96C6;</p>
+<p>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;$x_{t+1}&#x2019; = x_t - \gamma \nabla f&#xFF08;x_t&#xFF09;$</p>
+<p>&#x4F46;&#x662F;$x<em>{t+1}&#x2019;$&#x53EF;&#x80FD;&#x4E0D;&#x5728;$\boldsymbol{X}$&#x91CC;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x628A;$x</em>{t+1}&#x2019;$&#x6295;&#x5F71;&#x5230;&#x96C6;&#x5408;$\boldsymbol{X}$&#x91CC;&#x9762;</p>
+<p>&#x6295;&#x5F71;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<script type="math/tex; mode=display">
+x_{t+1} = \Pi_{\boldsymbol{X}}(x_{t+1}') = \arg \min \limits_{x \in \boldsymbol{X}} \frac{1}{2} || x-x_{t+1}'||_2^2</script><p>&#x5BF9;&#x4E8E;$L$&#x5E73;&#x6ED1;&#x7684;&#x51F8;&#x51FD;&#x6570;,$\gamma = \frac{1}{L}$</p>
 <hr>
 <h1 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h1><p>&#x5BF9;&#x4E8E;&#x4F18;&#x5316;&#x76EE;&#x6807;&#xFF1A;</p>
 <blockquote>
-<script type="math/tex; mode=display">\min \limits_x f(x) + \lambda||x||_1</script><p>&#x4F7F;&#x7528;&#x8FD1;&#x7AEF;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(PGD)&#x6C42;&#x89E3;&#xFF0C;&#x6709;&#x95ED;&#x5F0F;&#x89E3;&#xFF1A;</p>
+<script type="math/tex; mode=display">\min \limits_{\boldsymbol{x}} f(\boldsymbol{x}) + \lambda||\boldsymbol{x}||_1</script><p>&#x4F7F;&#x7528;&#x8FD1;&#x7AEF;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(Proximal Gradient Descent)&#x6C42;&#x89E3;&#xFF0C;&#x6709;&#x95ED;&#x5F0F;&#x89E3;&#xFF1A;</p>
 <script type="math/tex; mode=display">x_{k+1}^i = \begin{cases}
   z^i-\lambda/L &\text{if } z^i>\lambda/L  \\
   0 &\text{if } -\lambda/L < z^i < \lambda/L \\
   z^i+\lambda/L &\text{if } z^i < -\lambda/L
-\end{cases}</script><script type="math/tex; mode=display">\text{其中} \quad \mathbf{z} = \mathbf{x}_k - \frac{1}{L} \nabla f(\mathbf{x}_k)</script><script type="math/tex; mode=display">\nabla f \text{满足L-lipschitz条件}, L \text{为L-lipschitz常数}</script><p>&#x6240;&#x4EE5;L1-norm&#x4F1A;&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x89E3;&#xFF0C;&#x4E14;$\lambda$&#x8D8A;&#x5927;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x8D8A;&#x7A00;&#x758F;&#x3002;</p>
-</blockquote>
+\end{cases}</script><p>&#x5176;&#x4E2D; $\quad \boldsymbol{z} = [z^1,z^2,&#x2026;,z^n]^T \quad \boldsymbol{x_k} = [x_k^1,x_k^2,&#x2026;,x_k^n]^T \quad \boldsymbol{z} = \boldsymbol{x}_k - \frac{1}{L} \nabla f(\boldsymbol{x}_k)$.<br>$\nabla f$ &#x6EE1;&#x8DB3;L-lipschitz&#x6761;&#x4EF6;, $L$ &#x4E3A;L-lipschitz&#x5E38;&#x6570;,$f$ &#x7684;&#x6CF0;&#x52D2;&#x5C55;&#x793A;&#x8FD1;&#x4F3C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<script type="math/tex; mode=display">f(\boldsymbol{x}) = f(\boldsymbol{x}_k)+ <\nabla f(\boldsymbol{x}_k,\boldsymbol{x}-\boldsymbol{x}_k)> + \frac{L}{2}||\boldsymbol{x}-\boldsymbol{x}_k||^2</script></blockquote>
+<ul>
+<li><p>&#x6240;&#x4EE5;L1-norm&#x4F1A;&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x89E3;&#xFF0C;&#x4E14;$\lambda$&#x8D8A;&#x5927;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x8D8A;&#x7A00;&#x758F;&#x3002;</p>
+</li>
+<li><p>&#x7531;&#x4E8E;$f(x)$&#x7684;&#x6CF0;&#x52D2;&#x5C55;&#x793A;&#x662F;&#x8FD1;&#x4F3C;&#x8868;&#x793A;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;$\frac{1}{L}$&#x7684;&#x5B66;&#x4E60;&#x7387;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5F97;&#x5230;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8FED;&#x4EE3;&#x6C42;&#x89E3;</p>
+</li>
+<li><p>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x4E0D;&#x53EF;&#x80FD;&#x663E;&#x793A;&#x5F97;&#x5230;$L$&#x7684;&#x503C;,&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5B66;&#x4E60;&#x7387;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x65B9;&#x6CD5;&#x6C42;&#x89E3;,&#x5373;&#x4F7F;&#x5E26;&#x4E0A;&#x4E86;1-norm&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6C42;&#x68AF;&#x5EA6;&#x7684;&#x3002;</p>
+</li>
+</ul>
 <p>group-lasso  </p>
 <blockquote>
 <script type="math/tex; mode=display">\min \limits_x f(x) + \sum_{j=1}^J\lambda||x_j||_{K_j}</script><script type="math/tex; mode=display">x_j \text{是x的一个子集} ||x_j||_{K_j }= x_j^TK_jx_j,K_j \text{是半正定矩阵}</script><p>&#x4F7F;&#x7528;PGD&#x6C42;&#x89E3;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5168;&#x96F6;&#x89E3;&#xFF1B;&#x6CE8;&#x610F;$K_j = I$&#x65F6;&#xFF0C;&#x5BF9;&#x5E94;l2-norm&#x4E0D;&#x5E26;&#x5E73;&#x65B9;&#x3002;</p>
@@ -439,7 +475,7 @@ W_{reshape} = \begin{bmatrix}
 <script type="math/tex; mode=display">
 A \otimes B = \begin{bmatrix} a_{11} B & \cdots & a_{1n}B \\ \vdots & \ddots & \vdots \\a_{m1} B & \cdots & a_{mn} B \end{bmatrix}.</script><h2 id="&#x6027;&#x8D28;"><a href="#&#x6027;&#x8D28;" class="headerlink" title="&#x6027;&#x8D28;"></a>&#x6027;&#x8D28;</h2><p>&#x5982;&#x679C;A&#x3001;B&#x3001;C&#x548C;D&#x662F;&#x56DB;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x4E14;&#x77E9;&#x9635;&#x4E58;&#x79EF;AC&#x548C;BD&#x5B58;&#x5728;</p>
 <script type="math/tex; mode=display">
-(\mathbf{A} \otimes \mathbf{B})(\mathbf{C} \otimes \mathbf{D}) = \mathbf{AC} \otimes \mathbf{BD}</script></blockquote>
+(\boldsymbol{A} \otimes \boldsymbol{B})(\boldsymbol{C} \otimes \boldsymbol{D}) = \boldsymbol{AC} \otimes \boldsymbol{BD}</script></blockquote>
 <h1 id="&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;"><a href="#&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;" class="headerlink" title="&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;"></a>&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;</h1><blockquote>
 <p>&#x6837;&#x672C;&#x5E8F;&#x5217;</p>
 <script type="math/tex; mode=display">
@@ -598,7 +634,7 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -644,7 +680,7 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">2.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">3.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">4.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">4.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">4.2.</span> <span class="nav-text">backward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克罗内内积-Kronecker-product"><span class="nav-number">5.</span> <span class="nav-text">克罗内内积(Kronecker product)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">5.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量求解均值和方差"><span class="nav-number">6.</span> <span class="nav-text">增量求解均值和方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立随机变量"><span class="nav-number">7.</span> <span class="nav-text">独立随机变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">1.</span> <span class="nav-text">Convex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition"><span class="nav-number">1.1.</span> <span class="nav-text">definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#closed-function"><span class="nav-number">1.2.</span> <span class="nav-text">closed function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convex-conjugate"><span class="nav-number">1.3.</span> <span class="nav-text">convex conjugate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convex-loss"><span class="nav-number">1.4.</span> <span class="nav-text">convex loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projected-Gradient-Descent"><span class="nav-number">2.</span> <span class="nav-text">Projected Gradient Descent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">3.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">4.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">5.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">5.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">5.2.</span> <span class="nav-text">backward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克罗内内积-Kronecker-product"><span class="nav-number">6.</span> <span class="nav-text">克罗内内积(Kronecker product)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">6.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量求解均值和方差"><span class="nav-number">7.</span> <span class="nav-text">增量求解均值和方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立随机变量"><span class="nav-number">8.</span> <span class="nav-text">独立随机变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -664,7 +700,7 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -697,7 +733,7 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共4.5k字</span>
+  <span class="post-count">博客共5.6k字</span>
 </div>
 
         
