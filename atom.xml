@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-30T02:52:24.960Z</updated>
+  <updated>2018-01-03T14:36:14.081Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/12/29/Quantize/"/>
-    <id>http://yoursite.com/2017/12/29/Quantize/</id>
-    <published>2017-12-29T09:00:22.056Z</published>
-    <updated>2017-12-30T02:52:24.960Z</updated>
+    <title>量化</title>
+    <link href="http://yoursite.com/2017/12/25/Quantize/"/>
+    <id>http://yoursite.com/2017/12/25/Quantize/</id>
+    <published>2017-12-25T06:47:01.000Z</published>
+    <updated>2018-01-03T14:36:14.081Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"><a href="#&#x91CF;&#x5316;&#x65B9;&#x5F0F;" class="headerlink" title="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"></a>&#x91CF;&#x5316;&#x65B9;&#x5F0F;</h1><pre><code>index+codebook &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;k-means&#x91CF;&#x5316;&#xFF0C;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x8FD8;&#x662F;&#x6D6E;&#x70B9;&#x5F00;&#x9500;* ICLR 2016 Deep compression * CVPR 2016 quantized CNN&#x91CF;&#x5316;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#xFF0C;&#x4E58;&#x6CD5;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#xFF1F;* ICLR 2017 INQ &#x91CF;&#x5316;&#x4E3A;bit&#x5E73;&#x9762;&#xFF0C;Xnor+popcount(&#x6700;&#x5FEB;) * NIPS 2017 ABC * AAAI 2017&#x91CF;&#x5316;&#x4E3A;&#x5B9A;&#x70B9;&#x6570;&#xFF0C;K-bit&#x5B9A;&#x70B9;&#x6570;&#x7684;&#x4E58;&#x6CD5;&#x64CD;&#x4F5C;&#x65F6;K 1-bit&#x7684;&#x5E73;&#x65B9;&#x500D; * Dorefa-net</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"><a href="#&#x91CF;&#x5316;&#x65B9;&#x5F0F;" class="headerlink" title="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"></a>&#x91CF;&#x5316;&#x65B9;&#x5F0F;</h1><pre><code>index+codebook &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;k-means&#x91CF;&#x5316;&#xFF0C;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x8FD8;&#x662F;&#x6D6E;&#x70B9;&#x5F00;&#x9500;* ICLR 2016 Deep compression * CVPR 2016 quantized CNN&#x91CF;&#x5316;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#xFF0C;&#x4E58;&#x6CD5;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#xFF1F;* ICLR 2017 INQ &#x91CF;&#x5316;&#x4E3A;bit&#x5E73;&#x9762;&#xFF0C;Xnor+popcount(&#x6700;&#x5FEB;) * NIPS 2017 ABC * AAAI 2017* ICCV 2017 HORQ&#x91CF;&#x5316;&#x4E3A;&#x5B9A;&#x70B9;&#x6570;(&#x7B49;&#x8DDD;&#x91CF;&#x5316;)&#xFF0C;&#x8D1F;&#x6570;&#x5185;&#x79EF;* Fixed-Point Feedforward Deep Neural Network* Dorefa-net</code></pre>]]></content>
     
     <summary type="html">
     
