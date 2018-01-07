@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="起点" type="application/atom+xml" />
 
@@ -81,17 +83,19 @@
 
 
 
-<meta name="description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500; *">
+<meta name="description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="量化">
 <meta property="og:url" content="http://yoursite.com/2017/12/25/Quantize/index.html">
 <meta property="og:site_name" content="起点">
-<meta property="og:description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500; *">
+<meta property="og:description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T14:36:14.081Z">
+<meta property="og:image" content="http://yoursite.com/2017/12/25/Quantize/func.png">
+<meta property="og:updated_time" content="2018-01-04T04:10:45.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="量化">
-<meta name="twitter:description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500; *">
+<meta name="twitter:description" content="&amp;#x91CF;&amp;#x5316;&amp;#x65B9;&amp;#x5F0F;index+codebook &amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F7F;&amp;#x7528;k-means&amp;#x91CF;&amp;#x5316;&amp;#xFF0C;&amp;#x8BA1;&amp;#x7B97;&amp;#x5F00;&amp;#x9500;&amp;#x8FD8;&amp;#x662F;&amp;#x6D6E;&amp;#x70B9;&amp;#x5F00;&amp;#x9500;">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/25/Quantize/func.png">
 
 
 
@@ -353,19 +357,32 @@
       
 
       
-        <h1 id="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"><a href="#&#x91CF;&#x5316;&#x65B9;&#x5F0F;" class="headerlink" title="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"></a>&#x91CF;&#x5316;&#x65B9;&#x5F0F;</h1><pre><code>index+codebook &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;k-means&#x91CF;&#x5316;&#xFF0C;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x8FD8;&#x662F;&#x6D6E;&#x70B9;&#x5F00;&#x9500;
-* ICLR 2016 Deep compression 
-* CVPR 2016 quantized CNN
-&#x91CF;&#x5316;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#xFF0C;&#x4E58;&#x6CD5;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#xFF1F;
-* ICLR 2017 INQ 
-&#x91CF;&#x5316;&#x4E3A;bit&#x5E73;&#x9762;&#xFF0C;Xnor+popcount(&#x6700;&#x5FEB;) 
-* NIPS 2017 ABC 
-* AAAI 2017
-* ICCV 2017 HORQ
-&#x91CF;&#x5316;&#x4E3A;&#x5B9A;&#x70B9;&#x6570;(&#x7B49;&#x8DDD;&#x91CF;&#x5316;)&#xFF0C;&#x8D1F;&#x6570;&#x5185;&#x79EF;
-* Fixed-Point Feedforward Deep Neural Network
-* Dorefa-net
-</code></pre>
+        <h1 id="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"><a href="#&#x91CF;&#x5316;&#x65B9;&#x5F0F;" class="headerlink" title="&#x91CF;&#x5316;&#x65B9;&#x5F0F;"></a>&#x91CF;&#x5316;&#x65B9;&#x5F0F;</h1><p>index+codebook &#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;k-means&#x91CF;&#x5316;&#xFF0C;&#x8BA1;&#x7B97;&#x5F00;&#x9500;&#x8FD8;&#x662F;&#x6D6E;&#x70B9;&#x5F00;&#x9500;</p>
+<ul>
+<li>ICLR 2016 Deep compression </li>
+<li>CVPR 2016 quantized CNN</li>
+</ul>
+<p>&#x91CF;&#x5316;&#x4E3A;2&#x7684;&#x5E42;&#x6B21;&#xFF0C;&#x4E58;&#x6CD5;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x79FB;&#x4F4D;&#x64CD;&#x4F5C;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x52A0;&#x6CD5;&#x64CD;&#x4F5C;&#xFF1F;</p>
+<ul>
+<li><p>ICLR 2017 INQ<br>&#x91CF;&#x5316;&#x4E3A;bit&#x5E73;&#x9762;&#xFF0C;Xnor+popcount(&#x6700;&#x5FEB;) </p>
+</li>
+<li><p>NIPS 2017 ABC </p>
+</li>
+<li>AAAI 2017</li>
+<li>ICCV 2017 HORQ</li>
+</ul>
+<p>&#x91CF;&#x5316;&#x4E3A;&#x5B9A;&#x70B9;&#x6570;(&#x7B49;&#x8DDD;&#x91CF;&#x5316;)&#xFF0C;&#x8D1F;&#x6570;&#x5185;&#x79EF;</p>
+<ul>
+<li>Fixed-Point Feedforward Deep Neural Network</li>
+<li>Dorefa-net<ul>
+<li>$sinh(x) = \frac{e^x - e^{-x}}{2}$</li>
+<li>$cosh(x) = \frac{e^x + e^{-x}}{2}$</li>
+<li>$tanh(x) = \frac{sinh(x)}{cosh(x)}$ </li>
+</ul>
+</li>
+</ul>
+<p><img src="/2017/12/25/Quantize/func.png" width="400"></p>
+
       
     </div>
     
@@ -398,6 +415,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/07/bash/" rel="prev" title="bash脚本">
+                bash脚本 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -488,7 +509,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,7 +608,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共5.6k字</span>
+  <span class="post-count">博客共6.0k字</span>
 </div>
 
         

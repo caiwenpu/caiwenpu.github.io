@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/12/25/Quantize/</loc>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
     
-    <lastmod>2018-01-03T14:36:14.081Z</lastmod>
+    <lastmod>2018-01-07T08:20:03.506Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
     
-    <lastmod>2018-01-03T14:22:23.898Z</lastmod>
+    <lastmod>2018-01-07T08:16:43.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/07/bash/</loc>
+    
+    <lastmod>2018-01-07T08:14:07.788Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/25/Quantize/</loc>
+    
+    <lastmod>2018-01-04T04:10:45.675Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>http://yoursite.com/2017/10/30/QNN/</loc>
     
     <lastmod>2017-12-31T13:47:12.609Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
-    
-    <lastmod>2017-12-31T02:32:36.686Z</lastmod>
     
   </url>
   
