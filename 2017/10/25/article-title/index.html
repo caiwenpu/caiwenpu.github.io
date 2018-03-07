@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="起点">
 <meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convexdefinition凸函数(convex)：     f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) 强凸函数(strongly-convex)：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T09:51:45.681Z">
+<meta property="og:updated_time" content="2018-01-23T09:58:31.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习-凸优化">
 <meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Convexdefinition凸函数(convex)：     f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) 强凸函数(strongly-convex)：">
@@ -382,7 +382,7 @@ f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\bold
 <p>Closed function<br>a function is closed if its epigraph is a closed set<br>$\textbf{Example}&#xFF1A;$</p>
 <blockquote>
 <script type="math/tex; mode=display">f(x) = xlogx , dom f=\mathbf{R}_{+}</script><h2 id="convex-conjugate"><a href="#convex-conjugate" class="headerlink" title="convex conjugate"></a>convex conjugate</h2><p>&#x51FD;&#x6570;$f:\mathbb{R}^d \rightarrow \mathbb{R}$&#x7684;&#x51F8;&#x5171;&#x8F6D;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
-<script type="math/tex; mode=display">f^{*}(\boldsymbol{v}) = \max \limits_{\boldsymbol{u}} \boldsymbol{v}^T\boldsymbol{u} - f(\boldsymbol{u})</script><p>$f^*$ &#x662F;&#x95ED;&#x7684;&#x4E14;&#x662F;&#x51F8;&#x7684;(&#x5C3D;&#x7BA1;$f$&#x53EF;&#x80FD;&#x4E0D;&#x6EE1;&#x8DB3;)</p>
+<script type="math/tex; mode=display">f^{*}(\boldsymbol{v}) = \max \limits_{\boldsymbol{u} \in \mathbf{dom} f} \boldsymbol{v}^T\boldsymbol{u} - f(\boldsymbol{u})</script><p>$f^*$ &#x662F;&#x95ED;&#x7684;&#x4E14;&#x662F;&#x51F8;&#x7684;(&#x5C3D;&#x7BA1;$f$&#x53EF;&#x80FD;&#x4E0D;&#x6EE1;&#x8DB3;)</p>
 </blockquote>
 <ul>
 <li>Double conjugate: $(f^<em>)^</em> = f$ if $f$ is closed and convex</li>
@@ -499,9 +499,9 @@ h_1, h_2, ... , h_M, a_1, a_2, ... , a_N</script><p>&#x5168;&#x5C40;&#x6837;&#x6
 <h1 id="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"><a href="#&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;" class="headerlink" title="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"></a>&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;</h1><blockquote>
 <script type="math/tex; mode=display">\begin{aligned}
 X,Y是两个相互独立的随机变量 \\
-E[XY] =E[X]E[Y] \\
-Var[X+Y] = Var[X] + Var[Y] \\
-Var(XY) &= E[X^2Y^2] - E[XY]^2
+E[XY] &= E[X]E[Y] \\
+Var[X+Y] &= Var[X] + Var[Y] \\
+Var(XY) &= E[X^2Y^2] - E[XY]^2 \\
           &= Var[X]Var[Y] + E[X]^2Var[]
 \end{aligned}</script></blockquote>
 <h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><ul>
@@ -531,8 +531,8 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/25/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/10/25/hello-world/" rel="next" title="Linux 入门">
+                <i class="fa fa-chevron-left"></i> Linux 入门
               </a>
             
           </div>
@@ -733,7 +733,7 @@ Var(XY) &= E[X^2Y^2] - E[XY]^2
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共6.0k字</span>
+  <span class="post-count">博客共6.8k字</span>
 </div>
 
         

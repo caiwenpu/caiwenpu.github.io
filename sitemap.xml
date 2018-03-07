@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/07/bash/</loc>
+    
+    <lastmod>2018-03-07T03:49:26.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
+    
+    <lastmod>2018-03-06T08:00:27.589Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/03/Dataset/</loc>
+    
+    <lastmod>2018-03-02T08:01:48.745Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
+    
+    <lastmod>2018-01-23T09:58:31.972Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
+    
+    <lastmod>2018-01-13T14:48:41.681Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/30/py-code/</loc>
     
     <lastmod>2018-01-07T08:20:03.506Z</lastmod>
@@ -9,37 +44,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
-    
-    <lastmod>2018-01-07T08:16:43.802Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/01/07/bash/</loc>
-    
-    <lastmod>2018-01-07T08:14:07.788Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/12/25/Quantize/</loc>
     
     <lastmod>2018-01-04T04:10:45.675Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/25/article-title/</loc>
-    
-    <lastmod>2018-01-03T09:51:45.681Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
-    
-    <lastmod>2018-01-01T09:56:43.297Z</lastmod>
     
   </url>
   
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2017/11/11/Conv-filter/</loc>
     
     <lastmod>2017-12-03T14:08:19.608Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/03/Dataset/</loc>
-    
-    <lastmod>2017-12-03T10:14:02.767Z</lastmod>
     
   </url>
   
