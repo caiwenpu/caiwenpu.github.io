@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/py-code/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/14/optim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CWP">
@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/30/py-code/" itemprop="url">python学习</a></h1>
+                <a class="post-title-link" href="/2017/12/14/optim/" itemprop="url">optim</a></h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T21:40:18+08:00">
-                2017-10-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T10:38:21+08:00">
+                2017-12-14
               </time>
             
 
@@ -314,9 +314,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/30/py-code/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/14/optim/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/10/30/py-code/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/14/optim/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -324,7 +324,7 @@
 
           
           
-             <span id="/2017/10/30/py-code/" class="leancloud_visitors" data-flag-title="python学习">
+             <span id="/2017/12/14/optim/" class="leancloud_visitors" data-flag-title="optim">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,27 +356,11 @@
 
       
         
-          <h1 id="python-常用代码"><a href="#python-常用代码" class="headerlink" title="python 常用代码"></a>python 常用代码</h1><h2 id="UFT-8"><a href="#UFT-8" class="headerlink" title="UFT-8"></a>UFT-8</h2><p>在文件最开头加下面一行代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div></pre></td></tr></table></figure>
-<h2 id="CUDA环境变量设置"><a href="#CUDA环境变量设置" class="headerlink" title="CUDA环境变量设置"></a>CUDA环境变量设置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.environ[<span class="string">'CUDA_VISIBLE_DEVICES'</span>] = <span class="string">'0'</span></div></pre></td></tr></table></figure>
-<h2 id="去除警告log"><a href="#去除警告log" class="headerlink" title="去除警告log"></a>去除警告log</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> warnings</div><div class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</div></pre></td></tr></table></figure>
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(**kwargs)</span> #传入一个<span class="title">dict</span>，分解为每个元素</span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">func</span><span class="params">(*kwargs)</span> #传入一个<span class="title">list</span>，分解为每个元素</span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">test_kwargs</span><span class="params">(first, *args, **kwargs)</span>:</span></div><div class="line">   <span class="keyword">print</span> <span class="string">'Required argument: '</span>, first</div><div class="line">   <span class="keyword">for</span> v <span class="keyword">in</span> args:</div><div class="line">      <span class="keyword">print</span> <span class="string">'Optional argument (*args): '</span>, v</div><div class="line">   <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</div><div class="line">      <span class="keyword">print</span> <span class="string">'Optional argument %s (*kwargs): %s'</span> % (k, v)</div><div class="line"></div><div class="line">test_kwargs(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, k1=<span class="number">5</span>, k2=<span class="number">6</span>)</div><div class="line"><span class="comment"># results:</span></div><div class="line"><span class="comment"># Required argument:  1</span></div><div class="line"><span class="comment"># Optional argument (*args):  2</span></div><div class="line"><span class="comment"># Optional argument (*args):  3</span></div><div class="line"><span class="comment"># Optional argument (*args):  4</span></div><div class="line"><span class="comment"># Optional argument k2 (*kwargs): 6</span></div><div class="line"><span class="comment"># Optional argument k1 (*kwargs): 5</span></div></pre></td></tr></table></figure>
-<h2 id="python自带函数"><a href="#python自带函数" class="headerlink" title="python自带函数"></a>python自带函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">type(<span class="string">'abc'</span>) == str <span class="comment"># True</span></div><div class="line">type(<span class="number">123</span>) == int <span class="comment"># True</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">()</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"father()已经创建"</span>)  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span><span class="params">(father)</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"son()已经创建"</span>)  </div><div class="line">issubclass(son,father) <span class="comment"># True</span></div><div class="line">s = son()  </div><div class="line">isinstance(s,son)  <span class="comment">#True</span></div><div class="line">isinstance(s,father)  <span class="comment">#True</span></div><div class="line">dir(<span class="string">'str'</span>) <span class="comment">#获得一个str对象的所有方法</span></div><div class="line">eval(<span class="string">'3+5'</span>) <span class="comment">#输出8，可以解析字符串表达式</span></div><div class="line">id(x) <span class="comment">#查看变量的地址</span></div><div class="line">vars(args) <span class="comment">#args转变为dict</span></div><div class="line"><span class="comment">#tuple 拼接</span></div><div class="line">A = (<span class="number">2</span>,) + (<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment"># (2,3,4,5) type(A) == tuple</span></div><div class="line"><span class="comment"># /与 //</span></div><div class="line"><span class="comment"># / 是分数除法，结果为float</span></div><div class="line"><span class="comment"># // 是取整除法，结果为int</span></div></pre></td></tr></table></figure>
-<h2 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line">start = time.clock()</div><div class="line">elapsed = (time.clock() - start)</div></pre></td></tr></table></figure>
-<h2 id="numpy数组操作"><a href="#numpy数组操作" class="headerlink" title="numpy数组操作"></a>numpy数组操作</h2><h3 id="显示数组所有元素"><a href="#显示数组所有元素" class="headerlink" title="显示数组所有元素"></a>显示数组所有元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.set_printoptions(threshold=np.nan) <span class="comment">#不是'nan'</span></div></pre></td></tr></table></figure>
-<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A.copy() <span class="comment">#B指向一块新的区域</span></div><div class="line">C = A <span class="comment">#C指向A的空间</span></div></pre></td></tr></table></figure>
-<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> copy</div><div class="line">A = &#123;<span class="string">'a'</span>:<span class="number">3</span>,<span class="string">'b'</span>:<span class="number">4</span>&#125;</div><div class="line">B = &#123;<span class="string">'aa'</span>:A,<span class="string">'bb'</span>:<span class="number">5</span>&#125;</div><div class="line">C = copy.deepcopy(B) <span class="comment">#递归拷贝</span></div><div class="line">C[<span class="string">'aa'</span>][<span class="string">'a'</span>] = <span class="number">10</span> <span class="comment"># A['a'] 依然 = 3</span></div></pre></td></tr></table></figure>
-<h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A[:<span class="number">-1</span>] <span class="comment">#取除去最后一个元素</span></div><div class="line">C = A[::<span class="number">2</span>] <span class="comment"># step = 2取A中的元素</span></div><div class="line">D = A[[<span class="number">1</span>,<span class="number">3</span>]] <span class="comment">#取多个元素</span></div></pre></td></tr></table></figure>
-<h3 id="维度置换"><a href="#维度置换" class="headerlink" title="维度置换"></a>维度置换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x = np.ones((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</div><div class="line">np.transpose(x, (<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>)).shape <span class="comment">#(2,1,3)</span></div></pre></td></tr></table></figure>
-<h3 id="tile-重复一个数组"><a href="#tile-重复一个数组" class="headerlink" title="tile (重复一个数组)"></a>tile (重复一个数组)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a, <span class="number">2</span>)</div><div class="line">array([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a, (<span class="number">2</span>, <span class="number">2</span>))</div><div class="line">array([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],</div><div class="line">       [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a, (<span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>))</div><div class="line">array([[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]],</div><div class="line">       [[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]])</div></pre></td></tr></table></figure>
-<h3 id="数组拼接"><a href="#数组拼接" class="headerlink" title="数组拼接"></a>数组拼接</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">A = np.array([])</div><div class="line">B = np.array([<span class="number">1</span>])</div><div class="line">np.append(A,B) <span class="comment"># [1]</span></div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/30/py-code/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h1 id="&#x4F18;&#x5316;&#x7B97;&#x6CD5;"><a href="#&#x4F18;&#x5316;&#x7B97;&#x6CD5;" class="headerlink" title="&#x4F18;&#x5316;&#x7B97;&#x6CD5;"></a>&#x4F18;&#x5316;&#x7B97;&#x6CD5;</h1><p><img src="/2017/12/14/optim/relation.png" alt="logo"></p>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><p><a href="https://blog.slinuxer.com/2016/09/sgd-comparison" target="_blank" rel="external">https://blog.slinuxer.com/2016/09/sgd-comparison</a></p>
+
+          
         
       
     </div>
@@ -543,7 +527,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共1.5k字</span>
+  <span class="post-count">博客共16字</span>
 </div>
 
         
