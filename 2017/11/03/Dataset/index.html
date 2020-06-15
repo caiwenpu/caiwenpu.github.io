@@ -90,7 +90,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/11/03/Dataset/gpu_speed.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/11/03/Dataset/frame_speed.jpg">
-<meta property="og:updated_time" content="2018-03-02T08:01:48.745Z">
+<meta property="og:updated_time" content="2018-04-06T03:36:41.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dataset">
 <meta name="twitter:description" content="ImageNet1,200,000 训练集 50,000个验证集 150,000个测试集 1000个类别在Alexnet上 5.2ms 一个input,包括forward和backward    1,200,000 * 5.2 ms = 6240s = 1.733 h训练一轮大概需要1.733h所以一般在pretrained的网络，调整网络结构，使用新的数据集，进行retrainAlexnet">
@@ -361,9 +361,23 @@
 <script type="math/tex; mode=display">1,200,000 * 5.2 ms = 6240s = 1.733 h</script><p>&#x8BAD;&#x7EC3;&#x4E00;&#x8F6E;&#x5927;&#x6982;&#x9700;&#x8981;1.733h<br>&#x6240;&#x4EE5;&#x4E00;&#x822C;&#x5728;pretrained&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x8C03;&#x6574;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#xFF0C;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8FDB;&#x884C;retrain<br>Alexnet &#x8BAD;&#x7EC3;90&#x8F6E; :  </p>
 <script type="math/tex; mode=display">1.733*90/24 = 6.5 \text{天}</script><p>&#x76F4;&#x63A5;&#x4ECE;&#x5934;&#x5F00;&#x59CB;pretrain&#x4E0D;&#x73B0;&#x5B9E;  </p>
 </blockquote>
-<ul>
-<li>origin data:tensorpack &#x7684; loader &#x7B2C;&#x4E00;&#x4E2A;epoch&#x5F88;&#x6162;&#xFF0C;&#x4E4B;&#x540E;&#x5F88;&#x5FEB;</li>
-<li>224*224 : lmdb+shuffle &#x7684; loader &#x65F6;&#x95F4;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;</li>
+<h1 id="&#x6570;&#x636E;&#x52A0;&#x8F7D;"><a href="#&#x6570;&#x636E;&#x52A0;&#x8F7D;" class="headerlink" title="&#x6570;&#x636E;&#x52A0;&#x8F7D;"></a>&#x6570;&#x636E;&#x52A0;&#x8F7D;</h1><ul>
+<li>&#x987A;&#x5E8F;&#x52A0;&#x8F7D;&#xFF0C;&#x5C40;&#x90E8;shuffle</li>
+<li>cv2.imdecode &#x56FE;&#x7247;&#x89E3;&#x7801;</li>
+<li>origin data:tensorpack &#x7684; loader &#x7B2C;&#x4E00;&#x4E2A;epoch&#x5F88;&#x6162;&#xFF0C;&#x4E4B;&#x540E;&#x5F88;&#x5FEB;(&#x56E0;&#x4E3A;&#x524D;&#x8FB9;&#x90E8;&#x5206;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5230;&#x4E86;&#x5185;&#x5B58;&#x4E2D;)</li>
+</ul>
+<h2 id="&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;"><a href="#&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;" class="headerlink" title="&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;"></a>&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;</h2><ul>
+<li>resize&#x7684;&#x65B9;&#x6CD5;&#xFF1A;<ul>
+<li>google resize&#xFF0C;&#x968F;&#x673A;&#x88C1;&#x526A;&#x4E3A;224x224 (RandomSizedCrop(224))</li>
+<li>resize &#x77ED;&#x8FB9;&#x4E3A;256&#xFF0C;&#x968F;&#x673A;&#x88C1;&#x526A;&#x4E3A;224x224</li>
+<li>resize &#x4E3A;256x256&#xFF0C;&#x968F;&#x673A;&#x88C1;&#x526A;&#x4E3A;224x224</li>
+<li>&#x968F;&#x673A;&#x88C1;&#x526A;&#x589E;&#x52A0;&#x566A;&#x58F0;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;</li>
+</ul>
+</li>
+<li>channel&#x53D8;&#x6362;(&#x5F88;&#x5C11;&#x7528;)</li>
+<li>&#x5F52;&#x4E00;&#x5316;&#x5230;[0,1],&#x683C;&#x5F0F;&#x8F6C;&#x53D8;&#x4E3A;NCHW (&#x8FD9;&#x79CD;&#x683C;&#x5F0F;&#x8BA1;&#x7B97;&#x6548;&#x7387;&#x66F4;&#x9AD8;)</li>
+<li>The mean/std processing &#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x8BAD;&#x7EC3;&#x7ED3;&#x679C;.</li>
+<li>&#x5907;&#x6CE8;:Note that Caffe LMDB format is not efficient: it stores serialized raw arrays rather than JPEG images.</li>
 </ul>
 <a id="more"></a>
 <h2 id="CUDNN-&#x52A0;&#x901F;"><a href="#CUDNN-&#x52A0;&#x901F;" class="headerlink" title="CUDNN &#x52A0;&#x901F;"></a>CUDNN &#x52A0;&#x901F;</h2><p>GPU:Tesla K80&#xFF0C;&#x4F7F;&#x7528;Cudnn&#x52A0;&#x901F;<br>Alexnet:400 images/sec  1 epoch: 0.833h<br>GoogLenet:254 images/sec  1 epoch:1.31h<br><img src="/2017/11/03/Dataset/gpu_speed.jpg" alt="logo"></p>
@@ -466,7 +480,8 @@
 </tbody>
 </table>
 </div>
-<h1 id="CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;"><a href="#CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;" class="headerlink" title="CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;"></a>CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;</h1><div class="table-container">
+<h1 id="CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;"><a href="#CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;" class="headerlink" title="CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;"></a>CNN&#x53C2;&#x6570;&#xFF0C;&#x7CBE;&#x5EA6;</h1><p>Titan Xp</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -474,6 +489,8 @@
 <th>&#x53C2;&#x6570;&#x6570;&#x76EE;</th>
 <th>Top1 err %</th>
 <th>Top5 err %</th>
+<th>time(batch=16)</th>
+<th>time(batch=256)</th>
 </tr>
 </thead>
 <tbody>
@@ -482,6 +499,8 @@
 <td>61.1M</td>
 <td>43.45</td>
 <td>20.91</td>
+<td>13ms</td>
+<td>127ms</td>
 </tr>
 <tr>
 <td>VGG16</td>
@@ -506,18 +525,21 @@
 <td>11.69M</td>
 <td>30.24</td>
 <td>10.92</td>
+<td>27 ms</td>
 </tr>
 <tr>
 <td>resnet34</td>
 <td>21.80M</td>
 <td>26.7</td>
 <td>8.58</td>
+<td>40 ms</td>
 </tr>
 <tr>
 <td>resnet50</td>
 <td>25.56M</td>
 <td>23.85</td>
 <td>7.13</td>
+<td>96 ms</td>
 </tr>
 <tr>
 <td>resnet101</td>
@@ -704,7 +726,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -750,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ImageNet"><span class="nav-number">1.</span> <span class="nav-text">ImageNet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDNN-加速"><span class="nav-number">1.1.</span> <span class="nav-text">CUDNN 加速</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN在ImageNet测试集上的比较"><span class="nav-number">2.</span> <span class="nav-text">CNN在ImageNet测试集上的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN参数，精度"><span class="nav-number">3.</span> <span class="nav-text">CNN参数，精度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主流深度学习框架对比"><span class="nav-number">4.</span> <span class="nav-text">主流深度学习框架对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ImageNet"><span class="nav-number">1.</span> <span class="nav-text">ImageNet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据加载"><span class="nav-number">2.</span> <span class="nav-text">数据加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据预处理"><span class="nav-number">2.1.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDNN-加速"><span class="nav-number">2.2.</span> <span class="nav-text">CUDNN 加速</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN在ImageNet测试集上的比较"><span class="nav-number">3.</span> <span class="nav-text">CNN在ImageNet测试集上的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN参数，精度"><span class="nav-number">4.</span> <span class="nav-text">CNN参数，精度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主流深度学习框架对比"><span class="nav-number">5.</span> <span class="nav-text">主流深度学习框架对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
@@ -770,7 +792,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -803,7 +825,7 @@
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共6.8k字</span>
+  <span class="post-count">博客共11.5k字</span>
 </div>
 
         

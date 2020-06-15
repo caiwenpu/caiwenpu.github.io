@@ -264,6 +264,322 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/Dataset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWP">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ziying.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起点">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/03/Dataset/" itemprop="url">Dataset</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T10:59:47+08:00">
+                2017-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/03/Dataset/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/03/Dataset/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/03/Dataset/" class="leancloud_visitors" data-flag-title="Dataset">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h1><p>1,200,000 训练集 50,000个验证集 150,000个测试集 1000个类别<br>在Alexnet上 5.2ms 一个input,包括forward和backward  </p>
+<blockquote>
+<script type="math/tex; mode=display">1,200,000 * 5.2 ms = 6240s = 1.733 h</script><p>训练一轮大概需要1.733h<br>所以一般在pretrained的网络，调整网络结构，使用新的数据集，进行retrain<br>Alexnet 训练90轮 :  </p>
+<script type="math/tex; mode=display">1.733*90/24 = 6.5 \text{天}</script><p>直接从头开始pretrain不现实  </p>
+</blockquote>
+<h1 id="数据加载"><a href="#数据加载" class="headerlink" title="数据加载"></a>数据加载</h1><ul>
+<li>顺序加载，局部shuffle</li>
+<li>cv2.imdecode 图片解码</li>
+<li>origin data:tensorpack 的 loader 第一个epoch很慢，之后很快(因为前边部分已经加载到了内存中)</li>
+</ul>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><ul>
+<li>resize的方法：<ul>
+<li>google resize，随机裁剪为224x224 (RandomSizedCrop(224))</li>
+<li>resize 短边为256，随机裁剪为224x224</li>
+<li>resize 为256x256，随机裁剪为224x224</li>
+<li>随机裁剪增加噪声防止过拟合</li>
+</ul>
+</li>
+<li>channel变换(很少用)</li>
+<li>归一化到[0,1],格式转变为NCHW (这种格式计算效率更高)</li>
+<li>The mean/std processing 可以提高训练结果.</li>
+<li>备注:Note that Caffe LMDB format is not efficient: it stores serialized raw arrays rather than JPEG images.</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/Dataset/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/03/Logic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CWP">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/ziying.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="起点">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/03/Logic/" itemprop="url">Logic</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-03T10:35:53+08:00">
+                2017-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/03/Logic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/03/Logic/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/03/Logic/" class="leancloud_visitors" data-flag-title="Logic">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="猜帽子"><a href="#猜帽子" class="headerlink" title="猜帽子"></a>猜帽子</h1><ul>
+<li>3个人，2中颜色的帽子，给每个人随机分配一种颜色的帽子。然后把这3个人放到一起，每个人只能看到其他人的帽子，不能看到自己的帽子。分开这3个人，每个人猜测自己帽子的颜色，每个人可以选择猜或者不猜，只要有一个人猜对且没有人猜错，就算成功。这3个人事先商讨一种策略，使得这3个人成功的概率最大。策略是什么？</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/03/Logic/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/py-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -360,9 +676,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div></pre></td></tr></table></figure>
 <h2 id="CUDA环境变量设置"><a href="#CUDA环境变量设置" class="headerlink" title="CUDA环境变量设置"></a>CUDA环境变量设置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">os.environ[<span class="string">'CUDA_VISIBLE_DEVICES'</span>] = <span class="string">'0'</span></div></pre></td></tr></table></figure>
 <h2 id="去除警告log"><a href="#去除警告log" class="headerlink" title="去除警告log"></a>去除警告log</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> warnings</div><div class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</div></pre></td></tr></table></figure>
-<h2 id="python自带函数"><a href="#python自带函数" class="headerlink" title="python自带函数"></a>python自带函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">type(<span class="string">'abc'</span>) == str <span class="comment"># True</span></div><div class="line">type(<span class="number">123</span>) == int <span class="comment"># True</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">()</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"father()已经创建"</span>)  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span><span class="params">(father)</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"son()已经创建"</span>)  </div><div class="line">issubclass(son,father) <span class="comment"># True</span></div><div class="line">s = son()  </div><div class="line">isinstance(s,son)  <span class="comment">#True</span></div><div class="line">isinstance(s,father)  <span class="comment">#True</span></div><div class="line">dir(<span class="string">'str'</span>) <span class="comment">#获得一个str对象的所有方法</span></div><div class="line">eval(<span class="string">'3+5'</span>) <span class="comment">#输出8，可以解析字符串表达式</span></div><div class="line"><span class="comment">#tuple 拼接</span></div><div class="line">A = (<span class="number">2</span>,) + (<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment"># (2,3,4,5) type(A) == tuple</span></div></pre></td></tr></table></figure>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(**kwargs)</span> #传入一个<span class="title">dict</span>，分解为每个元素</span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">func</span><span class="params">(*kwargs)</span> #传入一个<span class="title">list</span>，分解为每个元素</span></div><div class="line"><span class="function"><span class="title">def</span> <span class="title">test_kwargs</span><span class="params">(first, *args, **kwargs)</span>:</span></div><div class="line">   <span class="keyword">print</span> <span class="string">'Required argument: '</span>, first</div><div class="line">   <span class="keyword">for</span> v <span class="keyword">in</span> args:</div><div class="line">      <span class="keyword">print</span> <span class="string">'Optional argument (*args): '</span>, v</div><div class="line">   <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</div><div class="line">      <span class="keyword">print</span> <span class="string">'Optional argument %s (*kwargs): %s'</span> % (k, v)</div><div class="line"></div><div class="line">test_kwargs(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, k1=<span class="number">5</span>, k2=<span class="number">6</span>)</div><div class="line"><span class="comment"># results:</span></div><div class="line"><span class="comment"># Required argument:  1</span></div><div class="line"><span class="comment"># Optional argument (*args):  2</span></div><div class="line"><span class="comment"># Optional argument (*args):  3</span></div><div class="line"><span class="comment"># Optional argument (*args):  4</span></div><div class="line"><span class="comment"># Optional argument k2 (*kwargs): 6</span></div><div class="line"><span class="comment"># Optional argument k1 (*kwargs): 5</span></div></pre></td></tr></table></figure>
+<h2 id="python自带函数"><a href="#python自带函数" class="headerlink" title="python自带函数"></a>python自带函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">type(<span class="string">'abc'</span>) == str <span class="comment"># True</span></div><div class="line">type(<span class="number">123</span>) == int <span class="comment"># True</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span><span class="params">()</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"father()已经创建"</span>)  </div><div class="line">  </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span><span class="params">(father)</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span>  </div><div class="line">        print(<span class="string">"son()已经创建"</span>)  </div><div class="line">issubclass(son,father) <span class="comment"># True</span></div><div class="line">s = son()  </div><div class="line">isinstance(s,son)  <span class="comment">#True</span></div><div class="line">isinstance(s,father)  <span class="comment">#True</span></div><div class="line">dir(<span class="string">'str'</span>) <span class="comment">#获得一个str对象的所有方法</span></div><div class="line">eval(<span class="string">'3+5'</span>) <span class="comment">#输出8，可以解析字符串表达式</span></div><div class="line">id(x) <span class="comment">#查看变量的地址</span></div><div class="line">vars(args) <span class="comment">#args转变为dict</span></div><div class="line"><span class="comment">#tuple 拼接</span></div><div class="line">A = (<span class="number">2</span>,) + (<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>) <span class="comment"># (2,3,4,5) type(A) == tuple</span></div><div class="line"><span class="comment"># /与 //</span></div><div class="line"><span class="comment"># / 是分数除法，结果为float</span></div><div class="line"><span class="comment"># // 是取整除法，结果为int</span></div></pre></td></tr></table></figure>
 <h2 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line">start = time.clock()</div><div class="line">elapsed = (time.clock() - start)</div></pre></td></tr></table></figure>
-<h2 id="numpy数组操作"><a href="#numpy数组操作" class="headerlink" title="numpy数组操作"></a>numpy数组操作</h2><h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A.copy() <span class="comment">#B指向一块新的区域</span></div><div class="line">C = A <span class="comment">#C指向A的空间</span></div></pre></td></tr></table></figure>
+<h2 id="numpy数组操作"><a href="#numpy数组操作" class="headerlink" title="numpy数组操作"></a>numpy数组操作</h2><h3 id="显示数组所有元素"><a href="#显示数组所有元素" class="headerlink" title="显示数组所有元素"></a>显示数组所有元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">np.set_printoptions(threshold=np.nan) <span class="comment">#不是'nan'</span></div></pre></td></tr></table></figure>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A.copy() <span class="comment">#B指向一块新的区域</span></div><div class="line">C = A <span class="comment">#C指向A的空间</span></div></pre></td></tr></table></figure>
 <h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> copy</div><div class="line">A = &#123;<span class="string">'a'</span>:<span class="number">3</span>,<span class="string">'b'</span>:<span class="number">4</span>&#125;</div><div class="line">B = &#123;<span class="string">'aa'</span>:A,<span class="string">'bb'</span>:<span class="number">5</span>&#125;</div><div class="line">C = copy.deepcopy(B) <span class="comment">#递归拷贝</span></div><div class="line">C[<span class="string">'aa'</span>][<span class="string">'a'</span>] = <span class="number">10</span> <span class="comment"># A['a'] 依然 = 3</span></div></pre></td></tr></table></figure>
 <h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line">A = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</div><div class="line">B = A[:<span class="number">-1</span>] <span class="comment">#取除去最后一个元素</span></div><div class="line">C = A[::<span class="number">2</span>] <span class="comment"># step = 2取A中的元素</span></div><div class="line">D = A[[<span class="number">1</span>,<span class="number">3</span>]] <span class="comment">#取多个元素</span></div></pre></td></tr></table></figure>
 <h3 id="维度置换"><a href="#维度置换" class="headerlink" title="维度置换"></a>维度置换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x = np.ones((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</div><div class="line">np.transpose(x, (<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>)).shape <span class="comment">#(2,1,3)</span></div></pre></td></tr></table></figure>
@@ -515,32 +833,93 @@
         
           <h1 id="Quantized-Neural-Network"><a href="#Quantized-Neural-Network" class="headerlink" title="Quantized Neural Network"></a>Quantized Neural Network</h1><h2 id="low-precision-Quantization"><a href="#low-precision-Quantization" class="headerlink" title="low-precision Quantization"></a>low-precision Quantization</h2><h3 id="quantized-weights-only"><a href="#quantized-weights-only" class="headerlink" title="quantized weights only"></a>quantized weights only</h3><p>每个<code>float</code>权重近似表示成几个bits  </p>
 <ul>
-<li><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">“BinaryConnect: Training Deep Neural Networks with binary weights during propagations.”</a> [NIPS 2015]</span>   </li>
-<li><span style="color:red"> Jiaxiang Wu, Cong Leng, Yuhang Wang, Qinghao Hu, Jian Cheng:<a href="https://arxiv.org/abs/1512.06473v3" target="_blank" rel="external">Quantized Convolutional Neural Networks for Mobile Devices</a>[CVPR 2016]</span>  <ul>
+<li><p><span style="color:red">Matthieu-Courbariaux,Yoshua-Bengio,Jean-Pierre-David:<a href="http://papers.nips.cc/paper/5647-binaryconnect-training-deep-neural-networks-with-binary-weights-during-propagations" target="_blank" rel="external">“BinaryConnect: Training Deep Neural Networks with binary weights during propagations.”</a> [NIPS 2015]</span>   </p>
+</li>
+<li><p><span style="color:red"> Jiaxiang Wu, Cong Leng, Yuhang Wang, Qinghao Hu, Jian Cheng:<a href="https://arxiv.org/abs/1512.06473v3" target="_blank" rel="external">Quantized Convolutional Neural Networks for Mobile Devices</a>[CVPR 2016]</span>  </p>
+<ul>
 <li>量化卷积层的权重，调整全连接层的全精度权重；再量化全连接层的权重</li>
 <li>提供了实际加速的效果对比，3-4倍左右的加速</li>
 <li>提供了移动端的实验结果对比，包括内存开销，储存时间，储存开销</li>
 </ul>
 </li>
-<li><span style="color:red"> Chenzhuo Zhu, Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">Trained Ternary Quantization</a>[ICLR 2017]</span> </li>
-<li><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">“Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.”</a>[ICLR 2017]</span> <ul>
+<li><p><span style="color:red"> Chenzhuo Zhu, Song Han, Huizi Mao, William J. Dally:<br><a href="https://arxiv.org/abs/1707.06342" target="_blank" rel="external">Trained Ternary Quantization</a>[ICLR 2017]</span> </p>
+</li>
+<li><p><span style="color:red"> Aojun Zhou, Anbang Yao, Yiwen Guo, Lin Xu, Yurong Chen:<br><a href="https://arxiv.org/abs/1702.03044" target="_blank" rel="external">“Incremental Network Quantization: Towards Lossless CNNs with Low-Precision Weights.”</a>[ICLR 2017]</span> </p>
+<ul>
 <li>简称INQ</li>
 <li>大的权重量化为2的幂次，小的权重保持全精度</li>
 <li>53$\times$压缩率，结合DNS</li>
 </ul>
 </li>
-<li><span style="color:red"> Yiwen Guo, Anbang Yao, Hao Zhao, Yurong Chen:<a href="https://arxiv.org/pdf/1706.02021.pdf" target="_blank" rel="external">Network Sketching: Exploiting Binary Structure in Deep CNNs</a>[CVPR 2017]</span> <ul>
+<li><p><span style="color:red"> Yiwen Guo, Anbang Yao, Hao Zhao, Yurong Chen:<a href="https://arxiv.org/pdf/1706.02021.pdf" target="_blank" rel="external">Network Sketching: Exploiting Binary Structure in Deep CNNs</a>[CVPR 2017]</span> </p>
+<ul>
 <li>剩余量化权重</li>
 <li>利用Bit平面之间的差值来减少冗余计算</li>
 <li>3bit 权重 Resnet18 1% top1精度损失 fine-tuning</li>
 </ul>
 </li>
-<li><span style="color:red">Felix Juefei-Xu, Vishnu Naresh Boddeti, Marios Savvides:<br><a href="https://arxiv.org/abs/1608.06049" target="_blank" rel="external">Local Binary Convolutional Neural Networks.</a> [CVPR 2017] </span><ul>
+<li><p><span style="color:red">Felix Juefei-Xu, Vishnu Naresh Boddeti, Marios Savvides:<br><a href="https://arxiv.org/abs/1608.06049" target="_blank" rel="external">Local Binary Convolutional Neural Networks.</a> [CVPR 2017] </span></p>
+<ul>
 <li>一个三值卷积层(固定参数) + 一个1*1卷积层(科学系参数)替代一个完整卷积层</li>
 <li>更少的可训练参数，防止过拟合</li>
 </ul>
 </li>
+<li><p>Training Quantized Nets: A Deeper Understanding [NIPS 2017]</p>
+</li>
+<li><p>Learning Accurate Low-Bit Deep Neural Networks with Stochastic Quantization [BMVC 2017]</p>
+</li>
+<li><p>Loss-Aware Weight Quantization of Deep Networks. [ICLR 2018]</p>
+<ul>
+<li>基于近端牛顿法，对带有离散权重约束的目标进行优化</li>
+<li>优化过程中依然保留浮点权重，权重更新在浮点权重上进行</li>
 </ul>
+</li>
+<li><p><span style="color:red">LEARNING DISCRETE WEIGHTS USING THE LOCAL<br> REPARAMETERIZATION TRICK[ICLR 2018]</span></p>
+<ul>
+<li>每个权重是一个随机变量，由一组参数刻画。</li>
+<li>由中心极限定理，这一层的输出服从正太分布</li>
+</ul>
+</li>
+<li><p>Learning Accurate Low-Bit Deep Neural Networks with Stochastic Quantization. [BMVC 2018]</p>
+</li>
+<li><p>Explicit Loss-Error-Aware Quantization for Low-Bit Deep Neural Networks [CVPR 2018]</p>
+</li>
+<li><p><span style="color:red">An Optimal Control Approach to Deep Learning and<br> Applications to Discrete-Weight Neural Networks[ICML 2018]</span></p>
+<ul>
+<li>理论依据的离散权重神经网络的训练。</li>
+</ul>
+</li>
+<li><p>From Hashing to CNNs: Training Binary Weight Networks via Hashing. [AAAI 2018]</p>
+</li>
+<li><p><span style="color:red">Deep Neural Network Compression with Single and Multiple Level Quantization[AAAI 2018]</span></p>
+<pre><code>- 增量聚类量化，对权重进行聚类，基于每一个类簇的聚类(量化)对损失函数的影响，把所有的类簇划分量化部分和非量化部分，量化损失函数大的量化部分，重新训练剩余的非量化部分
+- 不再每层单独考虑，所有层一起考虑，对所有层的聚类量化损失在一起比较。
+- 效果略好于INQ，不是很明显。
+</code></pre></li>
+<li><p><span style="color:red"> Cong Leng, Zesheng Dou, Hao Li, Shenghuo Zhu, Rong Jin:<a href="https://arxiv.org/abs/1512.06473v3" target="_blank" rel="external">Extremely Low Bit Neural Network: Squeeze the Last Bit Out with ADMM</a>[AAAI 2018]</span></p>
+<ul>
+<li>使用ADMM，优化损失函数，更新W</li>
+<li>只量化权重到 $\alpha_i {0,1,-1,2,-2…2^N,-2^N}$</li>
+<li>在Resnet VGG Googlenet 实验，效果略好于TTQ</li>
+</ul>
+</li>
+<li><p><span style="color:red">PROXQUANT: QUANTIZED NEURAL NETWORKS VIA<br> PROXIMAL OPERATORS [ICLR 2019]</span></p>
+</li>
+<li><p>LEARNING RECURRENT BINARY/TERNARY WEIGHTS [ICLR 2019] </p>
+</li>
+</ul>
+<ul>
+<li>Add BatchNorm to LSTM for Quantized weights</li>
+</ul>
+<ul>
+<li><p>Projection Convolutional Neural Networks for 1-bit CNNs via Discrete Back Propagation [AAAI 2019]</p>
+</li>
+<li><p>Simultaneously Optimizing Weight and Quantizer of Ternary Neural Network using Truncated Gaussian Approximation [CVPR 2019]</p>
+</li>
+<li></li>
+</ul>
+<ul>
+<li></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/30/QNN/#more" rel="contents">
@@ -687,23 +1066,69 @@
       
         
           <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
+<h1 id="Continuous-and-Differentiable"><a href="#Continuous-and-Differentiable" class="headerlink" title="Continuous and Differentiable"></a>Continuous and Differentiable</h1><ul>
+<li>紧集(compact):有界的(bounded),闭的(closed,包含极限点)  </li>
+<li>几乎处处可导的函数，是在除去在一个测度为0的集合上，其余位置都可导的函数。</li>
+<li>连续是定义在某个点上，一致连续是定义在整个函数定义域。</li>
+<li>Continuously differentiable ⊆ Lipschitz continuous ⊆ absolutely continuous ⊆ bounded variation ⊆ differentiable almost everywhere</li>
+<li>Hessian矩阵是正定的，一阶导数为0的点为极小值；Hessian矩阵是负定的，一阶导数为0的点为极大值</li>
+</ul>
 <h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>凸函数(convex)：  </p>
 <blockquote>
 <script type="math/tex; mode=display">
 f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x})</script></blockquote>
-<p>强凸函数(strongly-convex)：   </p>
+<p>强凸函数(strongly-convex) Definition1：   </p>
 <blockquote>
 <script type="math/tex; mode=display">
 f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{m}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script></blockquote>
+<p>强凸函数(strongly-convex) Definition1：</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\nabla ^2 f(x) - m I \, 半正定 \leftrightarrow \nabla ^2 f(x)的特征值全都大于等于m</script></blockquote>
+<ul>
+<li>等价： $t \in [0,1]$</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(tx + (1-t)y) \leq tf(x) + (1-t)f(y) - \frac{1}{2}mt(1-t)||x-y||^2_2</script></blockquote>
+<ul>
+<li>性质：strongly-convex feature1</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(x^{\star}) \geq f(x) - \frac{1}{2L} ||\nabla f(x)||^2_2</script></blockquote>
 <p>L-Lipschitz Continuity</p>
 <blockquote>
 <script type="math/tex; mode=display">
 |f(\boldsymbol{x}) - f(\boldsymbol{y})| \leq L||\boldsymbol{x} - \boldsymbol{y}||</script></blockquote>
-<p>L-smooth   </p>
+<p>L-smooth : 首先f是凸函数 </p>
 <blockquote>
 <script type="math/tex; mode=display">
-f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{L}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script><script type="math/tex; mode=display">
-\Leftrightarrow |\nabla f(x) -\nabla f(x) < L||x-y||</script></blockquote>
+|\nabla f(\boldsymbol{x}) -\nabla f(\boldsymbol{x}) |< L||\boldsymbol{x}-\boldsymbol{y}||</script></blockquote>
+<ul>
+<li>等价：L-smooth Quadratic upper-bound:</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{L}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script></blockquote>
+<ul>
+<li>等价：L-smooth Co-coercivity Lower Bound:</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+(\nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y}))^T (\boldsymbol{x}-\boldsymbol{y}) \geq \frac{1}{L} || \nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y})||^2</script></blockquote>
+<ul>
+<li><p>等价：L-smooth Upper Bound:</p>
+<blockquote>
+<script type="math/tex; mode=display">
+(\nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y}))^T (\boldsymbol{x}-\boldsymbol{y}) \leq L || \nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y})||^2</script></blockquote>
+</li>
+<li><p>性质：L-smooth feature1</p>
+</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(x^{\star}) \leq f(x) - \frac{1}{2L} ||\nabla f(x)||^2_2</script></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/10/25/article-title/#more" rel="contents">
@@ -945,7 +1370,7 @@ f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\bold
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -995,7 +1420,7 @@ f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\bold
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1028,7 +1453,7 @@ f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\bold
 </span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客共6.8k字</span>
+  <span class="post-count">博客共11.5k字</span>
 </div>
 
         

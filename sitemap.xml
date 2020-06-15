@@ -2,58 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/01/07/bash/</loc>
+    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
     
-    <lastmod>2018-03-07T03:49:26.949Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
-    
-    <lastmod>2018-03-06T08:00:27.589Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/11/03/Dataset/</loc>
-    
-    <lastmod>2018-03-02T08:01:48.745Z</lastmod>
+    <lastmod>2019-04-23T07:36:00.105Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/10/25/article-title/</loc>
     
-    <lastmod>2018-01-23T09:58:31.972Z</lastmod>
+    <lastmod>2019-04-11T07:30:01.597Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
+    <loc>http://yoursite.com/2018/05/06/Itr/</loc>
     
-    <lastmod>2018-01-13T14:48:41.681Z</lastmod>
+    <lastmod>2018-10-15T00:42:38.372Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
+    <loc>http://yoursite.com/2017/10/25/hello-world/</loc>
     
-    <lastmod>2018-01-07T08:20:03.506Z</lastmod>
+    <lastmod>2018-09-07T07:30:16.837Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/12/25/Quantize/</loc>
     
-    <lastmod>2018-01-04T04:10:45.675Z</lastmod>
+    <lastmod>2018-05-03T07:51:05.884Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/30/QNN/</loc>
+    <loc>http://yoursite.com/2017/10/30/py-code/</loc>
     
-    <lastmod>2017-12-31T13:47:12.609Z</lastmod>
+    <lastmod>2018-04-25T12:15:57.297Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/03/Dataset/</loc>
+    
+    <lastmod>2018-04-06T03:36:41.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/11/21/caffe/</loc>
+    
+    <lastmod>2018-03-26T07:57:18.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/03/10/dataform/</loc>
+    
+    <lastmod>2018-03-10T11:45:01.812Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/01/07/bash/</loc>
+    
+    <lastmod>2018-03-07T03:49:26.949Z</lastmod>
     
   </url>
   
