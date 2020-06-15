@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="起点" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Continuous and Differentiable 紧集(compact):有界的(bounded),闭的(closed,包含极限点)   几乎处处可导的函数，是在除去在一个测度为0的集合上，其余位置都可导的函数。 连续是定义在某个点上，一致连续是定义在整个函数定义域。 Continuously differenti">
+<meta property="og:type" content="website">
+<meta property="og:title" content="机器学习-凸优化">
+<meta property="og:url" content="http://yoursite.com/posts_bak/article-title.html">
+<meta property="og:site_name" content="起点">
+<meta property="og:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Continuous and Differentiable 紧集(compact):有界的(bounded),闭的(closed,包含极限点)   几乎处处可导的函数，是在除去在一个测度为0的集合上，其余位置都可导的函数。 连续是定义在某个点上，一致连续是定义在整个函数定义域。 Continuously differenti">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-11T07:30:01.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机器学习-凸优化">
+<meta name="twitter:description" content="1printf(&amp;quot;hello Markdown!&amp;quot;) Continuous and Differentiable 紧集(compact):有界的(bounded),闭的(closed,包含极限点)   几乎处处可导的函数，是在除去在一个测度为0的集合上，其余位置都可导的函数。 连续是定义在某个点上，一致连续是定义在整个函数定义域。 Continuously differenti">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts_bak/article-title.html"/>
+
+
+
+
+
+  <title>机器学习-凸优化 | 起点</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08d53ec64344fff70c5dbd444c9ca2e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">起点</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">机器学习-凸优化</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;hello Markdown!&quot;)</div></pre></td></tr></table></figure>
+<h1 id="Continuous-and-Differentiable"><a href="#Continuous-and-Differentiable" class="headerlink" title="Continuous and Differentiable"></a>Continuous and Differentiable</h1><ul>
+<li>&#x7D27;&#x96C6;(compact):&#x6709;&#x754C;&#x7684;(bounded),&#x95ED;&#x7684;(closed,&#x5305;&#x542B;&#x6781;&#x9650;&#x70B9;)  </li>
+<li>&#x51E0;&#x4E4E;&#x5904;&#x5904;&#x53EF;&#x5BFC;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x662F;&#x5728;&#x9664;&#x53BB;&#x5728;&#x4E00;&#x4E2A;&#x6D4B;&#x5EA6;&#x4E3A;0&#x7684;&#x96C6;&#x5408;&#x4E0A;&#xFF0C;&#x5176;&#x4F59;&#x4F4D;&#x7F6E;&#x90FD;&#x53EF;&#x5BFC;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8FDE;&#x7EED;&#x662F;&#x5B9A;&#x4E49;&#x5728;&#x67D0;&#x4E2A;&#x70B9;&#x4E0A;&#xFF0C;&#x4E00;&#x81F4;&#x8FDE;&#x7EED;&#x662F;&#x5B9A;&#x4E49;&#x5728;&#x6574;&#x4E2A;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x57DF;&#x3002;</li>
+<li>Continuously differentiable &#x2286; Lipschitz continuous &#x2286; absolutely continuous &#x2286; bounded variation &#x2286; differentiable almost everywhere</li>
+<li>Hessian&#x77E9;&#x9635;&#x662F;&#x6B63;&#x5B9A;&#x7684;&#xFF0C;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x4E3A;0&#x7684;&#x70B9;&#x4E3A;&#x6781;&#x5C0F;&#x503C;&#xFF1B;Hessian&#x77E9;&#x9635;&#x662F;&#x8D1F;&#x5B9A;&#x7684;&#xFF0C;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x4E3A;0&#x7684;&#x70B9;&#x4E3A;&#x6781;&#x5927;&#x503C;</li>
+</ul>
+<h1 id="Convex"><a href="#Convex" class="headerlink" title="Convex"></a>Convex</h1><h2 id="definition"><a href="#definition" class="headerlink" title="definition"></a>definition</h2><p>&#x51F8;&#x51FD;&#x6570;(convex)&#xFF1A;  </p>
+<blockquote>
+<script type="math/tex; mode=display">
+f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x})</script></blockquote>
+<p>&#x5F3A;&#x51F8;&#x51FD;&#x6570;(strongly-convex) Definition1&#xFF1A;   </p>
+<blockquote>
+<script type="math/tex; mode=display">
+f(\boldsymbol{y}) \geq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{m}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script></blockquote>
+<p>&#x5F3A;&#x51F8;&#x51FD;&#x6570;(strongly-convex) Definition1&#xFF1A;</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\nabla ^2 f(x) - m I \, 半正定 \leftrightarrow \nabla ^2 f(x)的特征值全都大于等于m</script></blockquote>
+<ul>
+<li>&#x7B49;&#x4EF7;&#xFF1A; $t \in [0,1]$</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(tx + (1-t)y) \leq tf(x) + (1-t)f(y) - \frac{1}{2}mt(1-t)||x-y||^2_2</script></blockquote>
+<ul>
+<li>&#x6027;&#x8D28;&#xFF1A;strongly-convex feature1</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(x^{\star}) \geq f(x) - \frac{1}{2L} ||\nabla f(x)||^2_2</script></blockquote>
+<p>L-Lipschitz Continuity</p>
+<blockquote>
+<script type="math/tex; mode=display">
+|f(\boldsymbol{x}) - f(\boldsymbol{y})| \leq L||\boldsymbol{x} - \boldsymbol{y}||</script></blockquote>
+<p>L-smooth : &#x9996;&#x5148;f&#x662F;&#x51F8;&#x51FD;&#x6570; </p>
+<blockquote>
+<script type="math/tex; mode=display">
+|\nabla f(\boldsymbol{x}) -\nabla f(\boldsymbol{x}) |< L||\boldsymbol{x}-\boldsymbol{y}||</script></blockquote>
+<ul>
+<li>&#x7B49;&#x4EF7;&#xFF1A;L-smooth Quadratic upper-bound:</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(\boldsymbol{y}) \leq f(\boldsymbol{x}) + \nabla f(\boldsymbol{x}) ^ {T} (\boldsymbol{y}-\boldsymbol{x}) + \frac{L}{2}||\boldsymbol{y}-\boldsymbol{x}||^2</script></blockquote>
+<ul>
+<li>&#x7B49;&#x4EF7;&#xFF1A;L-smooth Co-coercivity Lower Bound:</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+(\nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y}))^T (\boldsymbol{x}-\boldsymbol{y}) \geq \frac{1}{L} || \nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y})||^2</script></blockquote>
+<ul>
+<li><p>&#x7B49;&#x4EF7;&#xFF1A;L-smooth Upper Bound:</p>
+<blockquote>
+<script type="math/tex; mode=display">
+(\nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y}))^T (\boldsymbol{x}-\boldsymbol{y}) \leq L || \nabla f(\boldsymbol{x}) - \nabla f(\boldsymbol{y})||^2</script></blockquote>
+</li>
+<li><p>&#x6027;&#x8D28;&#xFF1A;L-smooth feature1</p>
+</li>
+</ul>
+<blockquote>
+<script type="math/tex; mode=display">
+f(x^{\star}) \leq f(x) - \frac{1}{2L} ||\nabla f(x)||^2_2</script></blockquote>
+<a id="more"></a>
+<h2 id="closed-function"><a href="#closed-function" class="headerlink" title="closed function"></a>closed function</h2><p>Closed Set<br>a set $C$ is $\textbf{closed}$ if it contains its boundary:</p>
+<blockquote>
+<script type="math/tex; mode=display">x^k \in C,x^k \rightarrow \bar{x} \quad \rightarrow \quad
+\bar{x} \in C</script></blockquote>
+<p>Epigraph</p>
+<blockquote>
+<script type="math/tex; mode=display">\text{epi}f = \{(\boldsymbol{x},\mu):\boldsymbol{x} \in \mathbb{R}^n,\mu \in \mathbb{R},\mu \geq f(\boldsymbol{x})\} \subseteq \mathbb{R}^{n+1}</script></blockquote>
+<p>Closed function<br>a function is closed if its epigraph is a closed set<br>$\textbf{Example}&#xFF1A;$</p>
+<blockquote>
+<script type="math/tex; mode=display">f(x) = xlogx , dom f=\mathbf{R}_{+}</script><h2 id="convex-conjugate"><a href="#convex-conjugate" class="headerlink" title="convex conjugate"></a>convex conjugate</h2><p>&#x51FD;&#x6570;$f:\mathbb{R}^d \rightarrow \mathbb{R}$&#x7684;&#x51F8;&#x5171;&#x8F6D;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;</p>
+<script type="math/tex; mode=display">f^{*}(\boldsymbol{v}) = \max \limits_{\boldsymbol{u} \in \mathbf{dom} f} \boldsymbol{v}^T\boldsymbol{u} - f(\boldsymbol{u})</script><p>$f^*$ &#x662F;&#x95ED;&#x7684;&#x4E14;&#x662F;&#x51F8;&#x7684;(&#x5C3D;&#x7BA1;$f$&#x53EF;&#x80FD;&#x4E0D;&#x6EE1;&#x8DB3;)</p>
+</blockquote>
+<ul>
+<li>Double conjugate: $(f^<em>)^</em> = f$ if $f$ is closed and convex</li>
+</ul>
+<h2 id="convex-loss"><a href="#convex-loss" class="headerlink" title="convex loss"></a>convex loss</h2><p>&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss): $y \in \mathbb{R} $</p>
+<blockquote>
+<script type="math/tex; mode=display">
+l(y_i,h(\boldsymbol{x}_i,\theta)) = \frac{1}{2}(y_i-h(\boldsymbol{x}_i,\theta))^2</script><script type="math/tex; mode=display">
+其中在线性回归中 ，h(\boldsymbol{x}_i,\theta) = \theta^T \Phi (\boldsymbol{x}_i)</script></blockquote>
+<p>&#x5BF9;&#x6570;&#x635F;&#x5931;(logistic loss):   $y  \in {-1,1}$      </p>
+<blockquote>
+<script type="math/tex; mode=display">
+l(y_i,h(\boldsymbol{x}i,\theta)) = log(1+exp(-y_i h(\boldsymbol{x}i,\theta)))</script></blockquote>
+<p>&#x4E00;&#x9636;&#x5BFC;&#x6570;(one order of diff of square-loss)       </p>
+<blockquote>
+<script type="math/tex; mode=display">
+\nabla_{\boldsymbol{x}_i} l(y_i,h(\boldsymbol{x}_i,\theta)) = \frac{\partial l(y_i,h(\boldsymbol{x}_i,\theta))}{\partial \theta} = (y_i-h(\boldsymbol{x}_i,\theta)) \Phi (\boldsymbol{x}_i)</script></blockquote>
+<p>&#x4E8C;&#x9636;&#x5BFC;&#x6570;(two order of diff of square-loss)</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\frac{\partial \nabla_{\boldsymbol{x}_i} l(y_i,h(\boldsymbol{x}_i,\theta))}{ \partial \theta } = \Phi (\boldsymbol{x}_i) \Phi (\boldsymbol{x}_i)^T</script><p>&#x2014; &#x6C42;&#x4E8C;&#x9636;Hessian&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;:   </p>
+<script type="math/tex; mode=display">
+\Phi (\boldsymbol{x}_i) \Phi (\boldsymbol{x}_i)^T \boldsymbol{z} = \lambda \boldsymbol{z} \\
+(\Phi (\boldsymbol{x}_i) ^T \boldsymbol{z})\Phi (\boldsymbol{x}_i) = \lambda \boldsymbol{z} \\
+因此得到：   
+\boldsymbol{z} = k \Phi (\boldsymbol{x}_i) \quad k \neq 0 \\ 
+代入上式得到：   
+\lambda = \Phi (\boldsymbol{x}i) ^T \Phi (\boldsymbol{x}i) \geq 0</script></blockquote>
+<p><span style="color:blue">&#x6240;&#x4EE5;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x51F8;&#x51FD;&#x6570;&#xFF0C;&#x82E5;$\Phi (\boldsymbol{x}_i) ^T \Phi (\boldsymbol{x}_i) \geq c ,c&gt;0.$&#x90A3;&#x4E48;&#x5E73;&#x65B9;&#x635F;&#x5931;(square-loss)&#x662F;&#x5F3A;&#x51F8;&#x51FD;&#x6570;</span></p>
+<hr>
+<h1 id="Projected-Gradient-Descent"><a href="#Projected-Gradient-Descent" class="headerlink" title="Projected Gradient Descent"></a>Projected Gradient Descent</h1><blockquote>
+<script type="math/tex; mode=display">\min_{x \in \boldsymbol{X}}f(x)</script></blockquote>
+<p>&#x5176;&#x4E2D;$f$&#x662F;&#x51F8;&#x51FD;&#x6570;&#x4E14;$\boldsymbol{X}$&#x662F;&#x51F8;&#x96C6;</p>
+<p>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;$x_{t+1}&#x2019; = x_t - \gamma \nabla f&#xFF08;x_t&#xFF09;$</p>
+<p>&#x4F46;&#x662F;$x<em>{t+1}&#x2019;$&#x53EF;&#x80FD;&#x4E0D;&#x5728;$\boldsymbol{X}$&#x91CC;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x628A;$x</em>{t+1}&#x2019;$&#x6295;&#x5F71;&#x5230;&#x96C6;&#x5408;$\boldsymbol{X}$&#x91CC;&#x9762;</p>
+<p>&#x6295;&#x5F71;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<script type="math/tex; mode=display">
+x_{t+1} = \Pi_{\boldsymbol{X}}(x_{t+1}') = \arg \min \limits_{x \in \boldsymbol{X}} \frac{1}{2} || x-x_{t+1}'||_2^2</script><p>&#x5BF9;&#x4E8E;$L$&#x5E73;&#x6ED1;&#x7684;&#x51F8;&#x51FD;&#x6570;,$\gamma = \frac{1}{L}$</p>
+<hr>
+<h1 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h1><p>&#x5BF9;&#x4E8E;&#x4F18;&#x5316;&#x76EE;&#x6807;&#xFF1A;</p>
+<blockquote>
+<script type="math/tex; mode=display">\min \limits_{\boldsymbol{x}} f(\boldsymbol{x}) + \lambda||\boldsymbol{x}||_1</script><p>&#x4F7F;&#x7528;&#x8FD1;&#x7AEF;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(Proximal Gradient Descent)&#x6C42;&#x89E3;&#xFF0C;&#x6709;&#x95ED;&#x5F0F;&#x89E3;&#xFF1A;</p>
+<script type="math/tex; mode=display">x_{k+1}^i = \begin{cases}
+  z^i-\lambda/L &\text{if } z^i>\lambda/L  \\
+  0 &\text{if } -\lambda/L < z^i < \lambda/L \\
+  z^i+\lambda/L &\text{if } z^i < -\lambda/L
+\end{cases}</script><p>&#x5176;&#x4E2D; $\quad \boldsymbol{z} = [z^1,z^2,&#x2026;,z^n]^T \quad \boldsymbol{x_k} = [x_k^1,x_k^2,&#x2026;,x_k^n]^T \quad \boldsymbol{z} = \boldsymbol{x}_k - \frac{1}{L} \nabla f(\boldsymbol{x}_k)$.<br>$\nabla f$ &#x6EE1;&#x8DB3;L-lipschitz&#x6761;&#x4EF6;, $L$ &#x4E3A;L-lipschitz&#x5E38;&#x6570;,$f$ &#x7684;&#x6CF0;&#x52D2;&#x5C55;&#x793A;&#x8FD1;&#x4F3C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<script type="math/tex; mode=display">f(\boldsymbol{x}) = f(\boldsymbol{x}_k)+ <\nabla f(\boldsymbol{x}_k,\boldsymbol{x}-\boldsymbol{x}_k)> + \frac{L}{2}||\boldsymbol{x}-\boldsymbol{x}_k||^2</script></blockquote>
+<ul>
+<li><p>&#x6240;&#x4EE5;L1-norm&#x4F1A;&#x4EA7;&#x751F;&#x7A00;&#x758F;&#x89E3;&#xFF0C;&#x4E14;$\lambda$&#x8D8A;&#x5927;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x8D8A;&#x7A00;&#x758F;&#x3002;</p>
+</li>
+<li><p>&#x7531;&#x4E8E;$f(x)$&#x7684;&#x6CF0;&#x52D2;&#x5C55;&#x793A;&#x662F;&#x8FD1;&#x4F3C;&#x8868;&#x793A;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;$\frac{1}{L}$&#x7684;&#x5B66;&#x4E60;&#x7387;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5F97;&#x5230;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x8FED;&#x4EE3;&#x6C42;&#x89E3;</p>
+</li>
+<li><p>&#x5728;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x4E0D;&#x53EF;&#x80FD;&#x663E;&#x793A;&#x5F97;&#x5230;$L$&#x7684;&#x503C;,&#x6240;&#x4EE5;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5B66;&#x4E60;&#x7387;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x65B9;&#x6CD5;&#x6C42;&#x89E3;,&#x5373;&#x4F7F;&#x5E26;&#x4E0A;&#x4E86;1-norm&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6C42;&#x68AF;&#x5EA6;&#x7684;&#x3002;</p>
+</li>
+</ul>
+<p>group-lasso  </p>
+<blockquote>
+<script type="math/tex; mode=display">\min \limits_x f(x) + \sum_{j=1}^J\lambda||x_j||_{K_j}</script><script type="math/tex; mode=display">x_j \text{是x的一个子集} ||x_j||_{K_j }= x_j^TK_jx_j,K_j \text{是半正定矩阵}</script><p>&#x4F7F;&#x7528;PGD&#x6C42;&#x89E3;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5168;&#x96F6;&#x89E3;&#xFF1B;&#x6CE8;&#x610F;$K_j = I$&#x65F6;&#xFF0C;&#x5BF9;&#x5E94;l2-norm&#x4E0D;&#x5E26;&#x5E73;&#x65B9;&#x3002;</p>
+</blockquote>
+<h1 id="ADMM"><a href="#ADMM" class="headerlink" title="ADMM"></a>ADMM</h1><ul>
+<li>Penalty Problem</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{align}
+min_x \quad f(x) + g(x) 
+\end{align}</script><p>&#x200B;    $f(x)$&#x662F;&#x51F8;&#x7684;&#xFF0C;&#x5149;&#x6ED1;&#x7684;&#xFF1B;$g(x)$&#x662F;&#x51F8;&#x7684;&#xFF0C;&#x4E0D;&#x53EF;&#x5BFC;&#x7684;&#x3002;</p>
+<p>&#x200B;        (1) &#x8F6C;&#x5316;&#x6210;&#x4E0B;&#x9762;&#x5F62;&#x5F0F;&#x4F7F;&#x7528;ADMM&#x6C42;&#x89E3;(&#x6216;&#x8005;&#x5BF9;&#x5076;&#x68AF;&#x5EA6;&#x4E0A;&#x5347;)&#xFF1A;</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+min_x &\quad f(x) + g(z) \\
+s.t. & \quad x = z
+\end{align*}</script><p>&#x200B;    (2) proximal gradient method <strong>&#x6536;&#x655B;&#x7387;&#x4E3A;$\frac{1}{\epsilon}$</strong></p>
+<script type="math/tex; mode=display">
+x ^ { k + 1 } : = \operatorname { prox } _ { \lambda ^ { k } g } \left( x ^ { k } - \lambda ^ { k } \nabla f \left( x ^ { k } \right) \right)</script><script type="math/tex; mode=display">
+\operatorname { prox } _ { \lambda g } ( v ) = \underset { x } { \operatorname { argmin } } \left( g ( x ) + ( 1 / 2 \lambda ) \| x - v \| _ { 2 } ^ { 2 } \right)</script><p>&#x200B;    (3) Accelerated proximal gradient method <strong>&#x6536;&#x655B;&#x7387;&#x4E3A;$\frac{1}{\sqrt{\epsilon}}$</strong></p>
+<script type="math/tex; mode=display">
+y ^ { k + 1 } \quad : = x ^ { k } + \omega ^ { k } \left( x ^ { k } - x ^ { k - 1 } \right)</script><script type="math/tex; mode=display">
+x ^ { k + 1 } : = \operatorname { prox } _ { \lambda ^ { k } g } \left( y ^ { k + 1 } - \lambda ^ { k } \nabla f \left( y ^ { k + 1 } \right) \right)</script><p>&#x200B;    (4) <strong>coordinate descent method:</strong></p>
+<p>&#x200B;        For lasso-problem, alternate solve any dim of $x$, for sloving a scalar variable, there is closed   </p>
+<pre><code>     form.Just let gradient to be zero.
+</code></pre><ul>
+<li>General Constraint Problem</li>
+</ul>
+<p>  &#x5BF9;&#x4E8E;&#x4E0B;&#x8FF0;&#x7EA6;&#x675F;&#x95EE;&#x9898;&#xFF0C;&#x5176;&#x4E2D;&#x7EA6;&#x675F;$C$&#x53EF;&#x4EE5;&#x4E3A;&#x5404;&#x79CD;&#x7EA6;&#x675F;&#xFF0C;&#x975E;&#x4EFF;&#x5C04;&#x7684;&#xFF0C;&#x4E0D;&#x53EF;&#x5BFC;&#x7684;&#xFF0C;&#x4F8B;&#x5982;$||x||_1 \leq K$</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+min_x &\quad f(x) \\
+s.t. &\quad x \in C
+\end{align*}</script><p>&#x200B;    (1) &#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x4E3A;&#x65E0;&#x7EA6;&#x675F;&#x95EE;&#x9898;&#xFF0C;&#x518D;&#x4F7F;&#x7528;ADMM&#x6C42;&#x89E3;&#xFF1A;</p>
+<script type="math/tex; mode=display">
+min_x \quad f(x) + I_C(x)</script><p>&#x200B;    <strong>&#x53EA;&#x8981;$C$&#x662F;&#x51F8;&#x96C6;&#xFF0C;$I_C(x)$&#x5C31;&#x662F;&#x51F8;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x8981;&#x540C;&#x65F6;$f(x)$&#x4E5F;&#x662F;&#x51F8;&#x51FD;&#x6570;&#x5C31;&#x6709;&#x6536;&#x655B;&#x6027;&#x4FDD;&#x8BC1;&#x3002;</strong></p>
+<p>&#x200B;    <strong>ADMM&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;$\rho$ &#x90FD;&#x53EF;&#x4EE5;&#x6536;&#x655B;&#xFF0C;&#x53EA;&#x662F;&#x6536;&#x655B;&#x5FEB;&#x6162;&#x7684;&#x95EE;&#x9898;&#x3002;</strong></p>
+<p>&#x200B;    (2) &#x6B64;&#x5916;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6295;&#x5F71;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(PGD)&#xFF0C;$\Pi$&#x4E3A;&#x6B27;&#x5F0F;&#x6295;&#x5F71;</p>
+<script type="math/tex; mode=display">
+x ^ { ( k + 1 ) } = \Pi_C \left( x ^ { ( k ) } - \alpha _ { k } g ^ { ( k ) } \right)</script><p>&#x200B;    <strong>&#x6295;&#x5F71;(projected)&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x662F;&#x8FD1;&#x7AEF;(proximal)&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7684;&#x4E00;&#x4E2A;&#x7279;&#x4F8B;</strong></p>
+<p>&#x200B;    (3) &#x4F7F;&#x7528;Frank-Wolfe&#xFF0C;&#x6BD4;&#x6295;&#x5F71;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x66F4;&#x5FEB;</p>
+<ul>
+<li><p>Equality Constraint Problem (&#x4E00;&#x822C;&#x4E3A;&#x7EBF;&#x6027;&#x7EA6;&#x675F;)</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+min_x & \quad f_0(x) \\
+s.t. & \quad f_i(x) = 0 , i=1,2,\dots
+\end{align*}</script><p>(1)&#x5BF9;&#x4E8E;&#x7B49;&#x5F0F;&#x7EA6;&#x675F;&#xFF0C;&#x91C7;&#x7528;&#x5BF9;&#x5076;&#x68AF;&#x5EA6;&#x4E0A;&#x5347;&#x6CD5;&#x6216;&#x8005;ADMM&#xFF0C;EE364B</p>
+<p>(2)&#x91C7;&#x7528;&#x7F5A;&#x51FD;&#x6570;&#x6CD5;:  &#x9010;&#x6E10;&#x589E;&#x5927;$\lambda$</p>
+<script type="math/tex; mode=display">
+min_x \quad f_0(x) + \lambda \sum_i ||f_i(x)||_2^2</script><p>(3) Primal-dual Subgradient EE364B</p>
+</li>
+<li><p>Inequality Constraint Problem  (&#x4E00;&#x822C;&#x4E3A;&#x7EBF;&#x6027;&#x7EA6;&#x675F;)</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+min_x & \quad f_0(x) \\
+s.t. & \quad f_i(x) \leq 0 , i=1,2,\dots
+\end{align*}</script><p>(1) &#x5BF9;&#x4E8E;&#x4E0D;&#x7B49;&#x5F0F;&#x7EA6;&#x675F;&#xFF0C;&#x91C7;&#x7528;&#x5BF9;&#x5076;&#x68AF;&#x5EA6;&#x4E0A;&#x5347;&#x6CD5;&#x6C42;&#x89E3;</p>
+<p>&#x200B;    Primal Step</p>
+<script type="math/tex; mode=display">
+x ^{(k)} = x ^ { * } ( \lambda ) = \operatorname { argmin } _ { z } \left( f _ { 0 } ( z ) + \lambda _ { 1 } f _ { 1 } ( z ) + \cdots + \lambda _ { m } f _ { m } ( z ) \right)</script></li>
+</ul>
+<p>  &#x200B;    Dual Step &#x4E0D;&#x518D;&#x662F;&#x4E00;&#x822C;&#x7684;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x5076;&#x53D8;&#x91CF;$\lambda_i \geq 0$&#xFF0C;&#x8FD9;&#x4E2A;&#x7EA6;&#x675F;&#x7684;&#x5B58;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x91C7;&#x7528;&#x6295;&#x5F71;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(PGD)</p>
+<p>  &#x200B;    &#x5BF9;&#x5076;&#x51FD;&#x6570;&#xFF1A;</p>
+<script type="math/tex; mode=display">
+  g ( \lambda ) = f _ { 0 } \left( x ^ { * } ( \lambda ) \right) + \lambda _ { 1 } f _ { 1 } \left( x ^ { * } ( \lambda ) \right) + \cdots + \lambda _ { m } f _ { m } \left( x ^ { * } ( \lambda ) \right)</script><p>  &#x200B;    &#x5BF9;&#x5076;&#x68AF;&#x5EA6;</p>
+<script type="math/tex; mode=display">
+  h _ { i } = - f _ { i } \left( x ^ { * } ( \lambda ) \right)</script><p>  &#x200B;    &#x5BF9;&#x5076;&#x66F4;&#x65B0;</p>
+<script type="math/tex; mode=display">
+  \lambda _ { i } ^ { ( k + 1 ) } = \left( \lambda _ { i } ^ { ( k ) } + \alpha _ { k } f _ { i } \left( x ^ { ( k ) } \right) \right) _ { + }</script><p>  &#x200B;    &#x7C7B;&#x4F3C;&#x7684;&#x91C7;&#x7528;ADMM&#x7B97;&#x6CD5;&#x3002;</p>
+<p>  (2) &#x4E0D;&#x7B49;&#x5F0F;&#x7EA6;&#x675F;&#x8F6C;&#x5316;&#x4E3A;&#x7B49;&#x5F0F;&#x7EA6;&#x675F;</p>
+<script type="math/tex; mode=display">
+  f_i(x) \leq 0 \leftrightarrow f_i(x)_+ = max(f_i(x), 0) = 0</script><h1 id="PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;"><a href="#PCA-&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;" class="headerlink" title="PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)"></a>PCA(&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;)</h1><p>&#x7528;&#x4E8E;&#x77E9;&#x9635;&#x5206;&#x89E3;&#xFF1A;</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\text{求出} d'\text{个特征向量,表示成矩阵} W,W \text{的每一行对应一个特征向量;} \\
+&\text{原始数据}X \text{的每一列对应一个数据点}\\
+&WX \text{低维空间的数据表示}\\
+&W^TWX \text{原始空间的重构数据表示}\\
+& \text{因此PCA把原始数据矩阵X分解成两个小矩阵} W^T,WX.\\
+\end{aligned}</script></blockquote>
+<h1 id="Convolution-im2col"><a href="#Convolution-im2col" class="headerlink" title="Convolution(im2col)"></a>Convolution(im2col)</h1><h2 id="forward"><a href="#forward" class="headerlink" title="forward"></a>forward</h2><blockquote>
+<script type="math/tex; mode=display">
+W_{n,c,m,k} \text{表示卷积核的第n个filter,  第c个channel，(m,k)的2D-filter的相对位置}\\
+\text{令} W_{i,:,:,:} \text{为列向量},W \in \mathbb{R}^{N \times C \times M \times K}\\
+W_{reshape} = \begin{bmatrix}
+  W{1,:,:,:} ; W{2,:,:,:}; ......; W_{n,:,:,:}
+\end{bmatrix} ,W_{reshape} \in \mathbb{R}^{N \times (CMK)} \\
+\text{卷积操作可以表示成矩阵乘法：}Y = W_{reshape} * im2col(X). \\
+\text{矩阵Y的每一列代表一个feature map.}</script></blockquote>
+<h2 id="backward"><a href="#backward" class="headerlink" title="backward"></a>backward</h2><blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned} &
+\text{令}\nabla Y\text{为上层神经元的梯度矩阵},\nabla Y \in \mathbb{R}^{N \times HW}, \\
+&\nabla W  = \nabla Y * im2col(X)^T,
+\nabla W \in \mathbb{R}^{N \times CMK} \\
+&\nabla X{reshape} = W{reshape}^{T} * \nabla Y,\nabla X_{reshape} \in \mathbb{R}^{CMK \times HW},\\
+&\nabla X = col2im(\nabla X_{reshape})
+\end{aligned}</script></blockquote>
+<h1 id="&#x514B;&#x7F57;&#x5185;&#x5185;&#x79EF;-Kronecker-product"><a href="#&#x514B;&#x7F57;&#x5185;&#x5185;&#x79EF;-Kronecker-product" class="headerlink" title="&#x514B;&#x7F57;&#x5185;&#x5185;&#x79EF;(Kronecker product)"></a>&#x514B;&#x7F57;&#x5185;&#x5185;&#x79EF;(Kronecker product)</h1><blockquote>
+<script type="math/tex; mode=display">
+A \otimes B = \begin{bmatrix} a_{11} B & \cdots & a_{1n}B \\ \vdots & \ddots & \vdots \\a_{m1} B & \cdots & a_{mn} B \end{bmatrix}.</script><h2 id="&#x6027;&#x8D28;"><a href="#&#x6027;&#x8D28;" class="headerlink" title="&#x6027;&#x8D28;"></a>&#x6027;&#x8D28;</h2><p>&#x5982;&#x679C;A&#x3001;B&#x3001;C&#x548C;D&#x662F;&#x56DB;&#x4E2A;&#x77E9;&#x9635;&#xFF0C;&#x4E14;&#x77E9;&#x9635;&#x4E58;&#x79EF;AC&#x548C;BD&#x5B58;&#x5728;</p>
+<script type="math/tex; mode=display">
+(\boldsymbol{A} \otimes \boldsymbol{B})(\boldsymbol{C} \otimes \boldsymbol{D}) = \boldsymbol{AC} \otimes \boldsymbol{BD}</script></blockquote>
+<h1 id="&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;"><a href="#&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;" class="headerlink" title="&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;"></a>&#x589E;&#x91CF;&#x6C42;&#x89E3;&#x5747;&#x503C;&#x548C;&#x65B9;&#x5DEE;</h1><blockquote>
+<p>&#x6837;&#x672C;&#x5E8F;&#x5217;</p>
+<script type="math/tex; mode=display">
+h_1, h_2, ... , h_M, a_1, a_2, ... , a_N</script><p>&#x5168;&#x5C40;&#x6837;&#x672C;&#x5747;&#x503C;</p>
+<script type="math/tex; mode=display">
+\begin{aligned} 
+\overline{X} &= \frac 1 {M + N} \left[ \sum_{i=1}^M h_i + \sum_{j=1}^N a_j \right] \nonumber \\\\
+           &= \frac { M\overline{H} + N\overline{A}} {M + N} \nonumber
+\end{aligned}</script><p>&#x5168;&#x5C40;&#x6837;&#x672C;&#x65B9;&#x5DEE;</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sigma^2 &= \frac 1 {M + N} \left[\sum_{i=1}^M \left(h_i - \overline{X}\right)^2 + \sum_{j=1}^N \left(a_j - \overline{X}\right)^2 \right]  \nonumber \\\\
+       &= \frac 1 {M + N} \left[ \sum_{i=1}^M \left((h_i - \overline{H}) - (\overline{X} - \overline{H})\right)^2 + \sum_{j=1}^N \left((a_j - \overline{A}) - (\overline{X} - \overline{A})\right)^2 \right] \nonumber \\\\
+       &= \frac 1 {M + N} [ \sum_{i=1}^M \left((h_i - \overline{H})^2 - 2(h_i - \overline{H})(\overline{X} - \overline{H}) + (\overline{X} - \overline{H})^2\right) \nonumber \\\\ 
+       & + \sum_{j=1}^N \left((a_j - \overline{A})^2 - 2(a_j - \overline{A})(\overline{X} - \overline{A}) + (\overline{X} - \overline{A})^2\right)  ] \nonumber \\\\
+       &= \frac 1 {M + N} [ M\sigma_H^2 + M(\overline{X} - \overline{H})^2 - 2(\overline{X} - \overline{H})(\sum_{i=1}^M h_i - M\overline{H}) \nonumber \\\\
+       &+ N\sigma_A^2 + N(\overline{X} - \overline{A})^2 - 2(\overline{X} - \overline{A})(\sum_{j=1}^N a_j - N\overline{A}) ] \nonumber \\\\
+       &= \frac 1 {M + N} \left[ M\sigma_H^2 + M(\overline{X} - \overline{H})^2 + N\sigma_A^2 + N(\overline{X} - \overline{A})^2 \right] \nonumber \\\\
+       &= \frac { M\left[\sigma_H^2 + \left(\overline{X} - \overline{H}\right)^2\right] + N\left[\sigma_A^2 + \left(\overline{X} - \overline{A}\right)^2\right] } {M + N} \nonumber
+\end{aligned}</script></blockquote>
+<h1 id="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"><a href="#&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;" class="headerlink" title="&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;"></a>&#x72EC;&#x7ACB;&#x968F;&#x673A;&#x53D8;&#x91CF;</h1><p>X,Y&#x662F;&#x4E24;&#x4E2A;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x968F;&#x673A;&#x53D8;&#x91CF; </p>
+<blockquote>
+<script type="math/tex; mode=display">\begin{aligned}
+E[XY] &= E[X]E[Y] \\
+Var[X+Y] &= Var[X] + Var[Y] \\
+Var(XY) &= E[X^2Y^2] - E[XY]^2 \\
+   ​        &= E[X^2]E[Y^2] - E[X]^2E[Y]^2 \\
+   ​        &= (Var[X] + E[X]^2)(Var[Y]+E[Y]^2) - E[X]^2E[Y]^2 \\
+   ​       &= Var[X]Var[Y] + E[X]^2Var[Y] + E[Y]^2Var[X]
+\end{aligned}</script></blockquote>
+<h1 id="Norm"><a href="#Norm" class="headerlink" title="Norm"></a>Norm</h1><script type="math/tex; mode=display">||x||_p \leq ||x||_r \leq n^{(\frac{1}{r} - \frac{1}{p})}||x||_p</script><script type="math/tex; mode=display">
+    ||x||_2 \leq ||x||_1 \leq \sqrt{n} ||x||_2</script><h1 id="&#x7EA7;&#x6570;"><a href="#&#x7EA7;&#x6570;" class="headerlink" title="&#x7EA7;&#x6570;"></a>&#x7EA7;&#x6570;</h1><p>$\frac{1}{\sqrt{1}} + \dots + \frac{1}{\sqrt{n}} \approx O(\sqrt{n})$ &#x5FAE;&#x79EF;&#x5206;&#x5939;&#x903C;&#x5F97;&#x5230;</p>
+<h1 id="&#x6B63;&#x592A;&#x5206;&#x5E03;&#x6027;&#x8D28;"><a href="#&#x6B63;&#x592A;&#x5206;&#x5E03;&#x6027;&#x8D28;" class="headerlink" title="&#x6B63;&#x592A;&#x5206;&#x5E03;&#x6027;&#x8D28;"></a>&#x6B63;&#x592A;&#x5206;&#x5E03;&#x6027;&#x8D28;</h1><p>&#x51FD;&#x6570;&#x66F2;&#x7EBF;&#x4E0B;68.268949%&#x7684;&#x9762;&#x79EF;&#x5728;&#x5E73;&#x5747;&#x503C;&#x5DE6;&#x53F3;&#x7684;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x5DEE;&#x8303;&#x56F4;&#x5185;<br>95.449974%&#x7684;&#x9762;&#x79EF;&#x5728;&#x5E73;&#x5747;&#x503C;&#x5DE6;&#x53F3;&#x4E24;&#x4E2A;&#x6807;&#x51C6;&#x5DEE;2&#x3C3;&#x7684;&#x8303;&#x56F4;&#x5185;<br>99.730020%&#x7684;&#x9762;&#x79EF;&#x5728;&#x5E73;&#x5747;&#x503C;&#x5DE6;&#x53F3;&#x4E09;&#x4E2A;&#x6807;&#x51C6;&#x5DEE;3&#x3C3;&#x7684;&#x8303;&#x56F4;&#x5185;<br>99.993666%&#x7684;&#x9762;&#x79EF;&#x5728;&#x5E73;&#x5747;&#x503C;&#x5DE6;&#x53F3;&#x56DB;&#x4E2A;&#x6807;&#x51C6;&#x5DEE;4&#x3C3;&#x7684;&#x8303;&#x56F4;&#x5185;  </p>
+<h1 id="&#x53C2;&#x8003;&#x8D44;&#x6599;"><a href="#&#x53C2;&#x8003;&#x8D44;&#x6599;" class="headerlink" title="&#x53C2;&#x8003;&#x8D44;&#x6599;"></a>&#x53C2;&#x8003;&#x8D44;&#x6599;</h1><ul>
+<li><a href="http://www.cnblogs.com/yoyaprogrammer/p/delta_variance.html" target="_blank" rel="external">http://www.cnblogs.com/yoyaprogrammer/p/delta_variance.html</a></li>
+</ul>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/ziying.jpg"
+                alt="CWP" />
+            
+              <p class="site-author-name" itemprop="name">CWP</p>
+              <p class="site-description motion-element" itemprop="description">渐行渐远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Continuous-and-Differentiable"><span class="nav-number">1.</span> <span class="nav-text">Continuous and Differentiable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convex"><span class="nav-number">2.</span> <span class="nav-text">Convex</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#definition"><span class="nav-number">2.1.</span> <span class="nav-text">definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#closed-function"><span class="nav-number">2.2.</span> <span class="nav-text">closed function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convex-conjugate"><span class="nav-number">2.3.</span> <span class="nav-text">convex conjugate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convex-loss"><span class="nav-number">2.4.</span> <span class="nav-text">convex loss</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Projected-Gradient-Descent"><span class="nav-number">3.</span> <span class="nav-text">Projected Gradient Descent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">4.</span> <span class="nav-text">Lasso</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ADMM"><span class="nav-number">5.</span> <span class="nav-text">ADMM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-主成分分析"><span class="nav-number">6.</span> <span class="nav-text">PCA(主成分分析)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Convolution-im2col"><span class="nav-number">7.</span> <span class="nav-text">Convolution(im2col)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#forward"><span class="nav-number">7.1.</span> <span class="nav-text">forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#backward"><span class="nav-number">7.2.</span> <span class="nav-text">backward</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克罗内内积-Kronecker-product"><span class="nav-number">8.</span> <span class="nav-text">克罗内内积(Kronecker product)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性质"><span class="nav-number">8.1.</span> <span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量求解均值和方差"><span class="nav-number">9.</span> <span class="nav-text">增量求解均值和方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立随机变量"><span class="nav-number">10.</span> <span class="nav-text">独立随机变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Norm"><span class="nav-number">11.</span> <span class="nav-text">Norm</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#级数"><span class="nav-number">12.</span> <span class="nav-text">级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正太分布性质"><span class="nav-number">13.</span> <span class="nav-text">正太分布性质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">14.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CWP</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+<br />
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客共1.1k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://caiwenpu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/posts_bak/article-title.html';
+          this.page.identifier = 'posts_bak/article-title.html';
+          this.page.title = '机器学习-凸优化';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://caiwenpu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("g5zEIG7YdKTtsBBRQWcwEh6K-gzGzoHsz", "CupBCCcTefX0Qf6P8Y8GP8Wf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

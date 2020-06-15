@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="起点" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="bash脚本imagenet 训练集拷贝1234567891011121314151617181920212223242526272829303132#!/bin/bashfunction read_dir()&amp;#123;     local cur_num=0 #定义局部变量，在使用的时候也要使用local修饰     for file in `ls $1`     do         if">
+<meta property="og:type" content="website">
+<meta property="og:title" content="bash脚本">
+<meta property="og:url" content="http://yoursite.com/posts_bak/bash.html">
+<meta property="og:site_name" content="起点">
+<meta property="og:description" content="bash脚本imagenet 训练集拷贝1234567891011121314151617181920212223242526272829303132#!/bin/bashfunction read_dir()&amp;#123;     local cur_num=0 #定义局部变量，在使用的时候也要使用local修饰     for file in `ls $1`     do         if">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-07T03:49:26.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bash脚本">
+<meta name="twitter:description" content="bash脚本imagenet 训练集拷贝1234567891011121314151617181920212223242526272829303132#!/bin/bashfunction read_dir()&amp;#123;     local cur_num=0 #定义局部变量，在使用的时候也要使用local修饰     for file in `ls $1`     do         if">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/posts_bak/bash.html"/>
+
+
+
+
+
+  <title>bash脚本 | 起点</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08d53ec64344fff70c5dbd444c9ca2e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">起点</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">bash脚本</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="bash&#x811A;&#x672C;"><a href="#bash&#x811A;&#x672C;" class="headerlink" title="bash&#x811A;&#x672C;"></a>bash&#x811A;&#x672C;</h1><h2 id="imagenet-&#x8BAD;&#x7EC3;&#x96C6;&#x62F7;&#x8D1D;"><a href="#imagenet-&#x8BAD;&#x7EC3;&#x96C6;&#x62F7;&#x8D1D;" class="headerlink" title="imagenet &#x8BAD;&#x7EC3;&#x96C6;&#x62F7;&#x8D1D;"></a>imagenet &#x8BAD;&#x7EC3;&#x96C6;&#x62F7;&#x8D1D;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">read_dir</span></span>(){</div><div class="line">     <span class="built_in">local</span> cur_num=0 <span class="comment">#&#x5B9A;&#x4E49;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x8981;&#x4F7F;&#x7528;local&#x4FEE;&#x9970;</span></div><div class="line">     <span class="keyword">for</span> file <span class="keyword">in</span> `ls <span class="variable">$1</span>`</div><div class="line">     <span class="keyword">do</span></div><div class="line">         <span class="keyword">if</span> [ -d <span class="variable">$1</span><span class="string">&quot;/&quot;</span><span class="variable">$file</span> ] <span class="comment">#space is needed  -d &#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x76EE;&#x5F55;</span></div><div class="line">         <span class="keyword">then</span></div><div class="line">             mkdir -p <span class="string">&quot;/home/caiwenpu/Dataset/imagenet/train/&quot;</span><span class="variable">$file</span></div><div class="line">             read_dir <span class="variable">$1</span><span class="string">&quot;/&quot;</span><span class="variable">$file</span></div><div class="line">         <span class="keyword">else</span></div><div class="line">         		<span class="comment"># &#x5224;&#x65AD;&#x5B57;&#x7B26;&#x4E32;&#x76F8;&#x7B49;&#xFF0C;&#x4F7F;&#x7528;[&quot;$1&quot; == &quot;$2&quot;]</span></div><div class="line">             <span class="keyword">if</span> [ <span class="variable">${file: -5}</span> == <span class="string">&quot;.JPEG&quot;</span> ]  </div><div class="line">             <span class="keyword">then</span></div><div class="line">                 <span class="built_in">echo</span> <span class="variable">$1</span><span class="string">&quot;/&quot;</span><span class="variable">$file</span></div><div class="line">                 <span class="comment"># ${1##*/} &#x5BF9;&#x5B57;&#x7B26;&#x4E32;1&#x4F7F;&#x7528;&apos;/&apos;&#x5206;&#x5272;&#xFF0C;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x4E2A;&apos;/&apos;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span></div><div class="line">                 cp <span class="variable">$1</span><span class="string">&quot;/&quot;</span><span class="variable">$file</span> <span class="string">&quot;/home/caiwenpu/Dataset/imagenet/train/&quot;</span><span class="variable">${1##*/}</span></div><div class="line">                 num=`expr <span class="variable">$num</span> + 1`</div><div class="line">                 <span class="comment">#&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x81EA;&#x589E;&#xFF0C;&#x524D;&#x9762;&#x8981;&#x52A0;&apos;local&apos;,&#x4F7F;&#x7528;&apos;[ ]&apos;</span></div><div class="line">                 <span class="built_in">local</span> curnum=$[<span class="variable">$curnum</span> + 1]  </div><div class="line">                 <span class="built_in">echo</span> <span class="variable">$curnum</span></div><div class="line">                 <span class="keyword">if</span> [[ <span class="variable">$curnum</span> -ge 20 ]]; <span class="keyword">then</span> <span class="comment">#&#x503C;&#x5224;&#x65AD;&#xFF0C;&#x4F7F;&#x7528;&apos;[[ ]]&apos;&#x548C;&apos;ge&apos;</span></div><div class="line">                     <span class="built_in">break</span></div><div class="line">                 <span class="keyword">fi</span></div><div class="line">             <span class="keyword">fi</span></div><div class="line">         <span class="keyword">fi</span></div><div class="line">     <span class="keyword">done</span></div><div class="line"> }</div><div class="line"> <span class="comment">#&#x8BAD;&#x7EC3;&#x76EE;&#x5F55; train</span></div><div class="line"> num=0</div><div class="line"> read_dir /opt/dataset/imagenet/train</div><div class="line"> <span class="built_in">echo</span> <span class="variable">$num</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><h2 id="&#x57FA;&#x7840;&#x547D;&#x4EE4;"><a href="#&#x57FA;&#x7840;&#x547D;&#x4EE4;" class="headerlink" title="&#x57FA;&#x7840;&#x547D;&#x4EE4;"></a>&#x57FA;&#x7840;&#x547D;&#x4EE4;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ctrl-&#x5DE6;&#x53F3; &#x5411;&#x524D;&#x540E;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;</div><div class="line">0 &#x79FB;&#x52A8;&#x5230;&#x884C;&#x9996;</div><div class="line">$ &#x79FB;&#x52A8;&#x5230;&#x884C;&#x5C3E;</div><div class="line">gg: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x5934;&#x90E8;</div><div class="line">G: &#x79FB;&#x52A8;&#x5230;&#x6587;&#x4EF6;&#x5C3E;&#x90E8;</div><div class="line">ctrl<span class="_">-f</span> &#x5411;&#x540E;&#x7FFB;&#x4E00;&#x9875; </div><div class="line">ctrl-b &#x5411;&#x524D;&#x7FFB;&#x4E00;&#x9875;</div><div class="line">:%s/old/new/g &#x7528;new&#x66FF;&#x6362;&#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x6709;&#x7684;old&#x3002;</div></pre></td></tr></table></figure>
+<h2 id="Vim&#x8DE8;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;"><a href="#Vim&#x8DE8;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;" class="headerlink" title="Vim&#x8DE8;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;"></a>Vim&#x8DE8;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;</h2><p>&#x4ECE;vim&#x62F7;&#x8D1D;&#x5230;&#x526A;&#x5207;&#x677F;&#x7CFB;&#x7EDF;&#x526A;&#x8D34;&#x677F;(&#x5373;&#x4F7F;&#x6CA1;&#x6709;clipboard)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#x201C;*y</div><div class="line">&#x201C;+y</div><div class="line">&#x201C;+2yy &#x2013; &#x590D;&#x5236;&#x4E24;&#x884C;</div><div class="line">{Visual}&#x201D;+y &#x2013; copy the selected text into the system clipboard </div><div class="line"><span class="comment">#&#x4E00;&#x822C;&#x4F1A;&#x9009;&#x62E9;&#x5168;&#x9009;&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x8BE6;&#x7EC6;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#xFF1A;Ctrl+v&#xFF08;&#x8FDB;&#x5165;VIsual&#x89C6;</span></div><div class="line"><span class="comment">#&#x56FE;&#xFF09;&#xFF0C;ggVG&#xFF08;&#x4EE3;&#x7801;&#x5168;&#x9009;&#xFF09;&#xFF0C;&#x201D;+y(&#x62F7;&#x8D1D;)&#x3002;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x76F8;&#x5F53;&#x4E8E;Ctrl+c&#x3011;</span></div></pre></td></tr></table></figure>
+<p>&#x526A;&#x5207;&#x5230;&#x7CFB;&#x7EDF;&#x526A;&#x8D34;&#x677F; </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#x201C;+dd <span class="comment">#&#x526A;&#x5207;&#x4E00;&#x884C;</span></div></pre></td></tr></table></figure>
+<p>&#x4ECE;&#x7CFB;&#x7EDF;&#x526A;&#x8D34;&#x677F;&#x7C98;&#x8D34;&#x5230;vim</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#x201C;*p</div><div class="line">&#x201C;+p</div><div class="line">Shift+Insert</div><div class="line">:put + &#x2013; Ex <span class="built_in">command</span> puts contents of system clipboard on a new line</div></pre></td></tr></table></figure>
+<h2 id="Vim&#x914D;&#x7F6E;&#x6587;&#x4EF6;"><a href="#Vim&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="Vim&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>Vim&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="string">&quot;set fileencodings=ucs-bom,utf-8,utf-16,gb2312,gbk,gb18030,latin1</span></div><div class="line"><span class="string">&quot;</span> CR &#x4E3A;ENTER&#x952E;</div><div class="line"><span class="built_in">set</span> nocompatible</div><div class="line"><span class="built_in">set</span> pastetoggle=&lt;C-p&gt;</div><div class="line">filetype off </div><div class="line"><span class="built_in">set</span> rtp+=~/.vim/bundle/Vundle.vim</div><div class="line">call vundle<span class="comment">#begin()</span></div><div class="line"></div><div class="line">Plugin <span class="string">&apos;VundleVim/Vundle.vim&apos;</span></div><div class="line">Plugin <span class="string">&apos;tomasr/molokai&apos;</span></div><div class="line">Plugin <span class="string">&apos;Lokaltog/vim-powerline&apos;</span></div><div class="line">Plugin <span class="string">&apos;Yggdroot/indentLine&apos;</span></div><div class="line">Plugin <span class="string">&apos;jiangmiao/auto-pairs&apos;</span></div><div class="line"></div><div class="line">call vundle<span class="comment">#end()</span></div><div class="line">filetype plugin indent on</div><div class="line">color molokai</div><div class="line"></div><div class="line"><span class="built_in">set</span> nu</div><div class="line">nnoremap &lt;silent&gt; &lt;C-n&gt;    :<span class="built_in">set</span> nu!&lt;CR&gt; </div><div class="line"><span class="built_in">set</span> cmdheight=1</div><div class="line"><span class="built_in">set</span> laststatus=2</div><div class="line"></div><div class="line"><span class="built_in">set</span> showcmd</div><div class="line">autocmd BufEnter * silent! lcd %:p:h</div><div class="line"></div><div class="line"><span class="built_in">set</span> incsearch hlsearch</div><div class="line"><span class="built_in">set</span> showmatch matchpairs+=&lt;:&gt;</div><div class="line"></div><div class="line"><span class="built_in">set</span> shiftwidth=4 tabstop=4 softtabstop=4</div><div class="line"><span class="built_in">set</span> expandtab</div><div class="line"><span class="built_in">set</span> autoindent</div><div class="line"></div><div class="line"><span class="built_in">set</span> fileformat=unix</div><div class="line"><span class="built_in">set</span> fenc=utf-8</div><div class="line"></div><div class="line"><span class="built_in">set</span> t_Co=256</div><div class="line"></div><div class="line"><span class="built_in">let</span> g:indentLine_char=<span class="string">&apos;|&apos;</span></div><div class="line"><span class="built_in">let</span> g:indentLine_enabled=1</div></pre></td></tr></table></figure>
+<h2 id="YouCompletMe&#x5B89;&#x88C5;"><a href="#YouCompletMe&#x5B89;&#x88C5;" class="headerlink" title="YouCompletMe&#x5B89;&#x88C5;"></a>YouCompletMe&#x5B89;&#x88C5;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.vim/bundle</div><div class="line">git <span class="built_in">clone</span> --recursive https://github.com/Valloric/YouCompleteMe.git</div><div class="line"><span class="built_in">cd</span> YouCompleteMe</div><div class="line">./install.py <span class="comment">#&#x9700;&#x8981;cmake</span></div></pre></td></tr></table></figure>
+<p>&#x5728; <code>~/.vimrc</code> &#x6DFB;&#x52A0;&#x4E00;&#x884C;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">call vundle<span class="comment">#begin()</span></div><div class="line">. . . </div><div class="line">Plugin <span class="string">&apos;Valloric/YouCompleteMe&apos;</span></div><div class="line">. . .</div><div class="line">call vundle<span class="comment">#end()</span></div></pre></td></tr></table></figure>
+<h1 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h1><p><code>?=</code> &#x5982;&#x679C;&#x53D8;&#x91CF;&#x672A;&#x5B9A;&#x4E49;&#x8D4B;&#x503C;&#x7ED9;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;</p>
+<p><code>\$(wildcard PATTERN...)</code> &#x5728;Makefile&#x4E2D;&#xFF0C;&#x5B83;&#x88AB;&#x5C55;&#x5F00;&#x4E3A;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x3001;&#x4F7F;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x5F00;&#x7684;&#x3001;&#x5339;&#x914D;&#x6B64;&#x6A21;&#x5F0F;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x3002;<br><code>\$(wildcard *.c)</code>&#x6765;&#x83B7;&#x53D6;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x7684;.c&#x6587;&#x4EF6;&#x5217;&#x8868;</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/ziying.jpg"
+                alt="CWP" />
+            
+              <p class="site-author-name" itemprop="name">CWP</p>
+              <p class="site-description motion-element" itemprop="description">渐行渐远</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bash脚本"><span class="nav-number">1.</span> <span class="nav-text">bash脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#imagenet-训练集拷贝"><span class="nav-number">1.1.</span> <span class="nav-text">imagenet 训练集拷贝</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim"><span class="nav-number">2.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础命令"><span class="nav-number">2.1.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim跨文件操作"><span class="nav-number">2.2.</span> <span class="nav-text">Vim跨文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim配置文件"><span class="nav-number">2.3.</span> <span class="nav-text">Vim配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YouCompletMe安装"><span class="nav-number">2.4.</span> <span class="nav-text">YouCompletMe安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Makefile"><span class="nav-number">3.</span> <span class="nav-text">Makefile</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CWP</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+<br />
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客共1.1k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://caiwenpu.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/posts_bak/bash.html';
+          this.page.identifier = 'posts_bak/bash.html';
+          this.page.title = 'bash脚本';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://caiwenpu.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("g5zEIG7YdKTtsBBRQWcwEh6K-gzGzoHsz", "CupBCCcTefX0Qf6P8Y8GP8Wf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
